@@ -31,7 +31,7 @@ import ModalBoxRekap from "@/components/dosen/setoran-hafalan/ModalBoxRekapMuroj
 import { useState } from "react";
 import Icon_Dosenpa_Page from "@/assets/svgs/dosen/setoran-hafalan/mahasiswa/icon_dosenpa_page";
 
-export default function DosenSetoranHafalanMahasiswaPAPage() {
+export default function MahasiswaPAPage() {
   const navigate = useNavigate();
 
   const [openModalRekapMurojaah, setOpenModalRekapMurojaah] =

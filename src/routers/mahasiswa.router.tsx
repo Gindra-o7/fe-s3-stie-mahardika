@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 import ProtectedRoute from "./protected.router";
-import MahasiswaSetoranHafalanDetailRiwayatPage from "@/pages/mahasiswa/setoran-hafalan/detail-riwayat/page";
+import DetailRiwayatPage from "@/pages/mahasiswa/murojaah/detail-riwayat/page";
 
 export const mahasiswaRouter = [
   {
@@ -11,7 +11,7 @@ export const mahasiswaRouter = [
     path: "/mahasiswa/murojaah/detail-riwayat",
     element: (
       <ProtectedRoute roles={["mahasiswa"]}>
-        <MahasiswaSetoranHafalanDetailRiwayatPage />
+        <DetailRiwayatPage />
       </ProtectedRoute>
     ),
   },

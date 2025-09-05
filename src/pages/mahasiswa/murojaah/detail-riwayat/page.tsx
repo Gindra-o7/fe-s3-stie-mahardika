@@ -39,7 +39,7 @@ import ModalBoxLogs from "@/components/dosen/setoran-hafalan/ModalBoxLogs";
 import ModalBoxStatistik from "@/components/dosen/setoran-hafalan/ModalBoxStatistik";
 import HoverPreviewCard from "@/components/dosen/setoran-hafalan/HoverPreviewProgress";
 
-export default function MahasiswaSetoranHafalanDetailRiwayatPage() {
+export default function DetailRiwayatPage() {
 
   // Connect to External e-Quran API
   const [nomorSurah, setNomorSurah] = useState<string | undefined>();

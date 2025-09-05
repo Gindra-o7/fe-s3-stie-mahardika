@@ -1,13 +1,18 @@
+import { Navigate } from "react-router-dom";
 import ProtectedRoute from "./protected.router";
-import DosenSetoranHafalanMahasiswaPAPage from "@/pages/dosen/setoran-hafalan/mahasiswa-pa/page";
-import DetailMahasiswaSetoran from "@/pages/dosen/setoran-hafalan/mahasiswa-pa/DetailMahasiswaSetoran";
+import MahasiswaPAPage from "@/pages/dosen/murojaah/mahasiswa-pa/page";
+import DetailMahasiswaPAPage from "@/pages/dosen/murojaah/mahasiswa-pa/detail/page";
 
 export const dosenRouter = [
+  {
+    path: "/dosen/murojaah",
+    element: <Navigate to="/dosen/murojaah/mahasiswa-pa"/>,
+  },
   {
     path: "/dosen/murojaah/mahasiswa-pa",
     element: (
       <ProtectedRoute roles={["dosen"]}>
-        <DosenSetoranHafalanMahasiswaPAPage />
+        <MahasiswaPAPage />
       </ProtectedRoute>
     ),
   },
@@ -15,7 +20,7 @@ export const dosenRouter = [
     path: "/dosen/murojaah/mahasiswa-pa/:nim",
     element: (
       <ProtectedRoute roles={["dosen"]}>
-        <DetailMahasiswaSetoran />
+        <DetailMahasiswaPAPage />
       </ProtectedRoute>
     ),
   }

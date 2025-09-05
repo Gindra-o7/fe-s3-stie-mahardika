@@ -51,7 +51,7 @@ import {
 import { toast } from "sonner";
 import HoverPreviewCard from "@/components/dosen/setoran-hafalan/HoverPreviewProgress";
 
-function DetailMahasiswaSetoran() {
+function DetailMahasiswaPAPage() {
 	const { nim } = useParams<{ nim: string }>();
 	const queryclient = useQueryClient();
 
@@ -1015,4 +1015,4 @@ function DetailMahasiswaSetoran() {
 	);
 }
 
-export default DetailMahasiswaSetoran;
+export default DetailMahasiswaPAPage;
