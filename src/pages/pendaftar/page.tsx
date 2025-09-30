@@ -3,7 +3,7 @@ import { GraduationCap, User, FileText, CreditCard, Megaphone, LogOut, Upload, C
 import { motion } from "framer-motion";
 
 const DashboardPendaftar = () => {
-  const [activeSection, setActiveSection] = useState("home");
+  const [, setActiveSection] = useState("home");
   const [userName] = useState("Ahmad Fadhil Rahman");
 
   // Progress steps data
