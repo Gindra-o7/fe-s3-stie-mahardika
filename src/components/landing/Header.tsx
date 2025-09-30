@@ -11,7 +11,7 @@ const Header = () => {
     <motion.header className="bg-white/90 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-200 shadow-sm" style={{ color: "#207D96" }} initial={{ y: -100 }} animate={{ y: 0 }} transition={{ duration: 0.5 }}>
       <div className="container mx-auto px-4 flex justify-between items-center h-20">
         <motion.div className="flex items-center gap-3" whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 400 }}>
-          <motion.img src={LogoMahardhika} alt="STIE Mahardhika Logo" className="w-[200px] relative object-contain" />
+          <motion.img src={LogoMahardhika} alt="STIE Mahardhika Logo" className="w-[190px] relative object-contain" />
         </motion.div>
 
         <nav className="hidden md:flex items-center gap-8">

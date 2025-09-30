@@ -12,3 +12,14 @@ export const api = () =>{
   });
   return axiosInstance;
 }
+
+export const apiUniversity = () =>{
+  const axiosInstance = axios.create({
+    baseURL: import.meta.env.VITE_API_URL_UNIVERSITY,
+    timeout: 5000,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  return axiosInstance;
+}
