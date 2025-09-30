@@ -16,15 +16,7 @@ const Header = () => {
 
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item, index) => (
-            <motion.a
-              key={item}
-              href="#"
-              className="text-[#207D96] hover:text-[#1B3F6E] transition-colors relative group"
-              style={{ fontFamily: "DIN Medium" }}
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-            >
+            <motion.a key={item} href="#" className="text-[#207D96] hover:text-[#1B3F6E] transition-colors relative group" initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }}>
               {item}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#207D96] to-[#1B3F6E] group-hover:w-full transition-all duration-300" />
             </motion.a>
@@ -34,7 +26,6 @@ const Header = () => {
         <div className="flex items-center gap-4">
           <motion.button
             className="hidden md:block bg-gradient-to-r from-[#207D96] to-[#1B3F6E] text-white px-6 py-2.5 rounded-lg hover:shadow-lg transition-all font-semibold relative overflow-hidden group"
-            style={{ fontFamily: "DIN Bold" }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -42,7 +33,7 @@ const Header = () => {
             <motion.div className="absolute inset-0 bg-gradient-to-r from-[#207D96] to-[#1B3F6E]" initial={{ x: "-100%" }} whileHover={{ x: 0 }} transition={{ duration: 0.3 }} />
           </motion.button>
 
-          <button className="md:hidden text-[#207D96]" style={{ fontFamily: "DIN Medium" }} onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button className="md:hidden text-[#207D96]" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
@@ -53,13 +44,11 @@ const Header = () => {
           <motion.div className="md:hidden bg-white border-t" style={{ borderColor: "#207D96" }} initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }}>
             <nav className="flex flex-col p-4 gap-3">
               {navItems.map((item) => (
-                <a key={item} href="#" className="text-[#207D96] hover:text-[#1B3F6E] py-2 px-4 hover:bg-gray-50 rounded-md transition-colors" style={{ fontFamily: "DIN Medium" }}>
+                <a key={item} href="#" className="text-[#207D96] hover:text-[#1B3F6E] py-2 px-4 hover:bg-gray-50 rounded-md transition-colors">
                   {item}
                 </a>
               ))}
-              <button className="bg-gradient-to-r from-[#207D96] to-[#1B3F6E] text-white px-4 py-2.5 rounded-lg hover:shadow-lg transition-all font-semibold mt-2" style={{ fontFamily: "DIN Bold" }}>
-                Daftar Sekarang
-              </button>
+              <button className="bg-gradient-to-r from-[#207D96] to-[#1B3F6E] text-white px-4 py-2.5 rounded-lg hover:shadow-lg transition-all font-semibold mt-2">Daftar Sekarang</button>
             </nav>
           </motion.div>
         )}

@@ -23,12 +23,8 @@ const Footer = () => {
           </motion.div>
 
           <div className="border-t border-[#207D96]/30 pt-8 w-full">
-            <p className="text-gray-400 mb-2" style={{ fontFamily: "DIN Medium" }}>
-              &copy; {new Date().getFullYear()} STIE Mahardhika Surabaya. All rights reserved.
-            </p>
-            <p className="text-sm text-gray-500" style={{ fontFamily: "DIN Medium" }}>
-              Pendaftaran Program Doktor Ilmu Manajemen
-            </p>
+            <p className="text-gray-400 mb-2">&copy; {new Date().getFullYear()} STIE Mahardhika Surabaya. All rights reserved.</p>
+            <p className="text-sm text-gray-500">Pendaftaran Program Doktor Ilmu Manajemen</p>
           </div>
 
           <motion.div className="mt-8 flex gap-6" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
@@ -37,7 +33,6 @@ const Footer = () => {
                 key={social}
                 href="#"
                 className="text-gray-400 hover:text-white transition-colors"
-                style={{ fontFamily: "DIN Medium" }}
                 whileHover={{ scale: 1.2, y: -2 }}
                 whileTap={{ scale: 0.9 }}
                 initial={{ opacity: 0, y: 10 }}

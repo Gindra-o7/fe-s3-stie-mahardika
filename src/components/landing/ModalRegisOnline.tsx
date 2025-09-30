@@ -6,12 +6,10 @@ import UniversityService from "@/services/api/public/universitas.service";
 export const DocumentList = ({ documents }: { documents: string[] }) => {
   return (
     <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-      <h2 className="text-4xl font-bold text-gray-800 mb-2" style={{ fontFamily: "DIN Bold" }}>
+      <h2 className="text-4xl font-bold text-gray-800 mb-2">
         Persyaratan & Dokumen <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#207D96] to-[#1B3F6E]">Wajib</span>
       </h2>
-      <p className="text-gray-600 mb-8" style={{ fontFamily: "DIN Medium" }}>
-        Siapkan dokumen berikut untuk proses pendaftaran
-      </p>
+      <p className="text-gray-600 mb-8">Siapkan dokumen berikut untuk proses pendaftaran</p>
 
       <ul className="space-y-4">
         {documents.map((doc, index) => (
@@ -27,9 +25,7 @@ export const DocumentList = ({ documents }: { documents: string[] }) => {
             <div className="p-2 rounded-lg bg-gradient-to-br from-[#207D96] to-[#1B3F6E] text-white group-hover:scale-110 transition-transform">
               <FileText className="h-5 w-5" />
             </div>
-            <span className="text-gray-700 font-medium" style={{ fontFamily: "DIN Medium" }}>
-              {doc}
-            </span>
+            <span className="text-gray-700 font-medium">{doc}</span>
           </motion.li>
         ))}
       </ul>
@@ -46,21 +42,16 @@ export const CTACard = ({ onOpenModal }: { onOpenModal: () => void }) => {
       viewport={{ once: true }}
       transition={{ duration: 0.7 }}
     >
-      <motion.div className="inline-block p-4 bg-gradient-to-br from-[#207D96] to-[#1B3F6E] rounded-2xl mb-6" style={{ fontFamily: "DIN Light" }} whileHover={{ rotate: [0, -10, 10, -10, 0] }} transition={{ duration: 0.5 }}>
+      <motion.div className="inline-block p-4 bg-gradient-to-br from-[#207D96] to-[#1B3F6E] rounded-2xl mb-6" whileHover={{ rotate: [0, -10, 10, -10, 0] }} transition={{ duration: 0.5 }}>
         <GraduationCap className="h-12 w-12 text-white" />
       </motion.div>
 
-      <h3 className="text-3xl font-bold text-gray-800 mb-3" style={{ fontFamily: "DIN Bold" }}>
-        Sudah siap mendaftar?
-      </h3>
-      <p className="text-gray-600 mb-8 leading-relaxed" style={{ fontFamily: "DIN Medium" }}>
-        Lengkapi dokumen Anda dan mulailah proses pendaftaran sekarang.
-      </p>
+      <h3 className="text-3xl font-bold text-gray-800 mb-3">Sudah siap mendaftar?</h3>
+      <p className="text-gray-600 mb-8 leading-relaxed">Lengkapi dokumen Anda dan mulailah proses pendaftaran sekarang.</p>
 
       <div className="flex flex-col sm:flex-row justify-center gap-4">
         <motion.button
           className="bg-gradient-to-r from-[#207D96] to-[#1B3F6E] text-white px-6 py-3 rounded-xl hover:shadow-lg hover:shadow-[#207D96]/50 font-semibold transition-all flex items-center justify-center gap-2"
-          style={{ fontFamily: "DIN Bold" }}
           whileHover={{ scale: 1.05, y: -2 }}
           whileTap={{ scale: 0.95 }}
           onClick={onOpenModal}
@@ -68,12 +59,7 @@ export const CTACard = ({ onOpenModal }: { onOpenModal: () => void }) => {
           Isi Formulir Online
           <ChevronRight className="w-4 h-4" />
         </motion.button>
-        <motion.button
-          className="bg-white border-2 border-[#207D96] text-[#207D96] px-6 py-3 rounded-xl hover:bg-[#207D96] hover:text-white font-semibold transition-all"
-          style={{ fontFamily: "DIN Bold" }}
-          whileHover={{ scale: 1.05, y: -2 }}
-          whileTap={{ scale: 0.95 }}
-        >
+        <motion.button className="bg-white border-2 border-[#207D96] text-[#207D96] px-6 py-3 rounded-xl hover:bg-[#207D96] hover:text-white font-semibold transition-all" whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
           Lihat Pendaftaran
         </motion.button>
       </div>
@@ -321,12 +307,12 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
           <X className="h-6 w-6" />
         </button>
 
-        <motion.h2 className="text-3xl font-bold text-center text-gray-800 mb-4" style={{ fontFamily: "DIN Bold" }}>
+        <motion.h2 className="text-3xl font-bold text-center text-gray-800 mb-4">
           Formulir <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#207D96] to-[#1B3F6E]">Pendaftaran Online</span>
         </motion.h2>
 
         <div className="w-full mb-8">
-          <p className="text-center text-gray-500" style={{ fontFamily: "DIN Medium" }}>
+          <p className="text-center text-gray-500">
             Langkah {currentStep} dari {totalSteps}
           </p>
           <div className="flex w-1/2 mx-auto mt-2 h-2 bg-gray-200 rounded-full">
@@ -340,7 +326,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
               {currentStep === 1 && (
                 <motion.div key="step1" variants={stepVariants} initial="hidden" animate="visible" exit="exit" transition={{ duration: 0.3 }}>
                   <div className="bg-gradient-to-br from-gray-50 to-[#207D96]/5 p-6 rounded-2xl">
-                    <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2" style={{ fontFamily: "DIN Bold" }}>
+                    <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
                       <User className="h-5 w-5 text-[#207D96]" /> Data Pribadi
                     </h3>
                     <div className="space-y-4">
@@ -354,7 +340,6 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                             onChange={handleChange}
                             placeholder="Nama Lengkap"
                             className={`w-full pl-10 pr-4 py-3 border rounded-xl focus:border-[#207D96] focus:ring-2 focus:ring-[#207D96]/20 outline-none transition-colors ${errors.fullName ? "border-red-500" : "border-gray-300"}`}
-                            style={{ fontFamily: "DIN Medium" }}
                           />
                         </div>
                         {errors.fullName && <p className="text-red-500 text-sm mt-1 ml-1">{errors.fullName}</p>}
@@ -370,7 +355,6 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                             onChange={handleChange}
                             placeholder="Email"
                             className={`w-full pl-10 pr-4 py-3 border rounded-xl focus:border-[#207D96] focus:ring-2 focus:ring-[#207D96]/20 outline-none transition-colors ${errors.email ? "border-red-500" : "border-gray-300"}`}
-                            style={{ fontFamily: "DIN Medium" }}
                           />
                         </div>
                         {errors.email && <p className="text-red-500 text-sm mt-1 ml-1">{errors.email}</p>}
@@ -386,7 +370,6 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                             onChange={handleChange}
                             placeholder="Nomor HP (10-13 digit)"
                             className={`w-full pl-10 pr-4 py-3 border rounded-xl focus:border-[#207D96] focus:ring-2 focus:ring-[#207D96]/20 outline-none transition-colors ${errors.phone ? "border-red-500" : "border-gray-300"}`}
-                            style={{ fontFamily: "DIN Medium" }}
                           />
                         </div>
                         {errors.phone && <p className="text-red-500 text-sm mt-1 ml-1">{errors.phone}</p>}
@@ -403,14 +386,13 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                             placeholder="Nomor KTP (16 digit)"
                             maxLength={16}
                             className={`w-full pl-10 pr-4 py-3 border rounded-xl focus:border-[#207D96] focus:ring-2 focus:ring-[#207D96]/20 outline-none transition-colors ${errors.ktp ? "border-red-500" : "border-gray-300"}`}
-                            style={{ fontFamily: "DIN Medium" }}
                           />
                         </div>
                         {errors.ktp && <p className="text-red-500 text-sm mt-1 ml-1">{errors.ktp}</p>}
                       </div>
 
                       <div>
-                        <label className="block text-gray-700 font-medium mb-2 flex items-center gap-2" style={{ fontFamily: "DIN Medium" }}>
+                        <label className="block text-gray-700 font-medium mb-2 flex items-center gap-2">
                           <Upload className="h-5 w-5 text-[#207D96]" /> Upload Foto
                         </label>
                         <input
@@ -433,7 +415,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
               {currentStep === 2 && (
                 <motion.div key="step2" variants={stepVariants} initial="hidden" animate="visible" exit="exit" transition={{ duration: 0.3 }}>
                   <div className="bg-gradient-to-br from-gray-50 to-[#207D96]/5 p-6 rounded-2xl">
-                    <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2" style={{ fontFamily: "DIN Bold" }}>
+                    <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
                       <School className="h-5 w-5 text-[#207D96]" /> Data Akademik
                     </h3>
                     {errors.api && <p className="text-red-500 text-sm mb-4">{errors.api}</p>}
@@ -448,7 +430,6 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                             onChange={handleChange}
                             placeholder="Cari Asal Perguruan Tinggi S1"
                             className={`w-full pl-10 pr-4 py-3 border rounded-xl focus:border-[#207D96] focus:ring-2 focus:ring-[#207D96]/20 outline-none transition-colors ${errors.s1University ? "border-red-500" : "border-gray-300"}`}
-                            style={{ fontFamily: "DIN Medium" }}
                           />
                         </div>
                         {Array.isArray(filteredUniversities) && filteredUniversities.length > 0 && activeSearchField === "s1University" && <p className="text-gray-500 text-sm mt-1 ml-1">Memuat universitas...</p>}
@@ -460,7 +441,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                             exit={{ opacity: 0, y: -10 }}
                           >
                             {filteredUniversities.map((uni) => (
-                              <li key={uni.kode} className="px-4 py-2 hover:bg-[#207D96]/10 cursor-pointer text-gray-700" style={{ fontFamily: "DIN Medium" }} onClick={() => handleUniversitySelect(uni.nama, "s1University")}>
+                              <li key={uni.kode} className="px-4 py-2 hover:bg-[#207D96]/10 cursor-pointer text-gray-700" onClick={() => handleUniversitySelect(uni.nama, "s1University")}>
                                 {uni.nama}
                               </li>
                             ))}
@@ -480,7 +461,6 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                             step="0.01"
                             placeholder="IPK S1 (0-4)"
                             className={`w-full pl-10 pr-4 py-3 border rounded-xl focus:border-[#207D96] focus:ring-2 focus:ring-[#207D96]/20 outline-none transition-colors ${errors.s1Gpa ? "border-red-500" : "border-gray-300"}`}
-                            style={{ fontFamily: "DIN Medium" }}
                           />
                         </div>
                         {errors.s1Gpa && <p className="text-red-500 text-sm mt-1 ml-1">{errors.s1Gpa}</p>}
@@ -496,7 +476,6 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                             onChange={handleChange}
                             placeholder="Cari Asal Perguruan Tinggi S2"
                             className={`w-full pl-10 pr-4 py-3 border rounded-xl focus:border-[#207D96] focus:ring-2 focus:ring-[#207D96]/20 outline-none transition-colors ${errors.s2University ? "border-red-500" : "border-gray-300"}`}
-                            style={{ fontFamily: "DIN Medium" }}
                           />
                         </div>
                         {isLoading && activeSearchField === "s2University" && <p className="text-gray-500 text-sm mt-1 ml-1">Memuat universitas...</p>}
@@ -508,7 +487,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                             exit={{ opacity: 0, y: -10 }}
                           >
                             {filteredUniversities.map((uni) => (
-                              <li key={uni.kode} className="px-4 py-2 hover:bg-[#207D96]/10 cursor-pointer text-gray-700" style={{ fontFamily: "DIN Medium" }} onClick={() => handleUniversitySelect(uni.nama, "s2University")}>
+                              <li key={uni.kode} className="px-4 py-2 hover:bg-[#207D96]/10 cursor-pointer text-gray-700" onClick={() => handleUniversitySelect(uni.nama, "s2University")}>
                                 {uni.nama}
                               </li>
                             ))}
@@ -528,7 +507,6 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                             step="0.01"
                             placeholder="IPK S2 (0-4)"
                             className={`w-full pl-10 pr-4 py-3 border rounded-xl focus:border-[#207D96] focus:ring-2 focus:ring-[#207D96]/20 outline-none transition-colors ${errors.s2Gpa ? "border-red-500" : "border-gray-300"}`}
-                            style={{ fontFamily: "DIN Medium" }}
                           />
                         </div>
                         {errors.s2Gpa && <p className="text-red-500 text-sm mt-1 ml-1">{errors.s2Gpa}</p>}
@@ -545,7 +523,6 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
               type="button"
               onClick={handleBack}
               className="bg-white border-2 border-gray-300 text-gray-700 px-6 py-3 rounded-xl hover:bg-gray-100 font-semibold transition-all flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-              style={{ fontFamily: "DIN Bold" }}
               whileHover={{ scale: currentStep === 1 ? 1 : 1.05, y: currentStep === 1 ? 0 : -2 }}
               whileTap={{ scale: currentStep === 1 ? 1 : 0.95 }}
               disabled={currentStep === 1}
@@ -559,7 +536,6 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                 type="button"
                 onClick={handleNext}
                 className="bg-gradient-to-r from-[#207D96] to-[#1B3F6E] text-white px-6 py-3 rounded-xl hover:shadow-lg hover:shadow-[#207D96]/50 font-semibold transition-all flex items-center gap-2"
-                style={{ fontFamily: "DIN Bold" }}
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -570,7 +546,6 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
               <motion.button
                 type="submit"
                 className="w-auto bg-gradient-to-r from-[#207D96] to-[#1B3F6E] text-white px-6 py-3 rounded-xl font-bold text-lg hover:shadow-xl hover:shadow-[#207D96]/30 transition-all flex items-center gap-2"
-                style={{ fontFamily: "DIN Bold" }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
               >

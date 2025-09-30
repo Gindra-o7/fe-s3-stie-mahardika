@@ -10,10 +10,10 @@ const ProcessTimeline = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4" style={{ fontFamily: "DIN Bold" }}>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4" >
             Alur <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#207D96] to-[#1B3F6E]">Pendaftaran</span>
           </h2>
-          <p className="text-gray-600 text-lg" style={{ fontFamily: "DIN Medium" }}>
+          <p className="text-gray-600 text-lg" >
             Proses mudah dalam 4 tahap
           </p>
         </motion.div>
@@ -32,14 +32,14 @@ const ProcessTimeline = () => {
                 <motion.div className="relative" whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
                   <motion.div className="absolute inset-0 bg-gradient-to-r from-[#207D96] to-[#1B3F6E] rounded-full blur-xl opacity-50" animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }} />
                   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#207D96] to-[#1B3F6E] border-4 border-white shadow-2xl flex items-center justify-center relative z-10">
-                    <span className="text-white font-bold text-xl" style={{ fontFamily: "DIN Bold" }}>
+                    <span className="text-white font-bold text-xl" >
                       {index + 1}
                     </span>
                   </div>
                 </motion.div>
                 <motion.p
                   className="mt-4 font-bold text-gray-800 text-base md:text-lg max-w-[120px]"
-                  style={{ fontFamily: "DIN Medium" }}
+                  
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}

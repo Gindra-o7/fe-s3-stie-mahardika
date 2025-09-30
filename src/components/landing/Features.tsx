@@ -39,10 +39,10 @@ const Features = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4" style={{ fontFamily: "DIN Bold" }}>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4" >
             Mengapa Memilih <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#207D96] to-[#1B3F6E]">STIE Mahardhika?</span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto" style={{ fontFamily: "DIN Medium" }}>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto" >
             Program doktor dengan standar internasional dan fasilitas terbaik
           </p>
         </motion.div>
@@ -62,17 +62,16 @@ const Features = () => {
 
               <motion.div
                 className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${feature.gradient} text-white mb-6`}
-                style={{ fontFamily: "DIN Light" }}
                 whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.1 }}
                 transition={{ duration: 0.5 }}
               >
                 {feature.icon}
               </motion.div>
 
-              <h3 className="text-2xl font-bold text-gray-800 mb-3" style={{ fontFamily: "DIN Bold" }}>
+              <h3 className="text-2xl font-bold text-gray-800 mb-3" >
                 {feature.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed" style={{ fontFamily: "DIN Medium" }}>
+              <p className="text-gray-600 leading-relaxed" >
                 {feature.description}
               </p>
 

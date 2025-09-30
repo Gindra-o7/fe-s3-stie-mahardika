@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { GraduationCap, User, FileText, CreditCard, Megaphone, LogOut, Upload, CheckCircle, Clock, AlertCircle, Bell, ChevronRight } from "lucide-react";
+import { User, FileText, CreditCard, Megaphone, LogOut, Upload, CheckCircle, Clock, AlertCircle, Bell, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
+import LogoMahardhika from "@/assets/Logo_Mahardhika.png";
 
 const DashboardPendaftar = () => {
   const [, setActiveSection] = useState("home");
   const [userName] = useState("Ahmad Fadhil Rahman");
+  const [statusKelulusan] = useState("lulus");
 
   // Progress steps data
   const steps = [
@@ -75,24 +77,12 @@ const DashboardPendaftar = () => {
           <div className="flex justify-between items-center">
             <motion.div className="flex items-center gap-3" whileHover={{ scale: 1.02 }}>
               <div className="relative">
-                <motion.div className="absolute inset-0 bg-gradient-to-r from-[#207D96] to-[#1B3F6E] rounded-full blur-md opacity-30" animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Infinity }} />
-                <div className="relative z-10 p-2 bg-gradient-to-br from-[#207D96] to-[#1B3F6E] rounded-full">
-                  <GraduationCap className="h-8 w-8 text-white" />
-                </div>
-              </div>
-              <div>
-                <h1 className="font-bold text-xl text-gray-800" style={{ fontFamily: "DIN Bold" }}>
-                  STIE Mahardhika
-                </h1>
-                <p className="text-xs text-gray-500" style={{ fontFamily: "DIN Medium" }}>
-                  Dashboard Pendaftar
-                </p>
+                <motion.img src={LogoMahardhika} alt="STIE Mahardhika Logo" className="w-[190px] relative object-contain" />
               </div>
             </motion.div>
 
             <motion.button
               className="flex items-center gap-2 bg-gradient-to-r from-[#207D96] to-[#1B3F6E] text-white px-6 py-2.5 rounded-lg hover:shadow-lg transition-all font-medium"
-              style={{ fontFamily: "DIN Bold" }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -118,21 +108,130 @@ const DashboardPendaftar = () => {
               transition={{ duration: 8, repeat: Infinity }}
             />
             <div className="relative z-10">
-              <motion.h2 className="text-3xl font-bold mb-2" style={{ fontFamily: "DIN Bold" }} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }}>
+              <motion.h2 className="text-3xl font-bold mb-2" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }}>
                 Selamat Datang, {userName}!
               </motion.h2>
-              <motion.p className="text-blue-100 text-lg" style={{ fontFamily: "DIN Medium" }} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }}>
+              <motion.p className="text-blue-100 text-lg" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }}>
                 Status pendaftaran Anda dapat dipantau di bawah ini.
               </motion.p>
             </div>
           </div>
         </motion.div>
 
+        {statusKelulusan && (
+          <div className="mb-6" style={{ animation: "fadeInScale 0.6s ease-out" }}>
+            {statusKelulusan === "lulus" ? (
+              <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl p-5 text-white relative overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div
+                  className="absolute inset-0 opacity-20"
+                  style={{
+                    background: "radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.3) 0%, transparent 50%)",
+                    animation: "shimmer 3s ease-in-out infinite",
+                  }}
+                ></div>
+                <div className="relative z-10 flex items-center gap-4">
+                  <div className="bg-white/20 backdrop-blur-sm p-4 rounded-xl" style={{ animation: "bounce 2s ease-in-out infinite" }}>
+                    <CheckCircle className="h-10 w-10 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h2 className="text-2xl font-bold mb-1.5" style={{ animation: "slideInRight 0.5s ease-out" }}>
+                      🎉 Selamat! Anda DITERIMA
+                    </h2>
+                    <p className="text-green-50 text-sm mb-3" style={{ animation: "slideInRight 0.5s ease-out 0.1s both" }}>
+                      Anda telah dinyatakan LULUS seleksi Program Studi S3 STIE Mahardhika
+                    </p>
+                    <div className="flex gap-2 flex-wrap" style={{ animation: "slideInRight 0.5s ease-out 0.2s both" }}>
+                      <button className="bg-white text-green-600 px-4 py-2 rounded-lg text-sm font-bold hover:shadow-lg hover:scale-105 transition-all duration-300">Lihat Detail</button>
+                      <button className="bg-white/20 backdrop-blur-sm border-2 border-white text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-white/30 hover:scale-105 transition-all duration-300">Download Surat</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="bg-gradient-to-r from-orange-500 to-amber-600 rounded-xl p-5 text-white relative overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div
+                  className="absolute inset-0 opacity-20"
+                  style={{
+                    background: "radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.3) 0%, transparent 50%)",
+                    animation: "shimmer 3s ease-in-out infinite",
+                  }}
+                ></div>
+                <div className="relative z-10 flex items-center gap-4">
+                  <div className="bg-white/20 backdrop-blur-sm p-4 rounded-xl" style={{ animation: "shake 2s ease-in-out infinite" }}>
+                    <AlertCircle className="h-10 w-10 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h2 className="text-2xl font-bold mb-1.5" style={{ animation: "slideInRight 0.5s ease-out" }}>
+                      Pengumuman Hasil Seleksi
+                    </h2>
+                    <p className="text-orange-50 text-sm mb-3" style={{ animation: "slideInRight 0.5s ease-out 0.1s both" }}>
+                      Mohon maaf, Anda belum berhasil pada seleksi kali ini. Jangan menyerah! Anda dapat mencoba lagi pada periode berikutnya.
+                    </p>
+                    <div className="flex gap-2 flex-wrap" style={{ animation: "slideInRight 0.5s ease-out 0.2s both" }}>
+                      <button className="bg-white text-orange-600 px-4 py-2 rounded-lg text-sm font-bold hover:shadow-lg hover:scale-105 transition-all duration-300">Lihat Feedback</button>
+                      <button className="bg-white/20 backdrop-blur-sm border-2 border-white text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-white/30 hover:scale-105 transition-all duration-300">Info Pendaftaran</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+        <style>{`
+          @keyframes fadeInScale {
+            from {
+              opacity: 0;
+              transform: scale(0.95) translateY(-10px);
+            }
+            to {
+              opacity: 1;
+              transform: scale(1) translateY(0);
+            }
+          }
+          @keyframes slideInRight {
+            from {
+              opacity: 0;
+              transform: translateX(-20px);
+            }
+            to {
+              opacity: 1;
+              transform: translateX(0);
+            }
+          }
+          @keyframes bounce {
+            0%, 100% {
+              transform: translateY(0);
+            }
+            50% {
+              transform: translateY(-5px);
+            }
+          }
+          @keyframes shake {
+            0%, 100% {
+              transform: translateX(0);
+            }
+            25% {
+              transform: translateX(-3px);
+            }
+            75% {
+              transform: translateX(3px);
+            }
+          }
+          @keyframes shimmer {
+            0%, 100% {
+              opacity: 0.2;
+              transform: translateX(0);
+            }
+            50% {
+              opacity: 0.3;
+              transform: translateX(20px);
+            }
+          }
+        `}</style>
+
         {/* Progress Timeline */}
         <motion.div className="mb-8 bg-white rounded-2xl p-8 shadow-lg border border-gray-100" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
-          <h3 className="text-2xl font-bold text-gray-800 mb-6" style={{ fontFamily: "DIN Bold" }}>
-            Status Pendaftaran
-          </h3>
+          <h3 className="text-2xl font-bold text-gray-800 mb-6">Status Pendaftaran</h3>
           <div className="relative">
             <div className="absolute top-6 left-0 right-0 h-1 bg-gray-200">
               <motion.div className="h-full bg-gradient-to-r from-[#207D96] to-[#1B3F6E]" initial={{ width: 0 }} animate={{ width: "40%" }} transition={{ duration: 1, delay: 0.5 }} />
@@ -152,9 +251,7 @@ const DashboardPendaftar = () => {
                     >
                       <Icon className="h-6 w-6 text-white" />
                     </motion.div>
-                    <p className={`text-xs text-center max-w-[100px] font-medium ${step.status === "completed" || step.status === "current" ? "text-gray-800" : "text-gray-400"}`} style={{ fontFamily: "DIN Medium" }}>
-                      {step.name}
-                    </p>
+                    <p className={`text-xs text-center max-w-[100px] font-medium ${step.status === "completed" || step.status === "current" ? "text-gray-800" : "text-gray-400"}`}>{step.name}</p>
                   </motion.div>
                 );
               })}
@@ -177,21 +274,12 @@ const DashboardPendaftar = () => {
                 onClick={card.action}
               >
                 <motion.div className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
-                <motion.div
-                  className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${card.gradient} text-white mb-4`}
-                  style={{ fontFamily: "DIN Light" }}
-                  whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.1 }}
-                  transition={{ duration: 0.5 }}
-                >
+                <motion.div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${card.gradient} text-white mb-4`} whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.1 }} transition={{ duration: 0.5 }}>
                   <Icon className="h-8 w-8" />
                 </motion.div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2" style={{ fontFamily: "DIN Bold" }}>
-                  {card.title}
-                </h3>
-                <p className="text-gray-600 text-sm mb-4" style={{ fontFamily: "DIN Medium" }}>
-                  {card.description}
-                </p>
-                <motion.div className="flex items-center text-gray-400 group-hover:text-[#207D96] transition-colors" style={{ fontFamily: "DIN Medium" }} whileHover={{ x: 5 }}>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">{card.title}</h3>
+                <p className="text-gray-600 text-sm mb-4">{card.description}</p>
+                <motion.div className="flex items-center text-gray-400 group-hover:text-[#207D96] transition-colors" whileHover={{ x: 5 }}>
                   <span className="text-sm font-medium">Akses</span>
                   <ChevronRight className="h-4 w-4 ml-1" />
                 </motion.div>
@@ -204,10 +292,8 @@ const DashboardPendaftar = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <motion.div className="lg:col-span-2 bg-white rounded-2xl p-6 shadow-lg border border-gray-100" initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.6 }}>
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6" style={{ fontFamily: "DIN Bold" }}>
-                Notifikasi
-              </h3>
-              <motion.div className="p-2 bg-gradient-to-br from-[#207D96] to-[#1B3F6E] rounded-lg" style={{ fontFamily: "DIN Light" }} whileHover={{ rotate: [0, -10, 10, -10, 0] }}>
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">Notifikasi</h3>
+              <motion.div className="p-2 bg-gradient-to-br from-[#207D96] to-[#1B3F6E] rounded-lg" whileHover={{ rotate: [0, -10, 10, -10, 0] }}>
                 <Bell className="h-5 w-5 text-white" />
               </motion.div>
             </div>
@@ -225,12 +311,8 @@ const DashboardPendaftar = () => {
                     <notif.icon className="h-5 w-5 text-white" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-gray-800 font-medium mb-1" style={{ fontFamily: "DIN Medium" }}>
-                      {notif.message}
-                    </p>
-                    <p className="text-gray-500 text-xs" style={{ fontFamily: "DIN Medium" }}>
-                      {notif.time}
-                    </p>
+                    <p className="text-gray-800 font-medium mb-1">{notif.message}</p>
+                    <p className="text-gray-500 text-xs">{notif.time}</p>
                   </div>
                 </motion.div>
               ))}
@@ -255,13 +337,10 @@ const DashboardPendaftar = () => {
               transition={{ duration: 8, repeat: Infinity }}
             />
             <div className="relative z-10">
-              <h3 className="text-2xl font-bold mb-6" style={{ fontFamily: "DIN Bold" }}>
-                Aksi Cepat
-              </h3>
+              <h3 className="text-2xl font-bold mb-6">Aksi Cepat</h3>
               <div className="space-y-3">
                 <motion.button
                   className="w-full bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white px-4 py-3 rounded-xl font-medium transition-all flex items-center justify-between group border border-white/20"
-                  style={{ fontFamily: "DIN Medium" }}
                   whileHover={{ scale: 1.02, x: 5 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setActiveSection("documents")}
@@ -274,7 +353,6 @@ const DashboardPendaftar = () => {
                 </motion.button>
                 <motion.button
                   className="w-full bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white px-4 py-3 rounded-xl font-medium transition-all flex items-center justify-between group border border-white/20"
-                  style={{ fontFamily: "DIN Medium" }}
                   whileHover={{ scale: 1.02, x: 5 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setActiveSection("announcement")}
@@ -287,7 +365,6 @@ const DashboardPendaftar = () => {
                 </motion.button>
                 <motion.button
                   className="w-full bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white px-4 py-3 rounded-xl font-medium transition-all flex items-center justify-between group border border-white/20"
-                  style={{ fontFamily: "DIN Medium" }}
                   whileHover={{ scale: 1.02, x: 5 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -299,12 +376,8 @@ const DashboardPendaftar = () => {
                 </motion.button>
               </div>
               <motion.div className="mt-6 p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1 }}>
-                <p className="text-sm text-white/90 mb-2" style={{ fontFamily: "DIN Medium" }}>
-                  💡 Tips:
-                </p>
-                <p className="text-xs text-white/70" style={{ fontFamily: "DIN Medium" }}>
-                  Pastikan semua dokumen sudah diupload sebelum batas waktu yang ditentukan untuk menghindari keterlambatan proses verifikasi.
-                </p>
+                <p className="text-sm text-white/90 mb-2">💡 Tips:</p>
+                <p className="text-xs text-white/70">Pastikan semua dokumen sudah diupload sebelum batas waktu yang ditentukan untuk menghindari keterlambatan proses verifikasi.</p>
               </motion.div>
             </div>
           </motion.div>

@@ -57,22 +57,21 @@ const Hero = () => {
       />
 
       <motion.div className="relative z-10 p-4 max-w-4xl mx-auto" initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }}>
-        <motion.h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4" style={{ fontFamily: "DIN Bold" }} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.8 }}>
+        <motion.h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.8 }}>
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#ccf4ff] via-[#8eb6eb] to-[#4ad8ff]">Pendaftaran Program Doktor (S3)</span>
           <br />
-          <span className="text-3xl md:text-5xl" style={{ fontFamily: "DIN Medium" }}>
+          <span className="text-3xl md:text-5xl">
             Ilmu Manajemen
           </span>
         </motion.h1>
 
-        <motion.p className="mt-6 text-xl md:text-2xl font-light text-gray-200" style={{ fontFamily: "DIN Medium" }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6, duration: 0.8 }}>
+        <motion.p className="mt-6 text-xl md:text-2xl font-light text-gray-200" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6, duration: 0.8 }}>
           Sekolah Tinggi Ilmu Ekonomi Mahardhika Surabaya
         </motion.p>
 
         <motion.div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 0.8 }}>
           <motion.button
             className="group bg-gradient-to-r from-[#207D96] to-[#1B3F6E] text-white px-8 py-4 rounded-xl hover:shadow-2xl hover:shadow-[#207D96]/50 transition-all font-semibold text-lg flex items-center gap-2 w-full sm:w-auto justify-center"
-            style={{ fontFamily: "DIN Bold" }}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >
