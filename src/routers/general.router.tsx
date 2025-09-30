@@ -3,6 +3,7 @@ import ForbiddenPage from "@/pages/publics/forbidden.page";
 import LandingPage from "@/pages/publics/landing.page";
 import NotFoundPage from "@/pages/publics/not-found.page";
 import KartuRekapanMurojaahPAPage from "@/pages/publics/kartu-rekapan-muroja'ah-pa";
+import DashboardPendaftar from "@/pages/pendaftar/page";
 
 export const generalRouter = [
 	{
@@ -28,5 +29,9 @@ export const generalRouter = [
 	{
 		path: "/kartu-rekapan-murojaah-pa/:id",
 		element: <KartuRekapanMurojaahPAPage/>,
+	},
+	{
+		path: "/pendaftar",
+		element: <DashboardPendaftar/>,
 	},
 ]
