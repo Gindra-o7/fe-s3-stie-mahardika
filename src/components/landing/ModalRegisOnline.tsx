@@ -451,7 +451,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                             style={{ fontFamily: "DIN Medium" }}
                           />
                         </div>
-                        {isLoading && activeSearchField === "s1University" && <p className="text-gray-500 text-sm mt-1 ml-1">Memuat universitas...</p>}
+                        {Array.isArray(filteredUniversities) && filteredUniversities.length > 0 && activeSearchField === "s1University" && <p className="text-gray-500 text-sm mt-1 ml-1">Memuat universitas...</p>}
                         {filteredUniversities.length > 0 && activeSearchField === "s1University" && (
                           <motion.ul
                             className="absolute z-10 w-full bg-white border border-gray-200 rounded-xl mt-1 max-h-60 overflow-y-auto shadow-lg"
@@ -500,7 +500,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                           />
                         </div>
                         {isLoading && activeSearchField === "s2University" && <p className="text-gray-500 text-sm mt-1 ml-1">Memuat universitas...</p>}
-                        {filteredUniversities.length > 0 && activeSearchField === "s2University" && (
+                        {Array.isArray(filteredUniversities) && filteredUniversities.length > 0 && activeSearchField === "s2University" && (
                           <motion.ul
                             className="absolute z-10 w-full bg-white border border-gray-200 rounded-xl mt-1 max-h-60 overflow-y-auto shadow-lg"
                             initial={{ opacity: 0, y: -10 }}
