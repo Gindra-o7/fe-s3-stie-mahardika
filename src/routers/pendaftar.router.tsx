@@ -4,8 +4,8 @@ import DashboardPendaftar from "@/pages/pendaftar/page";
 
 export const pendaftarRouter = [
   {
-    path: "/mahasiswa/murojaah",
-    element: <Navigate to="/mahasiswa/murojaah/detail-riwayat" />,
+    path: "/pendaftar",
+    element: <Navigate to="/pendaftar/dashboard" />,
   },
   {
     path: "/pendaftar/dashboard",
