@@ -1,34 +1,17 @@
-import { GraduationCap, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import LogoMahardhika from "@/assets/Logo_Mahardhika.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navItems = ["Beranda", "Profil Prodi", "Kurikulum", "Tata Cara Pendaftaran"];
 
   return (
-    <motion.header
-      className="bg-white/90 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-200 shadow-sm"
-      style={{ color: "#207D96" }} // ORACAL Light Blue as primary text color
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
+    <motion.header className="bg-white/90 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-200 shadow-sm" style={{ color: "#207D96" }} initial={{ y: -100 }} animate={{ y: 0 }} transition={{ duration: 0.5 }}>
       <div className="container mx-auto px-4 flex justify-between items-center h-20">
         <motion.div className="flex items-center gap-3" whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 400 }}>
-          <div className="relative">
-            <motion.div className="absolute inset-0 bg-gradient-to-r from-[#207D96] to-[#1B3F6E] rounded-full blur-md opacity-30" animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Infinity }} />
-            <GraduationCap className="h-10 w-10 text-[#207D96] relative z-10" /> {/* Primary Blue */}
-          </div>
-          <div>
-            <span className="font-bold text-xl text-[#207D96] block" style={{ fontFamily: "DIN Bold" }}>
-              STIE Mahardhika
-            </span>
-            <span className="text-xs text-[#1B3F6E]" style={{ fontFamily: "DIN Medium" }}>
-              Surabaya
-            </span>{" "}
-            {/* Cobalt Blue */}
-          </div>
+          <motion.img src={LogoMahardhika} alt="STIE Mahardhika Logo" className="w-[200px] relative object-contain" />
         </motion.div>
 
         <nav className="hidden md:flex items-center gap-8">

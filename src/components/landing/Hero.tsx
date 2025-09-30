@@ -1,20 +1,55 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 
+import BackgroundImage1 from "@/assets/mh-12.jpg";
+import BackgroundImage2 from "@/assets/mh07.jpg";
+import BackgroundImage3 from "@/assets/VICL1712.jpg";
+import BackgroundImage4 from "@/assets/VICL2600.jpg";
+
 const Hero = () => {
+  const backgroundImages = [BackgroundImage1, BackgroundImage2, BackgroundImage3, BackgroundImage4];
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+
+  // Variants untuk animasi gambar
+  const imageVariants = {
+    active: { opacity: 1, transition: { duration: 1 } },
+    inactive: { opacity: 0, transition: { duration: 1 } },
+  };
+
+  // Mengganti gambar aktif setiap 8 detik
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveImageIndex((prevIndex) => (prevIndex + 1) % backgroundImages.length);
+    }, 8000);
+    return () => clearInterval(interval);
+  }, [backgroundImages.length]);
+
   return (
-    <section
-      className="relative h-[70vh] bg-cover bg-center flex items-center justify-center text-center text-white overflow-hidden"
-      style={{ backgroundImage: "url('https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}
-    >
+    <section className="relative h-[70vh] flex items-center justify-center text-center text-white overflow-hidden">
+      {backgroundImages.map((image, index) => (
+        <motion.div
+          key={index}
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url(${image})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+          variants={imageVariants}
+          initial="inactive"
+          animate={index === activeImageIndex ? "active" : "inactive"}
+        />
+      ))}
+
       <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-transparent" />
 
       <motion.div
         className="absolute inset-0"
         animate={{
           background: [
-            "radial-gradient(circle at 20% 50%, rgba(32, 125, 150, 0.1) 0%, transparent 50%)", // ORACAL Light Blue
-            "radial-gradient(circle at 80% 50%, rgba(27, 63, 110, 0.1) 0%, transparent 50%)", // ORACAL Cobalt Blue
+            "radial-gradient(circle at 20% 50%, rgba(32, 125, 150, 0.1) 0%, transparent 50%)",
+            "radial-gradient(circle at 80% 50%, rgba(27, 63, 110, 0.1) 0%, transparent 50%)",
             "radial-gradient(circle at 20% 50%, rgba(32, 125, 150, 0.1) 0%, transparent 50%)",
           ],
         }}
@@ -22,16 +57,6 @@ const Hero = () => {
       />
 
       <motion.div className="relative z-10 p-4 max-w-4xl mx-auto" initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }}>
-        <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ delay: 0.2, duration: 0.8 }}>
-          <motion.span
-            className="inline-block bg-white/10 backdrop-blur-md text-white px-6 py-2 rounded-full text-sm font-medium mb-6 border border-white/20"
-            style={{ fontFamily: "DIN Light" }}
-            whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.15)" }}
-          >
-            ✨ Program Doktor S3
-          </motion.span>
-        </motion.div>
-
         <motion.h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4" style={{ fontFamily: "DIN Bold" }} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.8 }}>
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#ccf4ff] via-[#8eb6eb] to-[#4ad8ff]">Pendaftaran Program Doktor (S3)</span>
           <br />

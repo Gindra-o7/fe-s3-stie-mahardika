@@ -1,5 +1,5 @@
-import { GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
+import LogoMahardhika from "@/assets/Logo_Mahardhika.png";
 
 const Footer = () => {
   return (
@@ -19,18 +19,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 relative z-10">
         <motion.div className="flex flex-col items-center text-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
           <motion.div className="flex items-center gap-3 mb-6" whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 400 }}>
-            <div className="relative">
-              <motion.div className="absolute inset-0 bg-gradient-to-r from-[#207D96] to-[#1B3F6E] rounded-full blur-md opacity-50" animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Infinity }} />
-              <GraduationCap className="h-12 w-12 text-white relative z-10" />
-            </div>
-            <div className="text-left">
-              <span className="font-bold text-2xl block" style={{ fontFamily: "DIN Bold" }}>
-                STIE Mahardhika
-              </span>
-              <span className="text-sm text-gray-400" style={{ fontFamily: "DIN Medium" }}>
-                Surabaya
-              </span>
-            </div>
+            <motion.img src={LogoMahardhika} alt="STIE Mahardhika Logo" className="w-[200px] relative object-contain" />
           </motion.div>
 
           <div className="border-t border-[#207D96]/30 pt-8 w-full">
