@@ -12,17 +12,14 @@ export default defineConfig(({mode}) => {
         "@": path.resolve(__dirname, "./src"),
       },
     },
-    server: {
-      host: '0.0.0.0',
-      port: 5173,    
+    server: {   
       proxy: {
-        "/api": {
-          target: env.VITE_API_URL,
-          changeOrigin: true,
-          secure: false,
-          rewrite: (path) => path.replace(/^\/api/, ""),
-        },
-      }
+      "/api": {
+        target: env.VITE_API_URL_UNIVERSITY,
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
     }
   };
 });
