@@ -8,7 +8,7 @@ import RegistrationSteps from '@/components/landing/RegistrationSteps';
 
 function App() {
   return (
-    <div className="bg-light-grey font-din">
+    <div className="bg-light-grey font-sans">
       <Header />
       <main>
         <Hero />

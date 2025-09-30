@@ -71,7 +71,7 @@ const DashboardPendaftar = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-[#207D96]/10 to-[#1B3F6E]/10">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-[#207D96]/10 to-[#1B3F6E]/10 font-sans">
       <motion.header className="bg-white/90 backdrop-blur-lg border-b border-gray-200 sticky top-0 z-50 shadow-sm" initial={{ y: -100 }} animate={{ y: 0 }} transition={{ duration: 0.5 }}>
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
