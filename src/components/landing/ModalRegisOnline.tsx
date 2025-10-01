@@ -2,6 +2,7 @@ import { ChevronRight, FileText, GraduationCap, X, User, Mail, Phone, IdCard, Sc
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import UniversityService from "@/services/api/public/universitas.service";
+import { University } from "@/interfaces/service/api/public/university.interface";
 
 export const DocumentList = ({ documents }: { documents: string[] }) => {
   return (
@@ -83,10 +84,6 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
   });
   const [s1Search, setS1Search] = useState<string>("");
   const [s2Search, setS2Search] = useState<string>("");
-  interface University {
-    kode: string;
-    nama: string;
-  }
   const [filteredUniversities, setFilteredUniversities] = useState<University[]>([]);
   const [activeSearchField, setActiveSearchField] = useState<"s1University" | "s2University" | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -249,10 +246,12 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
     setActiveSearchField(null);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (validateStep2()) {
+      await new Promise(resolve => setTimeout(resolve, 3000));
+
       console.log("Form Submitted:", formData);
       alert("Formulir berhasil dikirim!");
       setFormData({
