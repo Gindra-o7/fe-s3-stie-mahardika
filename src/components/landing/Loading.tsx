@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { GraduationCap } from "lucide-react";
+import LogoMahardhika from "@/assets/BOLD_MAHARDHIKA.png";
 
 export const LoadingScreen = () => {
   return (
@@ -11,19 +11,15 @@ export const LoadingScreen = () => {
       transition={{ duration: 0.3 }}
     >
       <div className="relative">
-        {/* Rotating Circle Background */}
         <motion.div className="absolute inset-0 -m-20" animate={{ rotate: 360 }} transition={{ duration: 3, repeat: Infinity, ease: "linear" }}>
           <div className="w-40 h-40 border-4 border-white/20 rounded-full border-t-white/60" />
         </motion.div>
 
-        {/* Pulsing Circle */}
         <motion.div className="absolute inset-0 -m-16" animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.2, 0.5] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}>
           <div className="w-32 h-32 bg-white/10 rounded-full" />
         </motion.div>
 
-        {/* Logo Container */}
         <motion.div className="relative bg-white rounded-3xl p-8 shadow-2xl" initial={{ scale: 0.5, rotate: -180 }} animate={{ scale: 1, rotate: 0 }} transition={{ duration: 0.8, type: "spring", bounce: 0.5 }}>
-          {/* University Logo */}
           <motion.div
             animate={{
               y: [0, -10, 0],
@@ -34,14 +30,19 @@ export const LoadingScreen = () => {
               ease: "easeInOut",
             }}
           >
-            <GraduationCap className="w-24 h-24 text-[#207D96]" strokeWidth={1.5} />
+            <motion.img
+              src={LogoMahardhika}
+              alt="Logo Mahasiswa"
+              className="w-[200px] h-[200]"
+              animate={{
+                y: [0, -10, 0],
+              }}
+            />
           </motion.div>
         </motion.div>
 
-        {/* Loading Text */}
-        <motion.div className="absolute -bottom-16 left-1/2 -translate-x-1/2 whitespace-nowrap" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}>
-          <p className="text-white text-lg font-semibold mb-2">Memuat Data...</p>
-          <div className="flex gap-1 justify-center">
+        <motion.div className="absolute -bottom-16 left-0 right-0 flex justify-center" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}>
+          <div className="flex gap-1">
             {[0, 1, 2].map((i) => (
               <motion.div
                 key={i}

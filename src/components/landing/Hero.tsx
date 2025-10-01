@@ -2,22 +2,20 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 
-import BackgroundImage1 from "@/assets/mh-12.jpg";
-import BackgroundImage2 from "@/assets/mh07.jpg";
-import BackgroundImage3 from "@/assets/VICL1712.jpg";
-import BackgroundImage4 from "@/assets/VICL2600.jpg";
+import BackgroundImage1 from "@/assets/foto/mh-12.webp";
+import BackgroundImage2 from "@/assets/foto/mh07.webp";
+import BackgroundImage3 from "@/assets/foto/VICL1712.webp";
+import BackgroundImage4 from "@/assets/foto/VICL2600.webp";
 
 const Hero = () => {
   const backgroundImages = [BackgroundImage1, BackgroundImage2, BackgroundImage3, BackgroundImage4];
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
-  // Variants untuk animasi gambar
   const imageVariants = {
     active: { opacity: 1, transition: { duration: 1 } },
     inactive: { opacity: 0, transition: { duration: 1 } },
   };
 
-  // Mengganti gambar aktif setiap 8 detik
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveImageIndex((prevIndex) => (prevIndex + 1) % backgroundImages.length);
