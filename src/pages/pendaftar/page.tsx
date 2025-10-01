@@ -8,7 +8,6 @@ const DashboardPendaftar = () => {
   const [userName] = useState("Ahmad Fadhil Rahman");
   const [statusKelulusan] = useState("lulus");
 
-  // Progress steps data
   const steps = [
     { id: 1, name: "Registrasi Akun", status: "completed", icon: CheckCircle },
     { id: 2, name: "Login ke Sistem", status: "completed", icon: CheckCircle },
@@ -17,7 +16,6 @@ const DashboardPendaftar = () => {
     { id: 5, name: "Wawancara", status: "pending", icon: AlertCircle },
   ];
 
-  // Menu cards data
   const menuCards = [
     {
       id: "profile",
@@ -229,7 +227,6 @@ const DashboardPendaftar = () => {
           }
         `}</style>
 
-        {/* Progress Timeline */}
         <motion.div className="mb-8 bg-white rounded-2xl p-8 shadow-lg border border-gray-100" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
           <h3 className="text-2xl font-bold text-gray-800 mb-6">Status Pendaftaran</h3>
           <div className="relative">
@@ -259,7 +256,6 @@ const DashboardPendaftar = () => {
           </div>
         </motion.div>
 
-        {/* Menu Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {menuCards.map((card, index) => {
             const Icon = card.icon;
@@ -288,7 +284,6 @@ const DashboardPendaftar = () => {
           })}
         </div>
 
-        {/* Notifications & Quick Actions */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <motion.div className="lg:col-span-2 bg-white rounded-2xl p-6 shadow-lg border border-gray-100" initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.6 }}>
             <div className="flex items-center justify-between mb-6">
