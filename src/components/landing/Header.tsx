@@ -5,7 +5,7 @@ import LogoMahardhika from "@/assets/Logo_Mahardhika.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navItems = ["Beranda", "Profil Prodi", "Kurikulum", "Tata Cara Pendaftaran"];
+  const navItems = ["Beranda", "Profil Prodi", "Kurikulum", "Tata Cara Pendaftaran", "Login"];
 
   return (
     <motion.header className="bg-white/90 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-200 shadow-sm" style={{ color: "#207D96" }} initial={{ y: -100 }} animate={{ y: 0 }} transition={{ duration: 0.5 }}>
