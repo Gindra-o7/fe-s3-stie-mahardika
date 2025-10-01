@@ -5,35 +5,35 @@
 @layer base {
   @font-face {
     font-family: "DINPro";
-    src: url("/assets/fonts/DINPro.ttf") format("truetype");
+    src: url("@/assets/fonts/DINPro.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
   }
 
   @font-face {
     font-family: "DINPro Black";
-    src: url("/assets/fonts/DINPro-Black.ttf") format("truetype");
+    src: url("@/assets/fonts/DINPro-Black.ttf") format("truetype");
     font-weight: 900;
     font-style: normal;
   }
 
   @font-face {
     font-family: "DINPro Bold";
-    src: url("/assets/fonts/DINPro-Bold.ttf") format("truetype");
+    src: url("@/assets/fonts/DINPro-Bold.ttf") format("truetype");
     font-weight: bold;
     font-style: normal;
   }
 
   @font-face {
     font-family: "DINPro Light";
-    src: url("/assets/fonts/DINPro-Light.ttf") format("truetype");
+    src: url("@/assets/fonts/DINPro-Light.ttf") format("truetype");
     font-weight: 300;
     font-style: normal;
   }
 
   @font-face {
     font-family: "DINPro Medium";
-    src: url("/assets/fonts/DINPro-Medium.ttf") format("truetype");
+    src: url("@/assets/fonts/DINPro-Medium.ttf") format("truetype");
     font-weight: 500;
     font-style: normal;
   }
