@@ -8,16 +8,19 @@ import RegistrationSteps from '@/components/landing/RegistrationSteps';
 import {LoadingScreen} from "@/components/landing/Loading"
 import { useEffect, useState } from 'react';
 
-function App() {
+import BackgroundImage1 from "@/assets/foto/mh-12.webp";
+
+const Landing = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const img = new Image();
+    img.src = BackgroundImage1;
+    img.onload = () => {
       setIsLoading(false);
-    }, 2000);
-
-    return () => clearTimeout(timer);
+    };
   }, []);
+
 
   if (isLoading) {
     return <LoadingScreen />;
@@ -26,7 +29,7 @@ function App() {
     <div className="bg-light-grey font-sans">
       <Header />
       <main>
-        <Hero />
+        <Hero/>
         <Features />
         <ProcessTimeline />
         <Requirements />
@@ -37,4 +40,4 @@ function App() {
   );
 }
 
-export default App;
+export default Landing;
