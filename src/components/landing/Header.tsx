@@ -1,17 +1,16 @@
-import { Menu, X } from "lucide-react";
+import { Menu, X, LogIn } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import LogoMahardhika from "@/assets/Logo_Mahardhika.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navItems = ["Beranda", "Profil Prodi", "Kurikulum", "Tata Cara Pendaftaran", "Login"];
+  const navItems = ["Beranda", "Profil Prodi", "Kurikulum", "Tata Cara Pendaftaran"];
 
   return (
     <motion.header className="bg-white/90 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-200 shadow-sm" style={{ color: "#207D96" }} initial={{ y: -100 }} animate={{ y: 0 }} transition={{ duration: 0.5 }}>
       <div className="container mx-auto px-4 flex justify-between items-center h-20">
         <motion.div className="flex items-center gap-3" whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 400 }}>
-          <motion.img src={LogoMahardhika} alt="STIE Mahardhika Logo" className="w-[190px] relative object-contain" />
+          <motion.div className="text-2xl font-bold text-[#207D96]">STIE Mahardhika</motion.div>
         </motion.div>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -25,12 +24,21 @@ const Header = () => {
 
         <div className="flex items-center gap-4">
           <motion.button
+            className="hidden md:flex items-center gap-2 border-2 border-[#207D96] text-[#207D96] px-5 py-2 rounded-lg hover:bg-[#207D96] hover:text-white transition-all font-medium group"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <LogIn className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+            <span>Login</span>
+          </motion.button>
+
+          <motion.button
             className="hidden md:block bg-gradient-to-r from-[#207D96] to-[#1B3F6E] text-white px-6 py-2.5 rounded-lg hover:shadow-lg transition-all font-semibold relative overflow-hidden group"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <span className="relative z-10">Daftar Sekarang</span>
-            <motion.div className="absolute inset-0 bg-gradient-to-r from-[#207D96] to-[#1B3F6E]" initial={{ x: "-100%" }} whileHover={{ x: 0 }} transition={{ duration: 0.3 }} />
+            <motion.div className="absolute inset-0 bg-gradient-to-r from-[#1B3F6E] to-[#207D96]" initial={{ x: "-100%" }} whileHover={{ x: 0 }} transition={{ duration: 0.3 }} />
           </motion.button>
 
           <button className="md:hidden text-[#207D96]" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -48,7 +56,13 @@ const Header = () => {
                   {item}
                 </a>
               ))}
-              <button className="bg-gradient-to-r from-[#207D96] to-[#1B3F6E] text-white px-4 py-2.5 rounded-lg hover:shadow-lg transition-all font-semibold mt-2">Daftar Sekarang</button>
+
+              <button className="flex items-center justify-center gap-2 border-2 border-[#207D96] text-[#207D96] px-4 py-2.5 rounded-lg hover:bg-[#207D96] hover:text-white transition-all font-medium mt-2">
+                <LogIn className="w-4 h-4" />
+                <span>Login</span>
+              </button>
+
+              <button className="bg-gradient-to-r from-[#207D96] to-[#1B3F6E] text-white px-4 py-2.5 rounded-lg hover:shadow-lg transition-all font-semibold">Daftar Sekarang</button>
             </nav>
           </motion.div>
         )}
