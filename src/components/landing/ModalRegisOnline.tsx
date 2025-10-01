@@ -399,7 +399,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                       </div>
 
                       <div>
-                        <label className="block text-gray-700 font-medium mb-2 flex items-center gap-2 text-sm sm:text-base">
+                        <label className="text-gray-700 font-medium mb-2 flex items-center gap-2 text-sm sm:text-base">
                           <Upload className="h-4 w-4 sm:h-5 sm:w-5 text-[#207D96]" /> Upload Foto
                         </label>
                         <input
