@@ -7,19 +7,19 @@ const Features = () => {
       icon: <CheckCircle className="h-12 w-12" />,
       title: "Keunggulan Prodi",
       description: "Program studi unggulan dengan akreditasi terbaik.",
-      gradient: "from-[#207D96] to-[#1B3F6E]", // ORACAL Light Blue to Cobalt Blue
+      gradient: "from-[#207D96] to-[#1B3F6E]",
     },
     {
       icon: <Clock className="h-12 w-12" />,
       title: "Durasi Studi",
       description: "3-5 tahun, meraih gelar doktor.",
-      gradient: "from-[#207D96] to-[#1B3F6E]", // ORACAL Light Blue to Cobalt Blue
+      gradient: "from-[#207D96] to-[#1B3F6E]",
     },
     {
       icon: <Handshake className="h-12 w-12" />,
       title: "Kerjasama Riset",
       description: "Jaringan riset luas dengan industri dan universitas partner.",
-      gradient: "from-[#207D96] to-[#1B3F6E]", // ORACAL Light Blue to Cobalt Blue
+      gradient: "from-[#207D96] to-[#1B3F6E]",
     },
   ];
 
@@ -29,8 +29,8 @@ const Features = () => {
         className="absolute inset-0 opacity-30"
         animate={{
           backgroundImage: [
-            "radial-gradient(circle at 0% 0%, rgba(32, 125, 150, 0.1) 0%, transparent 50%)", // ORACAL Light Blue
-            "radial-gradient(circle at 100% 100%, rgba(27, 63, 110, 0.1) 0%, transparent 50%)", // ORACAL Cobalt Blue
+            "radial-gradient(circle at 0% 0%, rgba(32, 125, 150, 0.1) 0%, transparent 50%)",
+            "radial-gradient(circle at 100% 100%, rgba(27, 63, 110, 0.1) 0%, transparent 50%)",
             "radial-gradient(circle at 0% 0%, rgba(32, 125, 150, 0.1) 0%, transparent 50%)",
           ],
         }}
@@ -55,7 +55,7 @@ const Features = () => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
+              transition={{ duration: 0.1, delay: 0.1 }}
               whileHover={{ y: -10 }}
             >
               <motion.div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />

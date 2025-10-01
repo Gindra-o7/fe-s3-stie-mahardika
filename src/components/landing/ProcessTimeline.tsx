@@ -26,10 +26,10 @@ const ProcessTimeline = () => {
                 initial={{ opacity: 0, scale: 0.5 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.2, duration: 0.5 }}
+                transition={{ delay: 0.1, duration: 0.5 }}
                 whileHover={{ scale: 1.1 }}
               >
-                <motion.div className="relative" whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }}>
+                <motion.div className="relative">
                   <motion.div className="absolute inset-0 bg-gradient-to-r from-[#207D96] to-[#1B3F6E] rounded-full blur-xl opacity-50" animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }} />
                   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#207D96] to-[#1B3F6E] border-4 border-white shadow-2xl flex items-center justify-center relative z-10">
                     <span className="text-white font-bold text-xl" >

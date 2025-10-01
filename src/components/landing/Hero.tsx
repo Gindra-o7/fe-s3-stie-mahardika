@@ -24,7 +24,7 @@ const Hero = () => {
   }, [backgroundImages.length]);
 
   return (
-    <section className="relative h-[70vh] flex items-center justify-center text-center text-white overflow-hidden">
+    <section className="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
       {backgroundImages.map((image, index) => (
         <motion.div
           key={index}
@@ -70,7 +70,7 @@ const Hero = () => {
         <motion.div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 0.8 }}>
           <motion.button
             className="group bg-gradient-to-r from-[#207D96] to-[#1B3F6E] text-white px-8 py-4 rounded-xl hover:shadow-2xl hover:shadow-[#207D96]/50 transition-all font-semibold text-lg flex items-center gap-2 w-full sm:w-auto justify-center"
-            whileHover={{ scale: 1.05, y: -2 }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             Daftar Sekarang

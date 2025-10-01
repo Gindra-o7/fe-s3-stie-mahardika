@@ -52,7 +52,7 @@ const RegistrationSteps = () => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.1, delay: 0.1 }}
               whileHover={{ y: -10 }}
             >
               <motion.div className={`absolute inset-0 bg-gradient-to-br ${step.gradient} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300`} />
@@ -76,10 +76,10 @@ const RegistrationSteps = () => {
           ))}
         </div>
 
-        <motion.div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-16" initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+        <motion.div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-16" initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.1 }}>
           <motion.button
             className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-[#207D96] to-[#1B3F6E] text-white px-8 py-4 rounded-xl hover:shadow-lg hover:shadow-[#207D96]/50 font-semibold transition-all"
-            whileHover={{ scale: 1.05, y: -2 }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <Edit className="w-5 h-5" />
@@ -87,7 +87,7 @@ const RegistrationSteps = () => {
           </motion.button>
           <motion.button
             className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white border-2 border-[#207D96] text-[#207D96] px-8 py-4 rounded-xl hover:bg-[#207D96] hover:text-white font-semibold transition-all"
-            whileHover={{ scale: 1.05, y: -2 }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <Download className="w-5 h-5" />
