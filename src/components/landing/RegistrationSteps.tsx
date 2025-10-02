@@ -1,7 +1,11 @@
 import { UserPlus, LogIn, FileCheck, CircleCheck, Download, Edit, FileText } from "lucide-react";
 import { motion } from "framer-motion";
+import { ModalRegisOnline } from "./ModalRegisOnline";
+import { useState } from "react";
 
 const RegistrationSteps = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const stepsData = [
     {
       icon: <UserPlus className="w-12 h-12" />,
@@ -81,6 +85,7 @@ const RegistrationSteps = () => {
             className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-[#207D96] to-[#1B3F6E] text-white px-8 py-4 rounded-xl hover:shadow-lg hover:shadow-[#207D96]/50 font-semibold transition-all"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => setIsModalOpen(true)}
           >
             <Edit className="w-5 h-5" />
             Isi Formulir Sekarang
@@ -117,6 +122,7 @@ const RegistrationSteps = () => {
           </div>
         </motion.div>
       </div>
+      <ModalRegisOnline isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 };
