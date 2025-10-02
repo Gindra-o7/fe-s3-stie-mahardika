@@ -8,7 +8,7 @@ import RegistrationSteps from "@/components/landing/RegistrationSteps";
 import { LoadingScreen } from "@/components/landing/Loading";
 import { useEffect, useState } from "react";
 
-import BackgroundImage1 from "@/assets/foto/mh-12.webp";
+import BackgroundImage1 from "@/assets/foto/VICL0820.webp";
 
 const Landing = () => {
   const [isLoading, setIsLoading] = useState(true);

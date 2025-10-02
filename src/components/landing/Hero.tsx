@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 
-import BackgroundImage1 from "@/assets/foto/mh-12.webp";
-import BackgroundImage2 from "@/assets/foto/mh07.webp";
-import BackgroundImage3 from "@/assets/foto/VICL1712.webp";
-import BackgroundImage4 from "@/assets/foto/VICL2600.webp";
+import BackgroundImage1 from "@/assets/foto/VICL0820.webp";
+import BackgroundImage2 from "@/assets/foto/VICL1354.webp";
+import BackgroundImage3 from "@/assets/foto/VICL1455.webp";
+import BackgroundImage4 from "@/assets/foto/VICL1807.webp";
 
 import { ModalRegisOnline } from "./ModalRegisOnline";
 
