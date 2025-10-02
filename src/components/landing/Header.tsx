@@ -7,7 +7,7 @@ import { ModalRegisOnline } from "./ModalRegisOnline";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navItems = ["Beranda", "Profil Prodi", "Kurikulum", "Tata Cara Pendaftaran"];
+  const navItems = ["Beranda", "Profil Prodi", "Kurikulum", "Biaya", "Tata Cara Pendaftaran"];
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -22,7 +22,7 @@ const Header = () => {
           <motion.img src={LogoMahardhika} alt="Logo Mahardhika" className="h-14 w-auto" />
         </motion.div>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-8 ml-24 pl-12">
           {navItems.map((item, index) => (
             <motion.a key={item} href="#" className="text-[#207D96] hover:text-[#1B3F6E] transition-colors relative group" initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }}>
               {item}

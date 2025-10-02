@@ -6,6 +6,7 @@ import BackgroundImage1 from "@/assets/foto/mh-12.webp";
 import BackgroundImage2 from "@/assets/foto/mh07.webp";
 import BackgroundImage3 from "@/assets/foto/VICL1712.webp";
 import BackgroundImage4 from "@/assets/foto/VICL2600.webp";
+
 import { ModalRegisOnline } from "./ModalRegisOnline";
 
 const Hero = () => {
