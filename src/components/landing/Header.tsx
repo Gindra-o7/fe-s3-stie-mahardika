@@ -3,11 +3,13 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import LogoMahardhika from "@/assets/Logo_Mahardhika.png";
 import { useNavigate } from "react-router-dom";
+import { ModalRegisOnline } from "./ModalRegisOnline";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navItems = ["Beranda", "Profil Prodi", "Kurikulum", "Tata Cara Pendaftaran"];
   const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleClickLogin = () => {
     navigate("/login");
@@ -41,6 +43,7 @@ const Header = () => {
           </motion.button>
 
           <motion.button
+            onClick={() => setIsModalOpen(true)}
             className="hidden md:block bg-gradient-to-r from-[#207D96] to-[#1B3F6E] text-white px-6 py-2.5 rounded-lg hover:shadow-lg transition-all font-semibold relative overflow-hidden group"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -70,11 +73,14 @@ const Header = () => {
                 <span>Login</span>
               </button>
 
-              <button className="bg-gradient-to-r from-[#207D96] to-[#1B3F6E] text-white px-4 py-2.5 rounded-lg hover:shadow-lg transition-all font-semibold">Daftar Sekarang</button>
+              <button onClick={() => setIsModalOpen(true)} className="bg-gradient-to-r from-[#207D96] to-[#1B3F6E] text-white px-4 py-2.5 rounded-lg hover:shadow-lg transition-all font-semibold">
+                Daftar Sekarang
+              </button>
             </nav>
           </motion.div>
         )}
       </AnimatePresence>
+      <ModalRegisOnline isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </motion.header>
   );
 };

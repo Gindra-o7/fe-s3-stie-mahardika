@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import UniversityService from "@/services/api/public/universitas.service";
 import { University } from "@/interfaces/service/api/public/university.interface";
+import { createPortal } from "react-dom";
 
 export const DocumentList = ({ documents }: { documents: string[] }) => {
   return (
@@ -293,7 +294,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
     exit: { opacity: 0, x: -50 },
   };
 
-  return (
+  return createPortal(
     <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-2 sm:p-4">
       <motion.div
         className="bg-white p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-2xl relative border border-[#207D96]/20 flex flex-col max-h-[95vh] sm:max-h-[90vh]"
@@ -571,6 +572,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
           </div>
         </form>
       </motion.div>
-    </div>
+    </div>,
+    document.body
   );
 };
