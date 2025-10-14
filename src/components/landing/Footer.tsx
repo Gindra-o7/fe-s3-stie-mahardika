@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import LogoMahardhika from "@/assets/Logo_Mahardhika.png";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
+  
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-[#1B3F6E] to-[#207D96] text-white py-12 relative overflow-hidden">
       <motion.div
@@ -23,8 +26,8 @@ const Footer = () => {
           </motion.div>
 
           <div className="border-t border-[#207D96]/30 pt-8 w-full">
-            <p className="text-gray-400 mb-2">&copy; {new Date().getFullYear()} STIE Mahardhika Surabaya. All rights reserved.</p>
-            <p className="text-sm text-gray-500">Pendaftaran Program Doktor Ilmu Manajemen</p>
+            <p className="text-gray-400 mb-2">{t('footer.copyright')}</p>
+            <p className="text-sm text-gray-500">{t('hero.title')}</p>
           </div>
 
           <motion.div className="mt-8 flex gap-6" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
