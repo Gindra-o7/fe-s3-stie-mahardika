@@ -2,18 +2,20 @@ import { ModalRegisOnline as ModalRegisOnline} from "./ModalRegisOnline"
 import {motion} from "framer-motion"
 import { Award, BookOpen, FileText, Globe, GraduationCap, Mail } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Requirements = () => {
+  const { t } = useLanguage();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const documents = [
-    { name: "KTP", icon: FileText, color: "from-blue-500 to-cyan-500", desc: "Identitas diri" },
-    { name: "Ijazah S1 & S2", icon: GraduationCap, color: "from-purple-500 to-pink-500", desc: "Riwayat pendidikan" },
-    { name: "Sertifikat TPA", icon: Award, color: "from-orange-500 to-red-500", desc: "Tes potensi akademik" },
-    { name: "TOEFL/IELTS", icon: Globe, color: "from-green-500 to-emerald-500", desc: "Kemampuan bahasa" },
-    { name: "Surat Rekomendasi", icon: Mail, color: "from-indigo-500 to-blue-500", desc: "Referensi akademik" },
-    { name: "Proposal Disertasi", icon: BookOpen, color: "from-amber-500 to-yellow-500", desc: "Rencana penelitian" }
+    { name: t('requirements.documents'), icon: FileText, color: "from-blue-500 to-cyan-500", desc: t('requirements.documents.desc') },
+    { name: t('requirements.academic'), icon: GraduationCap, color: "from-purple-500 to-pink-500", desc: t('requirements.academic.desc') },
+    { name: t('requirements.photo'), icon: Award, color: "from-orange-500 to-red-500", desc: t('requirements.photo.desc') },
+    { name: t('requirements.toefl'), icon: Globe, color: "from-green-500 to-emerald-500", desc: t('requirements.toefl.desc') },
+    { name: t('requirements.recommendation'), icon: Mail, color: "from-indigo-500 to-blue-500", desc: t('requirements.recommendation.desc') },
+    { name: t('requirements.proposal'), icon: BookOpen, color: "from-amber-500 to-yellow-500", desc: t('requirements.proposal.desc') }
   ];
 
   return (
@@ -27,9 +29,9 @@ const Requirements = () => {
           className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Dokumen <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#207D96] to-[#1B3F6E]">Persyaratan</span>
+            {t('requirements.title')}
           </h2>
-          <p className="text-gray-600 text-lg">Siapkan dokumen berikut untuk melengkapi pendaftaran Anda</p>
+          <p className="text-gray-600 text-lg">{t('requirements.documents.desc')}</p>
         </motion.div>
 
         <div className="bg-white/80 backdrop-blur-sm p-8 md:p-12 rounded-3xl shadow-2xl border border-gray-100">
@@ -88,10 +90,10 @@ const Requirements = () => {
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="text-center md:text-left">
                 <h3 className="text-2xl md:text-3xl font-bold mb-2">
-                  Siap Untuk Mendaftar?
+                  {t('hero.cta')}
                 </h3>
                 <p className="text-white/90 text-lg">
-                  Lengkapi dokumen persyaratan dan mulai perjalanan akademik Anda
+                  {t('hero.description')}
                 </p>
               </div>
 
@@ -101,7 +103,7 @@ const Requirements = () => {
                 onClick={() => setIsModalOpen(true)}
                 className="bg-white text-[#207D96] px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 whitespace-nowrap flex items-center gap-2 group"
               >
-                <span>Daftar Sekarang</span>
+                <span>{t('button.register')}</span>
                 <motion.span
                   animate={{ x: [0, 5, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
