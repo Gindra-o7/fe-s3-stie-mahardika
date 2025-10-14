@@ -1,8 +1,15 @@
 import { motion } from "framer-motion";
 import React from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ProcessTimeline = () => {
-  const steps = ["Pendaftaran", "Seleksi Administrasi", "Tes", "Wawancara"];
+  const { t } = useLanguage();
+  const steps = [
+    { key: 'process.step1', title: t('process.step1') },
+    { key: 'process.step2', title: t('process.step2') },
+    { key: 'process.step3', title: t('process.step3') },
+    { key: 'process.step4', title: t('process.step4') }
+  ];
 
   return (
     <section className="py-20 bg-white relative overflow-hidden">
@@ -11,16 +18,16 @@ const ProcessTimeline = () => {
       <div className="container mx-auto px-4 relative z-10">
         <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4" >
-            Alur <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#207D96] to-[#1B3F6E]">Pendaftaran</span>
+            {t('process.title')}
           </h2>
           <p className="text-gray-600 text-lg" >
-            Proses mudah dalam 4 tahap
+            {t('process.step1.desc')}
           </p>
         </motion.div>
 
         <motion.div className="flex flex-col md:flex-row items-center justify-between max-w-5xl mx-auto" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
           {steps.map((step, index) => (
-            <React.Fragment key={step}>
+            <React.Fragment key={step.key}>
               <motion.div
                 className="flex flex-col items-center text-center relative"
                 initial={{ opacity: 0, scale: 0.5 }}
@@ -45,7 +52,7 @@ const ProcessTimeline = () => {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.2 + 0.3 }}
                 >
-                  {step}
+                  {step.title}
                 </motion.p>
               </motion.div>
               {index < steps.length - 1 && (
