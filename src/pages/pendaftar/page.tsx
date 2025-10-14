@@ -2,49 +2,52 @@ import { useState } from "react";
 import { User, FileText, CreditCard, Megaphone, LogOut, Upload, CheckCircle, Clock, AlertCircle, Bell, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import LogoMahardhika from "@/assets/Logo_Mahardhika.png";
+import { useLanguage } from "@/contexts/LanguageContext";
+import LanguageSelector from "@/components/ui/language-selector";
 
 const DashboardPendaftar = () => {
+  const { t } = useLanguage();
   const [, setActiveSection] = useState("home");
   const [userName] = useState("Ahmad Fadhil Rahman");
   const [statusKelulusan] = useState("lulus");
 
   const steps = [
-    { id: 1, name: "Registrasi Akun", status: "completed", icon: CheckCircle },
-    { id: 2, name: "Login ke Sistem", status: "completed", icon: CheckCircle },
-    { id: 3, name: "Verifikasi Administrasi", status: "current", icon: Clock },
-    { id: 4, name: "Tes TPA/TOEFL", status: "pending", icon: AlertCircle },
-    { id: 5, name: "Wawancara", status: "pending", icon: AlertCircle },
+    { id: 1, name: t('registration.online'), status: "completed", icon: CheckCircle },
+    { id: 2, name: t('registration.payment'), status: "completed", icon: CheckCircle },
+    { id: 3, name: t('process.step3'), status: "current", icon: Clock },
+    { id: 4, name: t('registration.test'), status: "pending", icon: AlertCircle },
+    { id: 5, name: t('process.step4'), status: "pending", icon: AlertCircle },
   ];
 
   const menuCards = [
     {
       id: "profile",
-      title: "Profil",
-      description: "Edit data pribadi",
+      title: t('nav.profile'),
+      description: t('requirements.academic.desc'),
       icon: User,
       gradient: "from-[#207D96] to-[#1B3F6E]",
       action: () => setActiveSection("profile"),
     },
     {
       id: "documents",
-      title: "Unggah Dokumen",
-      description: "Upload / update dokumen",
+      title: t('requirements.documents'),
+      description: t('requirements.documents.desc'),
       icon: FileText,
       gradient: "from-[#207D96] to-[#1B3F6E]",
       action: () => setActiveSection("documents"),
     },
     {
       id: "payment",
-      title: "Bukti Pembayaran",
-      description: "Upload & cek status verifikasi",
+      title: t('registration.payment'),
+      description: t('registration.payment.desc'),
       icon: CreditCard,
       gradient: "from-[#207D96] to-[#1B3F6E]",
       action: () => setActiveSection("payment"),
     },
     {
       id: "announcement",
-      title: "Pengumuman",
-      description: "Melihat jadwal tes & hasil seleksi",
+      title: t('registration.result'),
+      description: t('registration.result.desc'),
       icon: Megaphone,
       gradient: "from-[#207D96] to-[#1B3F6E]",
       action: () => setActiveSection("announcement"),
@@ -55,15 +58,15 @@ const DashboardPendaftar = () => {
     {
       id: 1,
       type: "warning",
-      message: "Dokumen TOEFL belum sesuai, silakan upload ulang",
-      time: "2 jam yang lalu",
+      message: t('notification.toefl.warning'),
+      time: t('notification.time.2hours'),
       icon: Bell,
     },
     {
       id: 2,
       type: "info",
-      message: "Pembayaran Anda telah diverifikasi",
-      time: "1 hari yang lalu",
+      message: t('notification.payment.verified'),
+      time: t('notification.time.1day'),
       icon: CheckCircle,
     },
   ];
@@ -79,14 +82,18 @@ const DashboardPendaftar = () => {
               </div>
             </motion.div>
 
-            <motion.button
-              className="flex items-center gap-2 bg-gradient-to-r from-[#207D96] to-[#1B3F6E] text-white px-6 py-2.5 rounded-lg hover:shadow-lg transition-all font-medium"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <LogOut className="h-4 w-4" />
-              Logout
-            </motion.button>
+            <div className="flex items-center gap-4">
+              <LanguageSelector />
+              
+              <motion.button
+                className="flex items-center gap-2 bg-gradient-to-r from-[#207D96] to-[#1B3F6E] text-white px-6 py-2.5 rounded-lg hover:shadow-lg transition-all font-medium"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <LogOut className="h-4 w-4" />
+                {t('button.logout')}
+              </motion.button>
+            </div>
           </div>
         </div>
       </motion.header>
@@ -107,10 +114,10 @@ const DashboardPendaftar = () => {
             />
             <div className="relative z-10">
               <motion.h2 className="text-3xl font-bold mb-2" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }}>
-                Selamat Datang, {userName}!
+                {t('dashboard.welcome').replace('{name}', userName)}
               </motion.h2>
               <motion.p className="text-blue-100 text-lg" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }}>
-                Status pendaftaran Anda dapat dipantau di bawah ini.
+                {t('dashboard.status.desc')}
               </motion.p>
             </div>
           </div>
@@ -133,14 +140,14 @@ const DashboardPendaftar = () => {
                   </div>
                   <div className="flex-1">
                     <h2 className="text-2xl font-bold mb-1.5" style={{ animation: "slideInRight 0.5s ease-out" }}>
-                      🎉 Selamat! Anda DITERIMA
+                      {t('status.accepted.title')}
                     </h2>
                     <p className="text-green-50 text-sm mb-3" style={{ animation: "slideInRight 0.5s ease-out 0.1s both" }}>
-                      Anda telah dinyatakan LULUS seleksi Program Studi S3 STIE Mahardhika
+                      {t('status.accepted.desc')}
                     </p>
                     <div className="flex gap-2 flex-wrap" style={{ animation: "slideInRight 0.5s ease-out 0.2s both" }}>
-                      <button className="bg-white text-green-600 px-4 py-2 rounded-lg text-sm font-bold hover:shadow-lg hover:scale-105 transition-all duration-300">Lihat Detail</button>
-                      <button className="bg-white/20 backdrop-blur-sm border-2 border-white text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-white/30 hover:scale-105 transition-all duration-300">Download Surat</button>
+                      <button className="bg-white text-green-600 px-4 py-2 rounded-lg text-sm font-bold hover:shadow-lg hover:scale-105 transition-all duration-300">{t('status.accepted.view.detail')}</button>
+                      <button className="bg-white/20 backdrop-blur-sm border-2 border-white text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-white/30 hover:scale-105 transition-all duration-300">{t('status.accepted.download.letter')}</button>
                     </div>
                   </div>
                 </div>
@@ -160,14 +167,14 @@ const DashboardPendaftar = () => {
                   </div>
                   <div className="flex-1">
                     <h2 className="text-2xl font-bold mb-1.5" style={{ animation: "slideInRight 0.5s ease-out" }}>
-                      Pengumuman Hasil Seleksi
+                      {t('status.rejected.title')}
                     </h2>
                     <p className="text-orange-50 text-sm mb-3" style={{ animation: "slideInRight 0.5s ease-out 0.1s both" }}>
-                      Mohon maaf, Anda belum berhasil pada seleksi kali ini. Jangan menyerah! Anda dapat mencoba lagi pada periode berikutnya.
+                      {t('status.rejected.desc')}
                     </p>
                     <div className="flex gap-2 flex-wrap" style={{ animation: "slideInRight 0.5s ease-out 0.2s both" }}>
-                      <button className="bg-white text-orange-600 px-4 py-2 rounded-lg text-sm font-bold hover:shadow-lg hover:scale-105 transition-all duration-300">Lihat Feedback</button>
-                      <button className="bg-white/20 backdrop-blur-sm border-2 border-white text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-white/30 hover:scale-105 transition-all duration-300">Info Pendaftaran</button>
+                      <button className="bg-white text-orange-600 px-4 py-2 rounded-lg text-sm font-bold hover:shadow-lg hover:scale-105 transition-all duration-300">{t('status.rejected.view.feedback')}</button>
+                      <button className="bg-white/20 backdrop-blur-sm border-2 border-white text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-white/30 hover:scale-105 transition-all duration-300">{t('status.rejected.registration.info')}</button>
                     </div>
                   </div>
                 </div>
@@ -228,7 +235,7 @@ const DashboardPendaftar = () => {
         `}</style>
 
         <motion.div className="mb-8 bg-white rounded-2xl p-8 shadow-lg border border-gray-100" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
-          <h3 className="text-2xl font-bold text-gray-800 mb-6">Status Pendaftaran</h3>
+          <h3 className="text-2xl font-bold text-gray-800 mb-6">{t('dashboard.status.title')}</h3>
           <div className="relative">
             <div className="absolute top-6 left-0 right-0 h-1 bg-gray-200">
               <motion.div className="h-full bg-gradient-to-r from-[#207D96] to-[#1B3F6E]" initial={{ width: 0 }} animate={{ width: "40%" }} transition={{ duration: 1, delay: 0.5 }} />
@@ -276,7 +283,7 @@ const DashboardPendaftar = () => {
                 <h3 className="text-xl font-bold text-gray-800 mb-2">{card.title}</h3>
                 <p className="text-gray-600 text-sm mb-4">{card.description}</p>
                 <motion.div className="flex items-center text-gray-400 group-hover:text-[#207D96] transition-colors" whileHover={{ x: 5 }}>
-                  <span className="text-sm font-medium">Akses</span>
+                  <span className="text-sm font-medium">{t('dashboard.access')}</span>
                   <ChevronRight className="h-4 w-4 ml-1" />
                 </motion.div>
               </motion.div>
@@ -287,7 +294,7 @@ const DashboardPendaftar = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <motion.div className="lg:col-span-2 bg-white rounded-2xl p-6 shadow-lg border border-gray-100" initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.6 }}>
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Notifikasi</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">{t('dashboard.notifications')}</h3>
               <motion.div className="p-2 bg-gradient-to-br from-[#207D96] to-[#1B3F6E] rounded-lg" whileHover={{ rotate: [0, -10, 10, -10, 0] }}>
                 <Bell className="h-5 w-5 text-white" />
               </motion.div>
@@ -332,7 +339,7 @@ const DashboardPendaftar = () => {
               transition={{ duration: 8, repeat: Infinity }}
             />
             <div className="relative z-10">
-              <h3 className="text-2xl font-bold mb-6">Aksi Cepat</h3>
+              <h3 className="text-2xl font-bold mb-6">{t('dashboard.quick.actions')}</h3>
               <div className="space-y-3">
                 <motion.button
                   className="w-full bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white px-4 py-3 rounded-xl font-medium transition-all flex items-center justify-between group border border-white/20"
@@ -342,7 +349,7 @@ const DashboardPendaftar = () => {
                 >
                   <span className="flex items-center gap-2">
                     <Upload className="h-5 w-5" />
-                    Upload Dokumen
+                    {t('quick.upload.documents')}
                   </span>
                   <ChevronRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </motion.button>
@@ -354,7 +361,7 @@ const DashboardPendaftar = () => {
                 >
                   <span className="flex items-center gap-2">
                     <Megaphone className="h-5 w-5" />
-                    Lihat Pengumuman
+                    {t('quick.view.announcement')}
                   </span>
                   <ChevronRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </motion.button>
@@ -365,14 +372,14 @@ const DashboardPendaftar = () => {
                 >
                   <span className="flex items-center gap-2">
                     <FileText className="h-5 w-5" />
-                    Download Panduan
+                    {t('quick.download.guide')}
                   </span>
                   <ChevronRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </motion.button>
               </div>
               <motion.div className="mt-6 p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1 }}>
-                <p className="text-sm text-white/90 mb-2">💡 Tips:</p>
-                <p className="text-xs text-white/70">Pastikan semua dokumen sudah diupload sebelum batas waktu yang ditentukan untuk menghindari keterlambatan proses verifikasi.</p>
+                <p className="text-sm text-white/90 mb-2">{t('dashboard.tips')}</p>
+                <p className="text-xs text-white/70">{t('dashboard.tips.desc')}</p>
               </motion.div>
             </div>
           </motion.div>
