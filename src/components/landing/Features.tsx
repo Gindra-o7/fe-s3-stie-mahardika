@@ -1,24 +1,27 @@
 import { CheckCircle, Clock, Handshake } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Features = () => {
+  const { t } = useLanguage();
+  
   const featureData = [
     {
       icon: <CheckCircle className="h-12 w-12" />,
-      title: "Keunggulan Prodi",
-      description: "Program studi unggulan dengan akreditasi terbaik.",
+      title: t('features.quality'),
+      description: t('features.quality.desc'),
       gradient: "from-[#207D96] to-[#1B3F6E]",
     },
     {
       icon: <Clock className="h-12 w-12" />,
-      title: "Durasi Studi",
-      description: "3-5 tahun, meraih gelar doktor.",
+      title: t('features.faculty'),
+      description: t('features.faculty.desc'),
       gradient: "from-[#207D96] to-[#1B3F6E]",
     },
     {
       icon: <Handshake className="h-12 w-12" />,
-      title: "Kerjasama Riset",
-      description: "Jaringan riset luas dengan industri dan universitas partner.",
+      title: t('features.facility'),
+      description: t('features.facility.desc'),
       gradient: "from-[#207D96] to-[#1B3F6E]",
     },
   ];
@@ -40,10 +43,10 @@ const Features = () => {
       <div className="container mx-auto px-4 relative z-10">
         <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4" >
-            Mengapa Memilih <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#207D96] to-[#1B3F6E]">STIE Mahardhika?</span>
+            {t('features.title')}
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto" >
-            Program doktor dengan standar internasional dan fasilitas terbaik
+            {t('features.career.desc')}
           </p>
         </motion.div>
 
