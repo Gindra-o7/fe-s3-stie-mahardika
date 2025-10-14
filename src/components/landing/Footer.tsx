@@ -26,7 +26,7 @@ const Footer = () => {
           </motion.div>
 
           <div className="border-t border-[#207D96]/30 pt-8 w-full">
-            <p className="text-gray-400 mb-2">{t('footer.copyright')}</p>
+            <p className="text-gray-400 mb-2">{t('footer.copyright').replace('2024', new Date().getFullYear().toString())}</p>
             <p className="text-sm text-gray-500">{t('hero.title')}</p>
           </div>
 
