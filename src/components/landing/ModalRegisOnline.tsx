@@ -4,14 +4,17 @@ import { useEffect, useRef, useState } from "react";
 import UniversityService from "@/services/api/public/universitas.service";
 import { University } from "@/interfaces/service/api/public/university.interface";
 import { createPortal } from "react-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const DocumentList = ({ documents }: { documents: string[] }) => {
+  const { t } = useLanguage();
+  
   return (
     <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
       <h2 className="text-4xl font-bold text-gray-800 mb-2">
-        Persyaratan & Dokumen <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#207D96] to-[#1B3F6E]">Wajib</span>
+        {t('requirements.title')}
       </h2>
-      <p className="text-gray-600 mb-8">Siapkan dokumen berikut untuk proses pendaftaran</p>
+      <p className="text-gray-600 mb-8">{t('requirements.documents.desc')}</p>
 
       <ul className="space-y-4">
         {documents.map((doc, index) => (
@@ -36,6 +39,8 @@ export const DocumentList = ({ documents }: { documents: string[] }) => {
 };
 
 export const CTACard = ({ onOpenModal }: { onOpenModal: () => void }) => {
+  const { t } = useLanguage();
+  
   return (
     <motion.div
       className="bg-gradient-to-br from-gray-50 to-[#207D96]/10 p-10 rounded-2xl text-center border border-[#207D96]/20"
@@ -48,8 +53,8 @@ export const CTACard = ({ onOpenModal }: { onOpenModal: () => void }) => {
         <GraduationCap className="h-12 w-12 text-white" />
       </motion.div>
 
-      <h3 className="text-3xl font-bold text-gray-800 mb-3">Sudah siap mendaftar?</h3>
-      <p className="text-gray-600 mb-8 leading-relaxed">Lengkapi dokumen Anda dan mulailah proses pendaftaran sekarang.</p>
+      <h3 className="text-3xl font-bold text-gray-800 mb-3">{t('hero.cta')}</h3>
+      <p className="text-gray-600 mb-8 leading-relaxed">{t('hero.description')}</p>
 
       <div className="flex flex-col sm:flex-row justify-center gap-4">
         <motion.button
@@ -58,11 +63,11 @@ export const CTACard = ({ onOpenModal }: { onOpenModal: () => void }) => {
           whileTap={{ scale: 0.95 }}
           onClick={onOpenModal}
         >
-          Isi Formulir Online
+          {t('button.register')}
           <ChevronRight className="w-4 h-4" />
         </motion.button>
         <motion.button className="bg-white border-2 border-[#207D96] text-[#207D96] px-6 py-3 rounded-xl hover:bg-[#207D96] hover:text-white font-semibold transition-all" whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
-          Lihat Pendaftaran
+          {t('registration.result.desc')}
         </motion.button>
       </div>
     </motion.div>
@@ -70,6 +75,7 @@ export const CTACard = ({ onOpenModal }: { onOpenModal: () => void }) => {
 };
 
 export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
+  const { t } = useLanguage();
   const [currentStep, setCurrentStep] = useState(1);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState({
@@ -308,12 +314,12 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
         </button>
 
         <motion.h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-center text-gray-800 mb-3 sm:mb-4 pr-8">
-          Formulir <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#207D96] to-[#1B3F6E]">Pendaftaran Online</span>
+          {t('registration.title')}
         </motion.h2>
 
         <div className="w-full mb-4 sm:mb-6 lg:mb-8">
           <p className="text-center text-gray-500 text-sm sm:text-base">
-            Langkah {currentStep} dari {totalSteps}
+            {t('registration.online')} {currentStep} {t('registration.payment')} {totalSteps}
           </p>
           <div className="flex w-full sm:w-2/3 lg:w-1/2 mx-auto mt-2 h-2 bg-gray-200 rounded-full">
             <motion.div className="bg-gradient-to-r from-[#207D96] to-[#1B3F6E] rounded-full" animate={{ width: `${(currentStep / totalSteps) * 100}%` }} transition={{ duration: 0.5, type: "spring" }} />
@@ -327,7 +333,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                 <motion.div key="step1" variants={stepVariants} initial="hidden" animate="visible" exit="exit" transition={{ duration: 0.3 }}>
                   <div className="bg-gradient-to-br from-gray-50 to-[#207D96]/5 p-4 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl">
                     <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4 flex items-center gap-2">
-                      <User className="h-4 w-4 sm:h-5 sm:w-5 text-[#207D96]" /> Data Pribadi
+                      <User className="h-4 w-4 sm:h-5 sm:w-5 text-[#207D96]" /> {t('requirements.academic')}
                     </h3>
                     <div className="space-y-3 sm:space-y-4">
                       <div>
@@ -424,7 +430,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                 <motion.div key="step2" variants={stepVariants} initial="hidden" animate="visible" exit="exit" transition={{ duration: 0.3 }}>
                   <div className="bg-gradient-to-br from-gray-50 to-[#207D96]/5 p-4 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl">
                     <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4 flex items-center gap-2">
-                      <School className="h-4 w-4 sm:h-5 sm:w-5 text-[#207D96]" /> Data Akademik
+                      <School className="h-4 w-4 sm:h-5 sm:w-5 text-[#207D96]" /> {t('requirements.academic')}
                     </h3>
                     {errors.api && <p className="text-red-500 text-xs sm:text-sm mb-4">{errors.api}</p>}
                     <div className="space-y-3 sm:space-y-4">
@@ -544,7 +550,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
               disabled={currentStep === 1}
             >
               <ChevronLeft className="w-4 h-4" />
-              Kembali
+              {t('registration.result')}
             </motion.button>
 
             {currentStep < totalSteps ? (
@@ -555,7 +561,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Selanjutnya
+                {t('registration.test')}
                 <ChevronRight className="w-4 h-4" />
               </motion.button>
             ) : (
@@ -565,7 +571,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Submit Formulir
+                {t('button.register')}
                 <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </motion.button>
             )}
