@@ -4,6 +4,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { onSigninCallback, userManager } from "./lib/keycloak";
 import { queryClient } from "./lib/query-client";
 import { ThemeProvider } from "@/components/themes/theme-provider";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 import router from "./routers/app.router";
 import { AlertDialog } from "./components/ui/alert-dialog";
 import { Toaster } from "@/components/ui/sonner"
@@ -12,15 +13,17 @@ const App = () => {
 		<AuthProvider userManager={userManager} onSigninCallback={onSigninCallback}>
 			<QueryClientProvider client={queryClient}>
 				<ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
-					<AlertDialog>
-						<RouterProvider router={router} />
-						<Toaster
-							position="bottom-right" 
-							richColors 
-							closeButton 
-							expand
-						/>
-					</AlertDialog>
+					<LanguageProvider>
+						<AlertDialog>
+							<RouterProvider router={router} />
+							<Toaster
+								position="bottom-right" 
+								richColors 
+								closeButton 
+								expand
+							/>
+						</AlertDialog>
+					</LanguageProvider>
 				</ThemeProvider>
 			</QueryClientProvider>
 		</AuthProvider>
