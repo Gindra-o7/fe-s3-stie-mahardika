@@ -2,33 +2,35 @@ import { UserPlus, LogIn, FileCheck, CircleCheck, Download, Edit, FileText } fro
 import { motion } from "framer-motion";
 import { ModalRegisOnline } from "./ModalRegisOnline";
 import { useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const RegistrationSteps = () => {
+  const { t } = useLanguage();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const stepsData = [
     {
       icon: <UserPlus className="w-12 h-12" />,
-      title: "Registrasi Akun",
-      points: ["Isi nama lengkap, email, nomor HP", "Buat username & password", "Verifikasi via email"],
+      title: t('registration.online'),
+      points: [t('registration.online.desc'), t('registration.payment.desc'), t('registration.test.desc')],
       gradient: "from-[#207D96] to-[#1B3F6E]",
     },
     {
       icon: <LogIn className="w-12 h-12" />,
-      title: "Login Sistem",
-      points: ["Masukkan username & password", "Akses dashboard pendaftar", "Upload foto"],
+      title: t('registration.payment'),
+      points: [t('registration.payment.desc'), t('registration.test.desc'), t('registration.result.desc')],
       gradient: "from-[#207D96] to-[#1B3F6E]",
     },
     {
       icon: <FileCheck className="w-12 h-12" />,
-      title: "Konfirmasi Submit",
-      points: ["Review data & dokumen", "Klik tombol Submit Pendaftaran"],
+      title: t('registration.test'),
+      points: [t('registration.test.desc'), t('registration.result.desc')],
       gradient: "from-[#207D96] to-[#1B3F6E]",
     },
     {
       icon: <CircleCheck className="w-12 h-12" />,
-      title: "Cek Status Pendaftaran",
-      points: ["Login ke dashboard", "Pantau progres (Verifikasi → Tes → Wawancara → Hasil)"],
+      title: t('registration.result'),
+      points: [t('registration.result.desc'), t('registration.online.desc')],
       gradient: "from-[#207D96] to-[#1B3F6E]",
     },
   ];
@@ -43,9 +45,9 @@ const RegistrationSteps = () => {
       <div className="container mx-auto px-4 relative z-10">
         <motion.div className="text-center mb-16" initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-            Tata Cara <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#207D96] to-[#1B3F6E]">Pendaftaran</span>
+            {t('registration.title')}
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">Ikuti langkah-langkah berikut untuk mendaftar secara online.</p>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">{t('registration.online.desc')}</p>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
@@ -88,7 +90,7 @@ const RegistrationSteps = () => {
             onClick={() => setIsModalOpen(true)}
           >
             <Edit className="w-5 h-5" />
-            Isi Formulir Sekarang
+            {t('button.register')}
           </motion.button>
           <motion.button
             className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white border-2 border-[#207D96] text-[#207D96] px-8 py-4 rounded-xl hover:bg-[#207D96] hover:text-white font-semibold transition-all"
@@ -96,7 +98,7 @@ const RegistrationSteps = () => {
             whileTap={{ scale: 0.95 }}
           >
             <Download className="w-5 h-5" />
-            Download Panduan PDF
+            {t('registration.result.desc')}
           </motion.button>
         </motion.div>
 
@@ -106,16 +108,16 @@ const RegistrationSteps = () => {
               <FileText className="h-10 w-10 text-white" />
             </motion.div>
 
-            <h3 className="text-3xl font-bold text-gray-800 mb-6">Pembayaran Biaya Pendaftaran</h3>
+            <h3 className="text-3xl font-bold text-gray-800 mb-6">{t('registration.payment')}</h3>
             <div className="bg-gradient-to-br from-gray-50 to-[#207D96]/10 p-8 rounded-2xl border border-[#207D96]/20">
               <ul className="space-y-4 text-lg text-gray-700">
                 <motion.li className="flex items-center justify-center gap-3" initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
                   <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#207D96] to-[#1B3F6E]" />
-                  <span>Transfer ke rekening resmi</span>
+                  <span>{t('registration.payment.desc')}</span>
                 </motion.li>
                 <motion.li className="flex items-center justify-center gap-3" initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
                   <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#207D96] to-[#1B3F6E]" />
-                  <span>Upload bukti bayar</span>
+                  <span>{t('registration.test.desc')}</span>
                 </motion.li>
               </ul>
             </div>
