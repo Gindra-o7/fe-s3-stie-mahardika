@@ -8,8 +8,10 @@ import BackgroundImage3 from "@/assets/foto/VICL1455.webp";
 import BackgroundImage4 from "@/assets/foto/VICL1807.webp";
 
 import { ModalRegisOnline } from "./ModalRegisOnline";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
+  const { t } = useLanguage();
   const backgroundImages = [BackgroundImage1, BackgroundImage2, BackgroundImage3, BackgroundImage4];
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -59,13 +61,13 @@ const Hero = () => {
 
       <motion.div className="relative z-10 p-4 max-w-4xl mx-auto" initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }}>
         <motion.h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.8 }}>
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#ccf4ff] via-[#8eb6eb] to-[#4ad8ff]">Pendaftaran Program Doktor (S3)</span>
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#ccf4ff] via-[#8eb6eb] to-[#4ad8ff]">{t('hero.title')}</span>
           <br />
-          <span className="text-3xl md:text-5xl">Ilmu Manajemen</span>
+          <span className="text-3xl md:text-5xl">{t('hero.subtitle')}</span>
         </motion.h1>
 
         <motion.p className="mt-6 text-xl md:text-2xl font-light text-gray-200" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6, duration: 0.8 }}>
-          Sekolah Tinggi Ilmu Ekonomi Mahardhika Surabaya
+          {t('hero.description')}
         </motion.p>
 
         <motion.div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 0.8 }}>
@@ -75,7 +77,7 @@ const Hero = () => {
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsModalOpen(true)}
           >
-            Daftar Sekarang
+{t('hero.cta')}
             <ChevronRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" />
           </motion.button>
         </motion.div>
