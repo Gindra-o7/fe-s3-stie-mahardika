@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, FormEvent, MouseEvent } from "react";
 import { Eye, EyeOff, Mail, Lock, ArrowRight, GraduationCap } from "lucide-react";
-import Logo from "@/assets/Logo_Mahardhika.png"
+import Logo from "@/assets/Logo_Mahardhika.png";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface MousePosition {
   x: number;
@@ -17,6 +18,7 @@ interface Particle {
 }
 
 export default function FuturisticLogin() {
+  const { t } = useLanguage();
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -152,16 +154,16 @@ export default function FuturisticLogin() {
             </div>
 
             <h1 className="text-6xl font-bold leading-tight bg-gradient-to-r from-gray-800 via-cyan-600 to-blue-600 bg-clip-text text-transparent">
-              Pendaftaran Program Doktor Ilmu Manajemen
+              {t('login.title')}
             </h1>
 
             <p className="text-xl text-gray-600 font-light max-w-md">
-              Bergabunglah dengan Program Doktor Ilmu Manajemen di Sekolah Tinggi Ilmu Ekonomi Mahardhika Surabaya untuk mengembangkan keahlian manajerial Anda dengan kurikulum berstandar internasional dan dosen berpengalaman.
+              {t('login.description')}
             </p>
 
             <div className="flex items-center space-x-2 text-cyan-700">
               <GraduationCap className="w-5 h-5" />
-              <span className="text-sm">Akreditasi unggul dan jaringan akademik global</span>
+              <span className="text-sm">{t('login.accreditation')}</span>
             </div>
           </div>
 
@@ -174,17 +176,17 @@ export default function FuturisticLogin() {
 
               <div className="mb-8">
                 <div className="flex items-center justify-between mb-2">
-                  <h2 className="text-3xl font-bold text-gray-800">Sign In</h2>
+                  <h2 className="text-3xl font-bold text-gray-800">{t('login.signin.title')}</h2>
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
                     <Lock className="w-6 h-6 text-white" />
                   </div>
                 </div>
-                <p className="text-gray-600 text-sm">Enter your credentials to access your account</p>
+                <p className="text-gray-600 text-sm">{t('login.signin.subtitle')}</p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="relative group">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">{t('login.email.label')}</label>
                   <div className="relative">
                     <Mail
                       className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-cyan-600 transition-colors"
@@ -194,7 +196,7 @@ export default function FuturisticLogin() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="w-full pl-12 pr-4 py-4 bg-white border border-gray-200 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:border-cyan-500 focus:bg-white transition-all"
-                      placeholder="you@example.com"
+                      placeholder={t('login.email.placeholder')}
                       required
                     />
                   </div>
@@ -202,7 +204,7 @@ export default function FuturisticLogin() {
                 </div>
 
                 <div className="relative group">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">{t('login.password.label')}</label>
                   <div className="relative">
                     <Lock
                       className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-cyan-600 transition-colors"
@@ -212,7 +214,7 @@ export default function FuturisticLogin() {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       className="w-full pl-12 pr-12 py-4 bg-white border border-gray-200 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:border-cyan-500 focus:bg-white transition-all"
-                      placeholder="••••••••"
+                      placeholder={t('login.password.placeholder')}
                       required
                     />
                     <button
@@ -232,10 +234,10 @@ export default function FuturisticLogin() {
                       type="checkbox"
                       className="w-4 h-4 rounded border-gray-300 bg-white checked:bg-cyan-500 focus:ring-cyan-500 focus:ring-offset-0"
                     />
-                    <span className="text-gray-600 group-hover:text-gray-800 transition-colors">Remember me</span>
+                    <span className="text-gray-600 group-hover:text-gray-800 transition-colors">{t('login.remember')}</span>
                   </label>
                   <a href="#" className="text-cyan-600 hover:text-cyan-700 transition-colors">
-                    Forgot password?
+                    {t('login.forgot')}
                   </a>
                 </div>
 
@@ -244,7 +246,7 @@ export default function FuturisticLogin() {
                   className="relative w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold overflow-hidden group hover:shadow-lg hover:shadow-cyan-500/50 transition-all"
                 >
                   <span className="relative z-10 flex items-center justify-center space-x-2">
-                    <span>Sign In</span>
+                    <span>{t('login.signin.button')}</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -252,9 +254,9 @@ export default function FuturisticLogin() {
               </form>
 
               <p className="mt-8 text-center text-sm text-gray-600">
-                Don't have an account?{" "}
+                {t('login.no.account')}{" "}
                 <a href="#" className="text-cyan-600 hover:text-cyan-700 font-medium transition-colors">
-                  Create one now
+                  {t('login.create.account')}
                 </a>
               </p>
             </div>
