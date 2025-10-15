@@ -5,6 +5,7 @@ import NotFoundPage from "@/pages/publics/not-found.page";
 import KartuRekapanMurojaahPAPage from "@/pages/publics/kartu-rekapan-muroja'ah-pa";
 import LoginPage from "@/pages/publics/login.page";
 import BiayaPage from "@/pages/publics/biaya.page";
+import TataCaraPendaftaranPage from "@/pages/publics/tata-cara-pendaftaran.page";
 
 export const generalRouter = [
 	{
@@ -29,7 +30,7 @@ export const generalRouter = [
 	},
 	{
 		path: "/registration",
-		element: <BiayaPage />,
+		element: <TataCaraPendaftaranPage />,
 	},
 	{
 		path: "/forbidden",

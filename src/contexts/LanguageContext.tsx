@@ -90,6 +90,56 @@ const translations = {
     'registration.test.desc': 'Ikuti tes masuk sesuai jadwal',
     'registration.result': 'Pengumuman',
     'registration.result.desc': 'Lihat hasil seleksi di website',
+
+		"registration.intro.title": "Tata Cara Pendaftaran",
+		"registration.intro.line1":
+			"Program Doktor Ilmu Manajemen membuka pendaftaran mahasiswa baru untuk kelas Reguler (Perkuliahan diselenggarakan pada hari Jumat Sore dan Sabtu).",
+		"registration.intro.line2":
+			"Pendaftaran mahasiswa baru Program Pascasarjana dilakukan secara online melalui website Seleksi Masuk STIE Mahardhika Surabaya.",
+		"registration.cta.button": "Kunjungi Website Pendaftaran",
+
+		"registration.step1.title": "Pembayaran Registrasi",
+		"registration.step1.content":
+			"Melakukan pembayaran biaya pendaftaran dan biaya tes seleksi masuk sebesar Rp. 500.000 untuk biaya registrasi.",
+
+		"registration.step2.title": "Lengkapi Formulir & Berkas",
+		"registration.step2.content":
+			"Melakukan registrasi dengan melengkapi formulir isian pada halaman website. Setelah data terisi dan memperoleh username serta password, calon pendaftar diminta untuk melengkapi seluruh berkas pendaftaran melalui website PMB STIE Mahardhika.",
+		"registration.step2.docs.title": "Berkas pendaftaran yang harus diunggah:",
+		"registration.step2.docs.item1":
+			"Salinan Ijazah Sarjana dan Magister yang telah disahkan oleh pejabat yang berwenang.",
+		"registration.step2.docs.item2":
+			"Salinan daftar nilai Sarjana dan Magister yang telah disahkan. Bagi lulusan PTS yang lulus sebelum kebijakan ujian Negara dihapuskan, harus menyerahkan nilai ujian Negara.",
+		"registration.step2.docs.item3":
+			"Salinan sertifikat Akreditasi BAN-PT Program Studi Magister yang berlaku saat tahun kelulusan.",
+		"registration.step2.docs.item4": "Salinan KTP (Kartu Tanda Penduduk).",
+		"registration.step2.docs.item5":
+			"Salinan Sertifikat Test Potensi Akademik (TPA) OTO BAPPENAS dengan nilai TPA > 500.",
+		"registration.step2.docs.item6":
+			"Salinan Sertifikat TOEFL dengan nilai TOEFL > 525.",
+		"registration.step2.docs.item7":
+			"Salinan transkrip program Doktor yang telah disahkan (bagi mahasiswa pindahan).",
+		"registration.step2.docs.item8":
+			"Surat rekomendasi dari dua orang yang mampu memberikan jaminan kelayakan akademik pelamar.",
+		"registration.step2.docs.item9":
+			"Surat keterangan resmi dari penyandang dana studi.",
+		"registration.step2.docs.item10":
+			"Surat keterangan sehat dan bebas narkoba dari instansi yang berwenang.",
+		"registration.step2.docs.item11":
+			"Surat tugas/ijin dari atasan (jika pelamar telah bekerja).",
+		"registration.step2.docs.item12":
+			"Proposal Disertasi (Rencana Penelitian) Jika sudah ada.",
+		"registration.step2.docs.item13":
+			"Pas foto berwarna terbaru ukuran 4x6 (4 lembar) berlatar belakang biru.",
+		"registration.step2.docs.item14": "Daftar Riwayat Hidup.",
+
+		"registration.step3.title": "Tunggu Informasi Wawancara",
+		"registration.step3.content":
+			"Menunggu informasi proses wawancara yang akan diumumkan di website pmbs3.stiemahardhika.ac.id / PMB S3 STIE Mahardhika.",
+
+		"registration.step4.title": "Proses Wawancara",
+		"registration.step4.content":
+			"Semua berkas pendaftaran wajib dibawa saat wawancara (rangkap 2) termasuk berkas yang telah diunggah.",
     
     // Footer
     'footer.about': 'Tentang Kami',
@@ -227,6 +277,34 @@ const translations = {
     'registration.result': 'Announcement',
     'registration.result.desc': 'View selection results on website',
     
+    "registration.intro.title": "Registration Procedure",
+    "registration.intro.line1": "The Doctor of Management Science Program is opening new student admissions for the Regular class (Lectures are held on Friday Afternoons and Saturdays).",
+    "registration.intro.line2": "New postgraduate student registration is conducted online through the STIE Mahardhika Surabaya Entrance Selection website.",
+    "registration.cta.button": "Visit Registration Website",
+    "registration.step1.title": "Registration Payment",
+    "registration.step1.content": "Make the registration fee and entrance selection test payment of IDR 500,000 for the registration fee.",
+    "registration.step2.title": "Complete Form & Documents",
+    "registration.step2.content": "Register by completing the application form on the website. After the data is filled and a username and password have been obtained, prospective applicants are required to complete all registration documents through the STIE Mahardhika PMB website.",
+    "registration.step2.docs.title": "Required documents to be uploaded:",
+    "registration.step2.docs.item1": "Copy of legalized Bachelor's and Master's degree certificates.",
+    "registration.step2.docs.item2": "Copy of legalized Bachelor's and Master's academic transcripts. For graduates from private universities who graduated before the state examination policy was abolished, the state examination scores must be submitted.",
+    "registration.step2.docs.item3": "Copy of the BAN-PT Accreditation certificate for the Master's Program valid at the time of graduation.",
+    "registration.step2.docs.item4": "Copy of ID Card (KTP).",
+    "registration.step2.docs.item5": "Copy of the Academic Potential Test (TPA) OTO BAPPENAS Certificate with a score > 500.",
+    "registration.step2.docs.item6": "Copy of a TOEFL Certificate with a score > 525.",
+    "registration.step2.docs.item7": "Copy of the legalized Doctoral program transcript (for transfer students).",
+    "registration.step2.docs.item8": "Recommendation letters from two individuals who can guarantee the applicant's academic eligibility.",
+    "registration.step2.docs.item9": "Official statement letter from the study sponsor.",
+    "registration.step2.docs.item10": "Health certificate, including being drug-free, from an authorized institution.",
+    "registration.step2.docs.item11": "Assignment/permission letter from a superior (if the applicant is employed) stating that the applicant is released from their duties.",
+    "registration.step2.docs.item12": "Dissertation Proposal (Research Plan), if available.",
+    "registration.step2.docs.item13": "Four recent 4x6 cm color photographs with a blue background.",
+    "registration.step2.docs.item14": "Curriculum Vitae (CV).",
+    "registration.step3.title": "Wait for Interview Information",
+    "registration.step3.content": "Wait for information on the interview process, which will be announced on the pmbs3.stiemahardhika.ac.id / PMB S3 STIE Mahardhika website.",
+    "registration.step4.title": "Interview Process",
+    "registration.step4.content": "All registration documents must be brought to the interview (in duplicate), including the uploaded files.",
+
     // Footer
     'footer.about': 'About Us',
     'footer.contact': 'Contact',
@@ -363,6 +441,34 @@ const translations = {
     'registration.result': '公告',
     'registration.result.desc': '在网站上查看选拔结果',
     
+    "registration.intro.title": "注册流程",
+    "registration.intro.line1": "管理科学博士项目正在为常规班招收新生（讲座在周五下午和周六举行）。",
+    "registration.intro.line2": "研究生新生注册通过 STIE Mahardhika 泗水入学选拔网站在线进行。",
+    "registration.cta.button": "访问注册网站",
+    "registration.step1.title": "支付注册费",
+    "registration.step1.content": "支付注册费和入学选拔测试费共计 500,000 印尼盾。",
+    "registration.step2.title": "填写表格并上传文件",
+    "registration.step2.content": "在网站上填写申请表进行注册。填写数据并获取用户名和密码后，申请人需通过 STIE Mahardhika PMB 网站完成所有注册文件的上传。",
+    "registration.step2.docs.title": "需要上传的文件:",
+    "registration.step2.docs.item1": "经认证的学士和硕士学位证书复印件。",
+    "registration.step2.docs.item2": "经认证的学士和硕士成绩单复印件。对于在国家考试政策废除前毕业的私立大学毕业生，必须提交国家考试成绩。",
+    "registration.step2.docs.item3": "毕业时有效的硕士课程 BAN-PT 认证证书复印件。",
+    "registration.step2.docs.item4": "身份证（KTP）复印件。",
+    "registration.step2.docs.item5": "学术潜力测试（TPA）OTO BAPPENAS 证书复印件，分数需 > 500。",
+    "registration.step2.docs.item6": "托福（TOEFL）证书复印件，分数需 > 525。",
+    "registration.step2.docs.item7": "经认证的博士课程成绩单复印件（适用于转学生）。",
+    "registration.step2.docs.item8": "两名能保证申请人学术资格的推荐人的推荐信。",
+    "registration.step2.docs.item9": "学习赞助方的官方声明信。",
+    "registration.step2.docs.item10": "由授权机构出具的健康证明，包括无毒品证明。",
+    "registration.step2.docs.item11": "上级出具的任务/许可信（如果申请人已就业），说明申请人已解除其职务。",
+    "registration.step2.docs.item12": "论文计划（研究计划），如有。",
+    "registration.step2.docs.item13": "四张近期 4x6 厘米蓝色背景的彩色照片。",
+    "registration.step2.docs.item14": "个人简历。",
+    "registration.step3.title": "等待面试信息",
+    "registration.step3.content": "等待面试流程信息，相关信息将在 pmbs3.stiemahardhika.ac.id / PMB S3 STIE Mahardhika 网站上公布。",
+    "registration.step4.title": "面试流程",
+    "registration.step4.content": "所有注册文件（包括已上传的文件）必须在面试时携带（一式两份）。",    
+
     // Footer
     'footer.about': '关于我们',
     'footer.contact': '联系方式',
