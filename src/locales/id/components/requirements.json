@@ -1,0 +1,15 @@
+{
+  "requirements.title": "Persyaratan Pendaftaran",
+  "requirements.academic": "Persyaratan Akademik",
+  "requirements.academic.desc": "Lulusan SMA/SMK sederajat",
+  "requirements.documents": "Dokumen yang Diperlukan",
+  "requirements.documents.desc": "Fotokopi ijazah, transkrip, dan KTP",
+  "requirements.photo": "Pas Foto",
+  "requirements.photo.desc": "Pas foto 4x6 sebanyak 2 lembar",
+  "requirements.toefl": "TOEFL/IELTS",
+  "requirements.toefl.desc": "Kemampuan bahasa Inggris",
+  "requirements.recommendation": "Surat Rekomendasi",
+  "requirements.recommendation.desc": "Referensi akademik",
+  "requirements.proposal": "Proposal Disertasi",
+  "requirements.proposal.desc": "Rencana penelitian"
+}

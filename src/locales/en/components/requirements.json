@@ -1,0 +1,15 @@
+{
+  "requirements.title": "Registration Requirements",
+  "requirements.academic": "Academic Requirements",
+  "requirements.academic.desc": "High school/equivalent graduate",
+  "requirements.documents": "Required Documents",
+  "requirements.documents.desc": "Photocopy of diploma, transcript, and ID card",
+  "requirements.photo": "Passport Photo",
+  "requirements.photo.desc": "4x6 passport photos, 2 pieces",
+  "requirements.toefl": "TOEFL/IELTS",
+  "requirements.toefl.desc": "English language proficiency",
+  "requirements.recommendation": "Recommendation Letter",
+  "requirements.recommendation.desc": "Academic reference",
+  "requirements.proposal": "Dissertation Proposal",
+  "requirements.proposal.desc": "Research plan"
+}

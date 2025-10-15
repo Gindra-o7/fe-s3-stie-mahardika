@@ -1,0 +1,10 @@
+{
+  "dashboard.welcome": "Selamat Datang, {name}!",
+  "dashboard.status.desc": "Status pendaftaran Anda dapat dipantau di bawah ini.",
+  "dashboard.status.title": "Status Pendaftaran",
+  "dashboard.notifications": "Notifikasi",
+  "dashboard.quick.actions": "Aksi Cepat",
+  "dashboard.access": "Akses",
+  "dashboard.tips": "💡 Tips:",
+  "dashboard.tips.desc": "Pastikan semua dokumen sudah diupload sebelum batas waktu yang ditentukan untuk menghindari keterlambatan proses verifikasi."
+}

@@ -1,0 +1,10 @@
+{
+  "nav.home": "首页",
+  "nav.profile": "专业简介",
+  "nav.curriculum": "课程",
+  "nav.cost": "费用",
+  "nav.registration": "注册流程",
+  "button.login": "登录",
+  "button.register": "立即注册",
+  "button.logout": "登出"
+}

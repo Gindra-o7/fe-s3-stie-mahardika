@@ -1,0 +1,10 @@
+{
+  "nav.home": "Beranda",
+  "nav.profile": "Profil Prodi",
+  "nav.curriculum": "Kurikulum",
+  "nav.cost": "Biaya",
+  "nav.registration": "Tata Cara Pendaftaran",
+  "button.login": "Masuk",
+  "button.register": "Daftar Sekarang",
+  "button.logout": "Keluar"
+}

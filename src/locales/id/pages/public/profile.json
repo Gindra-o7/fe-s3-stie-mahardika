@@ -1,0 +1,49 @@
+{
+  "profile.master.title": "Program Doktor (S3)",
+  "profile.title": "Tentang Program Doktor Ilmu Manajemen STIE Mahardhika",
+  "profile.vision.title": "Visi Program",
+  "profile.vision.content":
+    "STIE Mahardhika berkomitmen untuk menjadi program doktor bereputasi internasional yang berbasis ICT, berjiwa kewirausahaan, beretika, serta bersemangat Gila Marketing dalam mengembangkan ilmu ekonomi, manajemen, dan bisnis.",
+
+  "profile.description.title": "Deskripsi Program",
+  "profile.description.intro":
+    "Program Doktor Ilmu Manajemen STIE Mahardhika dirancang untuk para profesional, akademisi, dan peneliti yang ingin memperdalam kompetensi di bidang manajemen melalui penelitian lanjutan dan pengembangan ilmu yang berorientasi pada inovasi. Kurikulum disusun secara komprehensif dengan pendekatan riset berbasis teknologi mutakhir.",
+
+  "profile.highlights.title": "Keunggulan Program",
+  "profile.highlights.research.title": "Riset Inovatif & Teknologi",
+  "profile.highlights.research.desc":
+    "Menggunakan pendekatan riset berbasis teknologi mutakhir untuk menghasilkan penelitian kreatif, inovatif, dan berdaya saing internasional.",
+  "profile.highlights.mentorship.title": "Bimbingan Personal & Ahli",
+  "profile.highlights.mentorship.desc":
+    "Dapatkan bimbingan personal dari dosen-dosen berpengalaman untuk mengembangkan jalur akademik dan profesional yang sesuai tujuan karier Anda.",
+  "profile.highlights.spirit.title": "Gila Marketing Spirit",
+  "profile.highlights.spirit.desc":
+    "Menekankan pentingnya semangat untuk berpikir luar biasa, adaptif, dan berorientasi pada terobosan baru dalam dunia manajemen dan bisnis.",
+  "profile.highlights.leadership.title": "Pengembangan Kepemimpinan",
+  "profile.highlights.leadership.desc":
+    "Dibekali kemampuan analisis strategis, kepemimpinan visioner, serta integritas etika yang tinggi untuk menjadi pemimpin perubahan.",
+  "profile.highlights.network.title": "Jejaring Internasional Luas",
+  "profile.highlights.network.desc":
+    "Menciptakan kolaborasi riset dan publikasi bereputasi melalui jejaring dengan perguruan tinggi, dunia usaha, dan pemerintah.",
+  "profile.highlights.graduate.title": "Lulusan Sebagai Thought Leader",
+  "profile.highlights.graduate.desc":
+    "Menjadi akademisi, peneliti, konsultan, maupun eksekutif strategis yang mampu mendorong kemajuan manajemen di era global.",
+
+  "profile.head.name": "Prof. Dr. Purwanto, SE., MM",
+  "profile.head.title": "Ketua Program Studi Doktor Ilmu Manajemen",
+  "profile.head.greeting.title": "Sambutan dari Ketua Program Studi",
+
+  "profile.focus.title": "Fokus Utama Program",
+  "profile.focus.strategy.title": "Manajemen Strategis",
+  "profile.focus.strategy.desc": "Mengembangkan kepemimpinan visioner untuk pengambilan keputusan strategis.",
+  "profile.focus.hr.title": "Manajemen SDM",
+  "profile.focus.hr.desc": "Menciptakan talenta unggul dan lingkungan kerja yang inovatif.",
+  "profile.focus.finance.title": "Manajemen Keuangan",
+  "profile.focus.finance.desc": "Menguasai analisis keuangan untuk pertumbuhan bisnis berkelanjutan.",
+  "profile.focus.marketing.title": "Pemasaran & 'Gila Marketing'",
+  "profile.focus.marketing.desc": "Berpikir out-of-the-box untuk menciptakan terobosan baru dalam bisnis.",
+  "profile.focus.entrepreneurship.title": "Kewirausahaan",
+  "profile.focus.entrepreneurship.desc": "Mendorong inovasi dan penciptaan bisnis yang berdaya saing global.",
+  "profile.focus.ict.title": "Manajemen Berbasis ICT",
+  "profile.focus.ict.desc": "Memanfaatkan teknologi untuk inovasi dan keunggulan kompetitif di era digital."
+}

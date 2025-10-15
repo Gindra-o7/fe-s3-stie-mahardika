@@ -1,0 +1,16 @@
+{
+  "login.title": "管理学博士项目注册",
+  "login.description": "加入STIE Mahardhika Surabaya管理学博士项目, 通过国际标准化课程和经验丰富的讲师发展您的管理专业知识。",
+  "login.accreditation": "优秀认证和全球学术网络",
+  "login.signin.title": "登录",
+  "login.signin.subtitle": "输入您的凭据以访问您的账户",
+  "login.email.label": "电子邮件地址",
+  "login.email.placeholder": "you@example.com",
+  "login.password.label": "密码",
+  "login.password.placeholder": "••••••••",
+  "login.remember": "记住我",
+  "login.forgot": "忘记密码？",
+  "login.signin.button": "登录",
+  "login.no.account": "没有账户？",
+  "login.create.account": "立即创建"
+}

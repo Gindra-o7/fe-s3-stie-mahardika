@@ -1,0 +1,6 @@
+{
+  "notification.toefl.warning": "TOEFL文件不符合要求, 请重新上传",
+  "notification.payment.verified": "您的付款已通过验证",
+  "notification.time.2hours": "2小时前",
+  "notification.time.1day": "1天前"
+}

@@ -1,0 +1,16 @@
+{
+  "login.title": "Pendaftaran Program Doktor Ilmu Manajemen",
+  "login.description": "Bergabunglah dengan Program Doktor Ilmu Manajemen di Sekolah Tinggi Ilmu Ekonomi Mahardhika Surabaya untuk mengembangkan keahlian manajerial Anda dengan kurikulum berstandar internasional dan dosen berpengalaman.",
+  "login.accreditation": "Akreditasi unggul dan jaringan akademik global",
+  "login.signin.title": "Masuk",
+  "login.signin.subtitle": "Masukkan kredensial Anda untuk mengakses akun",
+  "login.email.label": "Alamat Email",
+  "login.email.placeholder": "anda@contoh.com",
+  "login.password.label": "Kata Sandi",
+  "login.password.placeholder": "••••••••",
+  "login.remember": "Ingat saya",
+  "login.forgot": "Lupa kata sandi?",
+  "login.signin.button": "Masuk",
+  "login.no.account": "Belum punya akun?",
+  "login.create.account": "Buat sekarang"
+}

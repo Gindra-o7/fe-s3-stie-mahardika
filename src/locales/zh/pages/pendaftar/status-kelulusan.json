@@ -1,0 +1,10 @@
+{
+  "status.accepted.title": "🎉 恭喜！您已被录取",
+  "status.accepted.desc": "您已被宣布通过STIE Mahardhika S3项目选拔",
+  "status.accepted.view.detail": "查看详情",
+  "status.accepted.download.letter": "下载信件",
+  "status.rejected.title": "选拔结果公告",
+  "status.rejected.desc": "抱歉，您在此次选拔中未成功。不要放弃！您可以在下一期再次尝试。",
+  "status.rejected.view.feedback": "查看反馈",
+  "status.rejected.registration.info": "注册信息"
+}

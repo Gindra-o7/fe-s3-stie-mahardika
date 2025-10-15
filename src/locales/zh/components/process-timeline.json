@@ -1,0 +1,11 @@
+{
+  "process.title": "注册流程",
+  "process.step1": "在线注册",
+  "process.step1.desc": "在线填写注册表格",
+  "process.step2": "上传文件",
+  "process.step2.desc": "上传所需文件",
+  "process.step3": "验证",
+  "process.step3.desc": "我们的团队将验证您的文件",
+  "process.step4": "确认",
+  "process.step4.desc": "接收注册确认"
+}

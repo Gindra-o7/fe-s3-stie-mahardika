@@ -1,0 +1,10 @@
+{
+  "status.accepted.title": "🎉 Congratulations! You are ACCEPTED",
+  "status.accepted.desc": "You have been declared PASSED in the S3 STIE Mahardhika Program selection",
+  "status.accepted.view.detail": "View Details",
+  "status.accepted.download.letter": "Download Letter",
+  "status.rejected.title": "Selection Results Announcement",
+  "status.rejected.desc": "Sorry, you were not successful in this selection. Don't give up! You can try again in the next period.",
+  "status.rejected.view.feedback": "View Feedback",
+  "status.rejected.registration.info": "Registration Info"
+}

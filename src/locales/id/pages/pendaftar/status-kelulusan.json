@@ -1,0 +1,10 @@
+{
+  "status.accepted.title": "🎉 Selamat! Anda DITERIMA",
+  "status.accepted.desc": "Anda telah dinyatakan LULUS seleksi Program Studi S3 STIE Mahardhika",
+  "status.accepted.view.detail": "Lihat Detail",
+  "status.accepted.download.letter": "Download Surat",
+  "status.rejected.title": "Pengumuman Hasil Seleksi",
+  "status.rejected.desc": "Mohon maaf, Anda belum berhasil pada seleksi kali ini. Jangan menyerah! Anda dapat mencoba lagi pada periode berikutnya.",
+  "status.rejected.view.feedback": "Lihat Feedback",
+  "status.rejected.registration.info": "Info Pendaftaran"
+}

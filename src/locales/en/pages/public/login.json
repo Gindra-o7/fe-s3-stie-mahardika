@@ -1,0 +1,16 @@
+{
+  "login.title": "Doctor of Management Science Program Registration",
+  "login.description": "Join the Doctor of Management Science Program at Sekolah Tinggi Ilmu Ekonomi Mahardhika Surabaya to develop your managerial expertise with internationally standardized curriculum and experienced lecturers.",
+  "login.accreditation": "Excellent accreditation and global academic network",
+  "login.signin.title": "Sign In",
+  "login.signin.subtitle": "Enter your credentials to access your account",
+  "login.email.label": "Email Address",
+  "login.email.placeholder": "you@example.com",
+  "login.password.label": "Password",
+  "login.password.placeholder": "••••••••",
+  "login.remember": "Remember me",
+  "login.forgot": "Forgot password?",
+  "login.signin.button": "Sign In",
+  "login.no.account": "Don't have an account?",
+  "login.create.account": "Create one now"
+}

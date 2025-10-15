@@ -1,0 +1,10 @@
+{
+  "dashboard.welcome": "Welcome, {name}!",
+  "dashboard.status.desc": "Your registration status can be monitored below.",
+  "dashboard.status.title": "Registration Status",
+  "dashboard.notifications": "Notifications",
+  "dashboard.quick.actions": "Quick Actions",
+  "dashboard.access": "Access",
+  "dashboard.tips": "💡 Tips:",
+  "dashboard.tips.desc": "Make sure all documents are uploaded before the specified deadline to avoid delays in the verification process."
+}

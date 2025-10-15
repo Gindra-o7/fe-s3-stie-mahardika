@@ -1,0 +1,11 @@
+{
+  "process.title": "Registration Process",
+  "process.step1": "Online Registration",
+  "process.step1.desc": "Fill out the registration form online",
+  "process.step2": "Upload Documents",
+  "process.step2.desc": "Upload required documents",
+  "process.step3": "Verification",
+  "process.step3.desc": "Our team will verify your documents",
+  "process.step4": "Confirmation",
+  "process.step4.desc": "Receive registration confirmation"
+}

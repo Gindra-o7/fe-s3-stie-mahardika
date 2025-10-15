@@ -1,0 +1,43 @@
+{
+  "registration.title": "Langkah-langkah Pendaftaran",
+  "registration.online": "Pendaftaran Online",
+  "registration.online.desc": "Daftar melalui website resmi",
+  "registration.payment": "Pembayaran",
+  "registration.payment.desc": "Lakukan pembayaran biaya pendaftaran",
+  "registration.test": "Tes Masuk",
+  "registration.test.desc": "Ikuti tes masuk sesuai jadwal",
+  "registration.result": "Pengumuman",
+  "registration.result.desc": "Lihat hasil seleksi di website",
+
+  "registration.intro.title": "Tata Cara Pendaftaran",
+  "registration.intro.line1": "Program Doktor Ilmu Manajemen membuka pendaftaran mahasiswa baru untuk kelas Reguler (Perkuliahan diselenggarakan pada hari Senin s/d Jum'at).",
+  "registration.intro.line2": "Pendaftaran mahasiswa baru Program Pascasarjana dilakukan secara online melalui website Seleksi Masuk STIE Mahardhika Surabaya.",
+  "registration.cta.button": "Kunjungi Website Pendaftaran",
+
+  "registration.step1.title": "Pembayaran Registrasi",
+  "registration.step1.content": "Melakukan pembayaran biaya pendaftaran dan biaya tes seleksi masuk sebesar Rp. 500.000 untuk biaya registrasi.",
+
+  "registration.step2.title": "Lengkapi Formulir & Berkas",
+  "registration.step2.content": "Melakukan registrasi dengan melengkapi formulir isian pada halaman website. Setelah data terisi dan memperoleh username serta password, calon pendaftar diminta untuk melengkapi seluruh berkas pendaftaran melalui website PMB STIE Mahardhika.",
+  "registration.step2.docs.title": "Berkas pendaftaran yang harus diunggah:",
+  "registration.step2.docs.item1": "Salinan Ijazah Sarjana dan Magister yang telah disahkan oleh pejabat yang berwenang.",
+  "registration.step2.docs.item2": "Salinan daftar nilai Sarjana dan Magister yang telah disahkan. Bagi lulusan PTS yang lulus sebelum kebijakan ujian Negara dihapuskan, harus menyerahkan nilai ujian Negara.",
+  "registration.step2.docs.item3": "Salinan sertifikat Akreditasi BAN-PT Program Studi Magister yang berlaku saat tahun kelulusan.",
+  "registration.step2.docs.item4": "Salinan KTP (Kartu Tanda Penduduk).",
+  "registration.step2.docs.item5": "Salinan Sertifikat Test Potensi Akademik (TPA) OTO BAPPENAS dengan nilai TPA > 500.",
+  "registration.step2.docs.item6": "Salinan Sertifikat TOEFL dengan nilai TOEFL > 500.",
+  "registration.step2.docs.item7": "Salinan transkrip program Doktor yang telah disahkan (bagi mahasiswa pindahan).",
+  "registration.step2.docs.item8": "Surat rekomendasi dari dua orang yang mampu memberikan jaminan kelayakan akademik pelamar.",
+  "registration.step2.docs.item9": "Surat keterangan resmi dari penyandang dana studi.",
+  "registration.step2.docs.item10": "Surat keterangan sehat dan bebas narkoba dari instansi yang berwenang.",
+  "registration.step2.docs.item11": "Surat tugas/ijin dari atasan (jika pelamar telah bekerja).",
+  "registration.step2.docs.item12": "Proposal Disertasi (Rencana Penelitian) Jika sudah ada.",
+  "registration.step2.docs.item13": "Pas foto berwarna terbaru ukuran 4x6 (4 lembar) berlatar belakang biru.",
+  "registration.step2.docs.item14": "Daftar Riwayat Hidup.",
+
+  "registration.step3.title": "Tunggu Informasi Wawancara",
+  "registration.step3.content": "Menunggu informasi proses wawancara yang akan diumumkan di website pmbs3.stiemahardhika.ac.id / PMB S3 STIE Mahardhika.",
+
+  "registration.step4.title": "Proses Wawancara",
+  "registration.step4.content": "Semua berkas pendaftaran wajib dibawa saat wawancara (rangkap 2) termasuk berkas yang telah diunggah."
+}

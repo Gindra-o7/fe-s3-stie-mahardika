@@ -1,0 +1,10 @@
+{
+  "dashboard.welcome": "欢迎，{name}!",
+  "dashboard.status.desc": "您的注册状态可以在下方监控。",
+  "dashboard.status.title": "注册状态",
+  "dashboard.notifications": "通知",
+  "dashboard.quick.actions": "快速操作",
+  "dashboard.access": "访问",
+  "dashboard.tips": "💡 提示：",
+  "dashboard.tips.desc": "确保在指定截止日期前上传所有文件，以避免验证过程延迟。"
+}

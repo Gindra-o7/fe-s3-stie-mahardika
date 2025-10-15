@@ -1,0 +1,15 @@
+{
+  "requirements.title": "注册要求",
+  "requirements.academic": "学术要求",
+  "requirements.academic.desc": "高中/同等学历毕业生",
+  "requirements.documents": "所需文件",
+  "requirements.documents.desc": "文凭、成绩单和身份证复印件",
+  "requirements.photo": "护照照片",
+  "requirements.photo.desc": "4x6护照照片, 2张",
+  "requirements.toefl": "TOEFL/IELTS",
+  "requirements.toefl.desc": "英语语言能力",
+  "requirements.recommendation": "推荐信",
+  "requirements.recommendation.desc": "学术推荐",
+  "requirements.proposal": "论文提案",
+  "requirements.proposal.desc": "研究计划"
+}

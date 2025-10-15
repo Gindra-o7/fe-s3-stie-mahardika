@@ -1,0 +1,10 @@
+{
+  "nav.home": "Home",
+  "nav.profile": "Program Profile",
+  "nav.curriculum": "Curriculum", 
+  "nav.cost": "Cost",
+  "nav.registration": "Registration Process",
+  "button.login": "Login",
+  "button.register": "Register Now",
+  "button.logout": "Logout"
+}
