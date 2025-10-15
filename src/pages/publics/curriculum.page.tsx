@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BookOpen, Users, TrendingUp, Target, ChevronDown, ChevronUp, FileText, Award, Calendar } from "lucide-react";
 import Header from "@/components/landing/Header";
 import Footer from "@/components/landing/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { LoadingScreen } from "@/components/landing/Loading";
+import { ModalRegisOnline } from "@/components/landing/ModalRegisOnline";
 
 interface Course {
   code: string;
@@ -109,6 +111,17 @@ const ConcentrationTable = ({ title, icon: Icon, color, courses }: Concentration
 
 const CurriculumPage = () => {
   const { t } = useLanguage();
+  const [isLoading, setIsLoading] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  // Simulate loading time
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000); // 2 seconds loading time
+
+    return () => clearTimeout(timer);
+  }, []);
   
   const matriculationCourses = [
     { code: "MKM90001", name: t('curriculum.course.economic.theory'), sks: 3, semester: t('curriculum.type.matriculation'), type: t('curriculum.type.matriculation') },
@@ -149,17 +162,15 @@ const CurriculumPage = () => {
     }
   ];
 
-  // const dissertation = [
-  //   { code: "MWU93113", name: "Kualifikasi Proposal Disertasi", sks: 3, semester: "III", type: "Wajib" },
-  //   { code: "MWU94114", name: "Penelitian Disertasi (Ujian Proposal + Ujian Kelayakan)", sks: 9, semester: "IV", type: "Wajib" },
-  //   { code: "MWU95115", name: "Publikasi Internasional", sks: 9, semester: "V", type: "Wajib" },
-  //   { code: "MWU96116", name: "Disertasi (Ujian Tertutup + Ujian Terbuka)", sks: 9, semester: "VI", type: "Wajib" }
-  // ];
-
   const totalSKSMatriculation = matriculationCourses.reduce((sum, c) => sum + c.sks, 0);
   const totalSKSCore = coreProgram.reduce((sum, c) => sum + c.sks, 0);
   const totalSKSConcentration = concentrations[0].courses.reduce((sum, course) => sum + course.sks, 0);
   const totalSKSProgram = totalSKSCore + totalSKSConcentration;
+
+  // Show loading screen while loading
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-gray-50">
@@ -648,7 +659,7 @@ const CurriculumPage = () => {
             {t('curriculum.cta.description')}
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <button className="bg-white text-[#207D96] px-8 py-4 rounded-lg font-bold text-lg hover:shadow-2xl transition-all hover:scale-105 flex items-center gap-2">
+            <button onClick={() => setIsModalOpen(true)} className="bg-white text-[#207D96] px-8 py-4 rounded-lg font-bold text-lg hover:shadow-2xl transition-all hover:scale-105 flex items-center gap-2">
               <Award className="w-5 h-5" />
               {t('curriculum.cta.register')}
             </button>
@@ -661,6 +672,7 @@ const CurriculumPage = () => {
       </section>
 
       <Footer />
+      <ModalRegisOnline isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 };
