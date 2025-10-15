@@ -42,6 +42,60 @@ const translations = {
     'cost.details.item2': 'Matrikulasi',
     'cost.details.item3': 'Uang Kuliah Tunggal (UKT) per semester',
     'cost.cta': 'Daftar Sekarang',
+
+    "profile.master.title": "Program Doktor (S3)",
+    "profile.title": "Tentang Program Doktor Ilmu Manajemen STIE Mahardhika",
+    "profile.vision.title": "Visi Program",
+    "profile.vision.content":
+      "STIE Mahardhika berkomitmen untuk menjadi program doktor bereputasi internasional yang berbasis ICT, berjiwa kewirausahaan, beretika, serta bersemangat Gila Marketing dalam mengembangkan ilmu ekonomi, manajemen, dan bisnis.",
+
+    "profile.description.title": "Deskripsi Program",
+    "profile.description.intro":
+      "Program Doktor Ilmu Manajemen STIE Mahardhika dirancang untuk para profesional, akademisi, dan peneliti yang ingin memperdalam kompetensi di bidang manajemen melalui penelitian lanjutan dan pengembangan ilmu yang berorientasi pada inovasi. Kurikulum disusun secara komprehensif dengan pendekatan riset berbasis teknologi mutakhir.",
+
+    "profile.highlights.title": "Keunggulan Program",
+    "profile.highlights.research.title": "Riset Inovatif & Teknologi",
+    "profile.highlights.research.desc":
+      "Menggunakan pendekatan riset berbasis teknologi mutakhir untuk menghasilkan penelitian kreatif, inovatif, dan berdaya saing internasional.",
+    "profile.highlights.mentorship.title": "Bimbingan Personal & Ahli",
+    "profile.highlights.mentorship.desc":
+      "Dapatkan bimbingan personal dari dosen-dosen berpengalaman untuk mengembangkan jalur akademik dan profesional yang sesuai tujuan karier Anda.",
+    "profile.highlights.spirit.title": "Gila Marketing Spirit",
+    "profile.highlights.spirit.desc":
+      "Menekankan pentingnya semangat untuk berpikir luar biasa, adaptif, dan berorientasi pada terobosan baru dalam dunia manajemen dan bisnis.",
+    "profile.highlights.leadership.title": "Pengembangan Kepemimpinan",
+    "profile.highlights.leadership.desc":
+      "Dibekali kemampuan analisis strategis, kepemimpinan visioner, serta integritas etika yang tinggi untuk menjadi pemimpin perubahan.",
+    "profile.highlights.network.title": "Jejaring Internasional Luas",
+    "profile.highlights.network.desc":
+      "Menciptakan kolaborasi riset dan publikasi bereputasi melalui jejaring dengan perguruan tinggi, dunia usaha, dan pemerintah.",
+    "profile.highlights.graduate.title": "Lulusan Sebagai Thought Leader",
+    "profile.highlights.graduate.desc":
+      "Menjadi akademisi, peneliti, konsultan, maupun eksekutif strategis yang mampu mendorong kemajuan manajemen di era global.",
+
+    "profile.head.name": "Prof. Dr. Purwanto, SE., MM",
+    "profile.head.title": "Ketua Program Studi Doktor Ilmu Manajemen",
+    "profile.head.greeting.title": "Sambutan dari Ketua Program Studi",
+
+    "profile.focus.title": "Fokus Utama Program",
+    "profile.focus.strategy.title": "Manajemen Strategis",
+    "profile.focus.strategy.desc":
+      "Mengembangkan kepemimpinan visioner untuk pengambilan keputusan strategis.",
+    "profile.focus.hr.title": "Manajemen SDM",
+    "profile.focus.hr.desc":
+      "Menciptakan talenta unggul dan lingkungan kerja yang inovatif.",
+    "profile.focus.finance.title": "Manajemen Keuangan",
+    "profile.focus.finance.desc":
+      "Menguasai analisis keuangan untuk pertumbuhan bisnis berkelanjutan.",
+    "profile.focus.marketing.title": "Pemasaran & 'Gila Marketing'",
+    "profile.focus.marketing.desc":
+      "Berpikir out-of-the-box untuk menciptakan terobosan baru dalam bisnis.",
+    "profile.focus.entrepreneurship.title": "Kewirausahaan",
+    "profile.focus.entrepreneurship.desc":
+      "Mendorong inovasi dan penciptaan bisnis yang berdaya saing global.",
+    "profile.focus.ict.title": "Manajemen Berbasis ICT",
+    "profile.focus.ict.desc":
+      "Memanfaatkan teknologi untuk inovasi dan keunggulan kompetitif di era digital.",
     
     // Features
     'features.title': 'Mengapa Memilih STIE Mahardhika?',
@@ -339,6 +393,42 @@ const translations = {
     'cost.details.item3': 'Single Tuition Fee (UKT) per semester',
     'cost.cta': 'Register Now',
     
+    "profile.master.title": "Doctoral Program (S3)",
+    "profile.title": "About the Doctoral Program in Management at STIE Mahardhika",
+    "profile.vision.title": "Program Vision",
+    "profile.vision.content": "STIE Mahardhika is committed to becoming an internationally reputable doctoral program that is ICT-based, entrepreneurial, ethical, and spirited with 'Gila Marketing' in developing economics, management, and business.",
+    "profile.description.title": "Program Description",
+    "profile.description.intro": "The Doctoral Program in Management at STIE Mahardhika is designed for professionals, academics, and researchers who wish to deepen their competence in management through advanced research and innovation-oriented knowledge development. The curriculum is comprehensively structured with a cutting-edge technology-based research approach.",
+    "profile.highlights.title": "Program Advantages",
+    "profile.highlights.research.title": "Innovative Research & Technology",
+    "profile.highlights.research.desc": "Utilizing a cutting-edge technology-based research approach to produce creative, innovative, and internationally competitive research.",
+    "profile.highlights.mentorship.title": "Personal & Expert Mentorship",
+    "profile.highlights.mentorship.desc": "Receive personal guidance from experienced lecturers to develop an academic and professional path that aligns with your career goals.",
+    "profile.highlights.spirit.title": "Gila Marketing Spirit",
+    "profile.highlights.spirit.desc": "Emphasizing the importance of a spirit for thinking outside the box, being adaptive, and oriented towards new breakthroughs in the world of management and business.",
+    "profile.highlights.leadership.title": "Leadership Development",
+    "profile.highlights.leadership.desc": "Equipped with strategic analysis skills, visionary leadership, and high ethical integrity to become leaders of change.",
+    "profile.highlights.network.title": "Extensive International Network",
+    "profile.highlights.network.desc": "Creating research collaborations and reputable publications through a network with universities, the business world, and government.",
+    "profile.highlights.graduate.title": "Graduates as Thought Leaders",
+    "profile.highlights.graduate.desc": "Becoming academics, researchers, consultants, or strategic executives capable of driving progress in management in the global era.",
+    "profile.head.name": "Prof. Dr. Purwanto, SE., MM",
+    "profile.head.title": "Head of the Doctoral Program in Management",
+    "profile.head.greeting.title": "A Word from the Head of the Program",
+    "profile.focus.title": "Main Program Focus",
+    "profile.focus.strategy.title": "Strategic Management",
+    "profile.focus.strategy.desc": "Developing visionary leadership for strategic decision-making.",
+    "profile.focus.hr.title": "HR Management",
+    "profile.focus.hr.desc": "Creating superior talent and an innovative work environment.",
+    "profile.focus.finance.title": "Financial Management",
+    "profile.focus.finance.desc": "Mastering financial analysis for sustainable business growth.",
+    "profile.focus.marketing.title": "Marketing & 'Gila Marketing'",
+    "profile.focus.marketing.desc": "Thinking out-of-the-box to create new breakthroughs in business.",
+    "profile.focus.entrepreneurship.title": "Entrepreneurship",
+    "profile.focus.entrepreneurship.desc": "Fostering innovation and the creation of globally competitive businesses.",
+    "profile.focus.ict.title": "ICT-Based Management",
+    "profile.focus.ict.desc": "Leveraging technology for innovation and competitive advantage in the digital era.",
+
     // Features
     'features.title': 'Why Choose STIE Mahardhika?',
     'features.quality': 'Best Education Quality',
@@ -613,6 +703,42 @@ const translations = {
     'cost.details.item3': '每学期单一学费 (UKT)',
     'cost.cta': '现在注册',
     
+    "profile.master.title": "博士项目 (S3)",
+    "profile.title": "关于 STIE Mahardhika 管理学博士项目",
+    "profile.vision.title": "项目愿景",
+    "profile.vision.content": "STIE Mahardhika 致力于成为一个以信息通信技术为基础、具有企业家精神、道德规范和“疯狂营销”精神的国际知名博士项目，以发展经济学、管理学和商业。",
+    "profile.description.title": "项目描述",
+    "profile.description.intro": "STIE Mahardhika 的管理学博士项目专为希望通过高级研究和以创新为导向的知识发展来深化管理能力的专业人士、学者和研究人员而设计。课程采用尖端技术研究方法，结构全面。",
+    "profile.highlights.title": "项目优势",
+    "profile.highlights.research.title": "创新研究与技术",
+    "profile.highlights.research.desc": "利用尖端技术研究方法，产出具有创造性、创新性和国际竞争力的研究成果。",
+    "profile.highlights.mentorship.title": "个人化专家指导",
+    "profile.highlights.mentorship.desc": "获得经验丰富的讲师的个人指导，以发展符合您职业目标的学术和专业道路。",
+    "profile.highlights.spirit.title": "疯狂营销精神",
+    "profile.highlights.spirit.desc": "强调跳出框框思考、适应性强、以管理和商业领域新突破为导向的精神的重要性。",
+    "profile.highlights.leadership.title": "领导力发展",
+    "profile.highlights.leadership.desc": "具备战略分析能力、远见卓识的领导力和高度的道德诚信，成为变革的领导者。",
+    "profile.highlights.network.title": "广泛的国际网络",
+    "profile.highlights.network.desc": "通过与大学、商界和政府的网络，创建研究合作和有声望的出版物。",
+    "profile.highlights.graduate.title": "毕业生作为思想领袖",
+    "profile.highlights.graduate.desc": "成为能够在全球化时代推动管理进步的学者、研究员、顾问或战略高管。",
+    "profile.head.name": "Purwanto 教授博士, SE., MM",
+    "profile.head.title": "管理学博士项目负责人",
+    "profile.head.greeting.title": "项目负责人寄语",
+    "profile.focus.title": "主要项目焦点",
+    "profile.focus.strategy.title": "战略管理",
+    "profile.focus.strategy.desc": "培养战略决策的远见卓识领导力。",
+    "profile.focus.hr.title": "人力资源管理",
+    "profile.focus.hr.desc": "打造优秀人才和创新的工作环境。",
+    "profile.focus.finance.title": "财务管理",
+    "profile.focus.finance.desc": "掌握财务分析以实现可持续的业务增长。",
+    "profile.focus.marketing.title": "市场营销与‘疯狂营销’",
+    "profile.focus.marketing.desc": "跳出框框思考，在商业上创造新的突破。",
+    "profile.focus.entrepreneurship.title": "创业学",
+    "profile.focus.entrepreneurship.desc": "促进创新和创建具有全球竞争力的企业。",
+    "profile.focus.ict.title": "基于信息通信技术的管理",
+    "profile.focus.ict.desc": "在数字时代利用技术进行创新并获得竞争优势。",
+
     // Features
     'features.title': '为什么选择STIE Mahardhika？',
     'features.quality': '最佳教育质量',
