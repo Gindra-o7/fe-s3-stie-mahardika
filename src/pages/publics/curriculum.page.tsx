@@ -165,7 +165,7 @@ const CurriculumPage = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-gray-50">
       <Header />
       
-      <section className="relative py-20 overflow-hidden" id="curriculum">
+      <section className="relative pb-20 pt-8 overflow-hidden" id="curriculum">
         <div className="absolute inset-0 bg-gradient-to-r from-[#207D96]/5 to-[#1B3F6E]/5" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-4xl mx-auto">
@@ -206,7 +206,7 @@ const CurriculumPage = () => {
       </section>
 
       {/* Info Cards */}
-      <div className="container mx-auto px-4 -mt-8 mb-12 max-w-7xl">
+      <div className="container mx-auto px-4 -mt-8 mb-2 max-w-7xl">
         <div className="grid md:grid-cols-3 gap-6">
           <div className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-blue-500">
             <Calendar className="w-10 h-10 text-blue-500 mb-4" />
@@ -226,7 +226,7 @@ const CurriculumPage = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-12 max-w-7xl">
+      <div className="container mx-auto px-4 py-8 max-w-7xl">
         {/* Matriculation Courses Table */}
         <div className="mb-12">
           <div className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-t-xl p-6">
