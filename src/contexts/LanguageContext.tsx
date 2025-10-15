@@ -32,6 +32,16 @@ const translations = {
     'hero.subtitle': 'Mewujudkan Kepemimpinan Akademik dan Inovasi Global',
     'hero.description': 'Bergabunglah dengan para pemikir visioner yang membangun masa depan ekonomi dan bisnis melalui riset unggulan dan kolaborasi berkelanjutan.',
     'hero.cta': 'Daftar Sekarang',
+
+    'cost.title': 'Biaya Pendidikan',
+    'cost.subtitle': 'Program Doktor (S3) STIE Mahardhika',
+    'cost.schedule.title': 'Program Reguler',
+    'cost.schedule.description': 'Perkuliahan diselenggarakan pada hari Jumat Sore dan Sabtu.',
+    'cost.details.title': 'Rincian Biaya',
+    'cost.details.item1': 'Pendaftaran',
+    'cost.details.item2': 'Matrikulasi',
+    'cost.details.item3': 'Uang Kuliah Tunggal (UKT) per semester',
+    'cost.cta': 'Daftar Sekarang',
     
     // Features
     'features.title': 'Mengapa Memilih STIE Mahardhika?',
@@ -158,6 +168,16 @@ const translations = {
     'hero.subtitle': 'Realizing Academic Leadership and Global Innovation',
     'hero.description': 'Join visionary thinkers who are shaping the future of economics and business through excellent research and sustainable collaboration.',
     'hero.cta': 'Register Now',
+
+    'cost.title': 'Tuition Fees',
+    'cost.subtitle': 'Doctoral Program (S3) at STIE Mahardhika',
+    'cost.schedule.title': 'Regular Program',
+    'cost.schedule.description': 'Lectures are held on Friday afternoons and Saturdays.',
+    'cost.details.title': 'Fee Details',
+    'cost.details.item1': 'Registration',
+    'cost.details.item2': 'Matriculation',
+    'cost.details.item3': 'Single Tuition Fee (UKT) per semester',
+    'cost.cta': 'Register Now',
     
     // Features
     'features.title': 'Why Choose STIE Mahardhika?',
@@ -284,6 +304,16 @@ const translations = {
     'hero.subtitle': '实现学术领导力和全球创新',
     'hero.description': '与富有远见的思想家一起，通过卓越的研究和可持续的合作，塑造经济和商业的未来。',
     'hero.cta': '现在注册',
+
+    'cost.title': '学费',
+    'cost.subtitle': 'STIE Mahardhika 博士项目 (S3)',
+    'cost.schedule.title': '常规课程',
+    'cost.schedule.description': '讲座于周五下午和周六举行。',
+    'cost.details.title': '费用明细',
+    'cost.details.item1': '注册费',
+    'cost.details.item2': '预科费',
+    'cost.details.item3': '每学期单一学费 (UKT)',
+    'cost.cta': '现在注册',
     
     // Features
     'features.title': '为什么选择STIE Mahardhika？',

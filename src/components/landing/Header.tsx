@@ -14,11 +14,11 @@ const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   
   const navItems = [
-    { key: 'nav.home', href: '#' },
-    { key: 'nav.profile', href: '#' },
-    { key: 'nav.curriculum', href: '#' },
-    { key: 'nav.cost', href: '#' },
-    { key: 'nav.registration', href: '#' }
+    { key: 'nav.home', href: '/' },
+    { key: 'nav.profile', href: '/profile' },
+    { key: 'nav.curriculum', href: '/curriculum' },
+    { key: 'nav.cost', href: '/cost' },
+    { key: 'nav.registration', href: '/registration' }
   ];
 
   const handleClickLogin = () => {
