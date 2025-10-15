@@ -28,9 +28,9 @@ const translations = {
     'button.logout': 'Keluar',
     
     // Hero Section
-    'hero.title': 'Selamat Datang di STIE Mahardhika',
-    'hero.subtitle': 'Tingkatkan Kualitas Pendidikan dan Karir Anda',
-    'hero.description': 'Bergabunglah dengan ribuan mahasiswa yang telah merasakan kualitas pendidikan terbaik di STIE Mahardhika',
+    'hero.title': 'Selamat Datang di Program S3 STIE Mahardhika',
+    'hero.subtitle': 'Mewujudkan Kepemimpinan Akademik dan Inovasi Global',
+    'hero.description': 'Bergabunglah dengan para pemikir visioner yang membangun masa depan ekonomi dan bisnis melalui riset unggulan dan kolaborasi berkelanjutan.',
     'hero.cta': 'Daftar Sekarang',
     
     // Features
@@ -154,9 +154,9 @@ const translations = {
     'button.logout': 'Logout',
     
     // Hero Section
-    'hero.title': 'Welcome to STIE Mahardhika',
-    'hero.subtitle': 'Enhance Your Education Quality and Career',
-    'hero.description': 'Join thousands of students who have experienced the best education quality at STIE Mahardhika',
+    'hero.title': 'Welcome to the Doctoral Program at STIE Mahardhika',
+    'hero.subtitle': 'Realizing Academic Leadership and Global Innovation',
+    'hero.description': 'Join visionary thinkers who are shaping the future of economics and business through excellent research and sustainable collaboration.',
     'hero.cta': 'Register Now',
     
     // Features
@@ -280,10 +280,10 @@ const translations = {
     'button.logout': '登出',
     
     // Hero Section
-    'hero.title': '欢迎来到STIE Mahardhika',
-    'hero.subtitle': '提升您的教育质量和职业发展',
-    'hero.description': '加入数千名在STIE Mahardhika体验过最佳教育质量的学生',
-    'hero.cta': '立即注册',
+    'hero.title': '欢迎来到 STIE Mahardhika 博士项目',
+    'hero.subtitle': '实现学术领导力和全球创新',
+    'hero.description': '与富有远见的思想家一起，通过卓越的研究和可持续的合作，塑造经济和商业的未来。',
+    'hero.cta': '现在注册',
     
     // Features
     'features.title': '为什么选择STIE Mahardhika？',

@@ -2,17 +2,17 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 
-import BackgroundImage1 from "@/assets/foto/VICL0820.webp";
+// import BackgroundImage1 from "@/assets/foto/VICL0820.webp";
 import BackgroundImage2 from "@/assets/foto/VICL1354.webp";
 import BackgroundImage3 from "@/assets/foto/VICL1455.webp";
-import BackgroundImage4 from "@/assets/foto/VICL1807.webp";
+// import BackgroundImage4 from "@/assets/foto/VICL1807.webp";
 
 import { ModalRegisOnline } from "./ModalRegisOnline";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
   const { t } = useLanguage();
-  const backgroundImages = [BackgroundImage1, BackgroundImage2, BackgroundImage3, BackgroundImage4];
+  const backgroundImages = [BackgroundImage2, BackgroundImage3];
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
