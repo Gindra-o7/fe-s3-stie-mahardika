@@ -7,6 +7,7 @@ import LoginPage from "@/pages/publics/login.page";
 import BiayaPage from "@/pages/publics/biaya.page";
 import TataCaraPendaftaranPage from "@/pages/publics/tata-cara-pendaftaran.page";
 import CurriculumPage from "@/pages/publics/curriculum.page";
+import ProfilProdiPage from "@/pages/publics/profil-prodi.page";
 
 export const generalRouter = [
 	{
@@ -19,7 +20,7 @@ export const generalRouter = [
 	},
 	{
 		path: "/profile",
-		element: <LandingPage />,
+		element: <ProfilProdiPage />,
 	},
 	{
 		path: "/curriculum",
