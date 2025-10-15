@@ -6,6 +6,7 @@ import KartuRekapanMurojaahPAPage from "@/pages/publics/kartu-rekapan-muroja'ah-
 import LoginPage from "@/pages/publics/login.page";
 import BiayaPage from "@/pages/publics/biaya.page";
 import TataCaraPendaftaranPage from "@/pages/publics/tata-cara-pendaftaran.page";
+import CurriculumPage from "@/pages/publics/curriculum.page";
 
 export const generalRouter = [
 	{
@@ -22,7 +23,7 @@ export const generalRouter = [
 	},
 	{
 		path: "/curriculum",
-		element: <LandingPage />,
+		element: <CurriculumPage />,
 	},
 	{
 		path: "/cost",
