@@ -35,7 +35,7 @@ const TuitionFees: React.FC = () => {
 	const { t } = useLanguage();
 
 	const feeData = [
-		{ label: t('cost.details.item1'), amount: "Rp. 3.000.000,00" },
+		{ label: t('cost.details.item1'), amount: "Rp. 500.000,00" },
 		{ label: t('cost.details.item2'), amount: "Rp. 3.000.000,00" },
 		{
 			label: t('cost.details.item3'),

@@ -116,7 +116,7 @@ const translations = {
 		"registration.step2.docs.item5":
 			"Salinan Sertifikat Test Potensi Akademik (TPA) OTO BAPPENAS dengan nilai TPA > 500.",
 		"registration.step2.docs.item6":
-			"Salinan Sertifikat TOEFL dengan nilai TOEFL > 525.",
+			"Salinan Sertifikat TOEFL dengan nilai TOEFL > 500.",
 		"registration.step2.docs.item7":
 			"Salinan transkrip program Doktor yang telah disahkan (bagi mahasiswa pindahan).",
 		"registration.step2.docs.item8":
@@ -291,7 +291,7 @@ const translations = {
     "registration.step2.docs.item3": "Copy of the BAN-PT Accreditation certificate for the Master's Program valid at the time of graduation.",
     "registration.step2.docs.item4": "Copy of ID Card (KTP).",
     "registration.step2.docs.item5": "Copy of the Academic Potential Test (TPA) OTO BAPPENAS Certificate with a score > 500.",
-    "registration.step2.docs.item6": "Copy of a TOEFL Certificate with a score > 525.",
+    "registration.step2.docs.item6": "Copy of a TOEFL Certificate with a score > 500.",
     "registration.step2.docs.item7": "Copy of the legalized Doctoral program transcript (for transfer students).",
     "registration.step2.docs.item8": "Recommendation letters from two individuals who can guarantee the applicant's academic eligibility.",
     "registration.step2.docs.item9": "Official statement letter from the study sponsor.",
@@ -455,7 +455,7 @@ const translations = {
     "registration.step2.docs.item3": "毕业时有效的硕士课程 BAN-PT 认证证书复印件。",
     "registration.step2.docs.item4": "身份证（KTP）复印件。",
     "registration.step2.docs.item5": "学术潜力测试（TPA）OTO BAPPENAS 证书复印件，分数需 > 500。",
-    "registration.step2.docs.item6": "托福（TOEFL）证书复印件，分数需 > 525。",
+    "registration.step2.docs.item6": "托福（TOEFL）证书复印件，分数需 > 500。",
     "registration.step2.docs.item7": "经认证的博士课程成绩单复印件（适用于转学生）。",
     "registration.step2.docs.item8": "两名能保证申请人学术资格的推荐人的推荐信。",
     "registration.step2.docs.item9": "学习赞助方的官方声明信。",
