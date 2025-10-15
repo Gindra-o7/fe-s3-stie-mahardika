@@ -36,7 +36,7 @@ const translations = {
     'cost.title': 'Biaya Pendidikan',
     'cost.subtitle': 'Program Doktor (S3) STIE Mahardhika',
     'cost.schedule.title': 'Program Reguler',
-    'cost.schedule.description': 'Perkuliahan diselenggarakan pada hari Jumat Sore dan Sabtu.',
+    'cost.schedule.description': "Perkuliahan diselenggarakan pada hari Senin s/d Jum'at.",
     'cost.details.title': 'Rincian Biaya',
     'cost.details.item1': 'Pendaftaran',
     'cost.details.item2': 'Matrikulasi',
@@ -147,7 +147,7 @@ const translations = {
 
 		"registration.intro.title": "Tata Cara Pendaftaran",
 		"registration.intro.line1":
-			"Program Doktor Ilmu Manajemen membuka pendaftaran mahasiswa baru untuk kelas Reguler (Perkuliahan diselenggarakan pada hari Jumat Sore dan Sabtu).",
+			"Program Doktor Ilmu Manajemen membuka pendaftaran mahasiswa baru untuk kelas Reguler (Perkuliahan diselenggarakan pada hari Senin s/d Jum'at).",
 		"registration.intro.line2":
 			"Pendaftaran mahasiswa baru Program Pascasarjana dilakukan secara online melalui website Seleksi Masuk STIE Mahardhika Surabaya.",
 		"registration.cta.button": "Kunjungi Website Pendaftaran",
@@ -425,7 +425,7 @@ const translations = {
     'cost.title': 'Tuition Fees',
     'cost.subtitle': 'Doctoral Program (S3) at STIE Mahardhika',
     'cost.schedule.title': 'Regular Program',
-    'cost.schedule.description': 'Lectures are held on Friday afternoons and Saturdays.',
+    'cost.schedule.description': 'Classes are held Monday through Friday.',
     'cost.details.title': 'Fee Details',
     'cost.details.item1': 'Registration',
     'cost.details.item2': 'Matriculation',
@@ -517,7 +517,7 @@ const translations = {
     'registration.result.desc': 'View selection results on website',
     
     "registration.intro.title": "Registration Procedure",
-    "registration.intro.line1": "The Doctor of Management Science Program is opening new student admissions for the Regular class (Lectures are held on Friday Afternoons and Saturdays).",
+    "registration.intro.line1": "The Doctoral Program in Management is now accepting applications for new students for its Regular Class (Classes are held Monday through Friday).",
     "registration.intro.line2": "New postgraduate student registration is conducted online through the STIE Mahardhika Surabaya Entrance Selection website.",
     "registration.cta.button": "Visit Registration Website",
     "registration.step1.title": "Registration Payment",
@@ -774,7 +774,7 @@ const translations = {
     'cost.title': '学费',
     'cost.subtitle': 'STIE Mahardhika 博士项目 (S3)',
     'cost.schedule.title': '常规课程',
-    'cost.schedule.description': '讲座于周五下午和周六举行。',
+    'cost.schedule.description': '课程安排在周一至周五进行。',
     'cost.details.title': '费用明细',
     'cost.details.item1': '注册费',
     'cost.details.item2': '预科费',
@@ -866,7 +866,7 @@ const translations = {
     'registration.result.desc': '在网站上查看选拔结果',
     
     "registration.intro.title": "注册流程",
-    "registration.intro.line1": "管理科学博士项目正在为常规班招收新生（讲座在周五下午和周六举行）。",
+    "registration.intro.line1": "管理学博士项目现面向新生开放常规班级招生（课程安排在周一至周五进行）。",
     "registration.intro.line2": "研究生新生注册通过 STIE Mahardhika 泗水入学选拔网站在线进行。",
     "registration.cta.button": "访问注册网站",
     "registration.step1.title": "支付注册费",
