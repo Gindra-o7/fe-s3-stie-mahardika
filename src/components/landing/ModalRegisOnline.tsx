@@ -1,6 +1,6 @@
 import { ChevronRight, FileText, GraduationCap, X, User, Mail, Phone, IdCard, School, Upload, ChevronLeft } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import UniversityService from "@/services/api/public/universitas.service";
 import { University } from "@/interfaces/service/api/public/university.interface";
 import { createPortal } from "react-dom";
@@ -96,19 +96,19 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
   const [isLoading, setIsLoading] = useState(false);
   const debounceRef = useRef<NodeJS.Timeout | null>(null);
 
-  const fetchUniversities = async (query: string) => {
+  const fetchUniversities = useCallback(async (query: string) => {
     setIsLoading(true);
     try {
       const data = await UniversityService.searchUniversity({ query });
       setFilteredUniversities(data);
     } catch (error) {
       console.error("Error fetching universities:", error);
-      setErrors((prev) => ({ ...prev, api: "Gagal memuat data universitas" }));
+      setErrors((prev) => ({ ...prev, api: t('modal.registration.error.api') }));
       setFilteredUniversities([]);
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [t]);
 
   useEffect(() => {
     if (debounceRef.current) {
@@ -128,7 +128,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
         clearTimeout(debounceRef.current);
       }
     };
-  }, [s1Search, s2Search, activeSearchField]);
+  }, [s1Search, s2Search, activeSearchField, fetchUniversities]);
 
   const totalSteps = 2;
 
@@ -136,29 +136,29 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
     const newErrors: Record<string, string> = {};
 
     if (!formData.fullName.trim()) {
-      newErrors.fullName = "Nama lengkap wajib diisi";
+      newErrors.fullName = t('validation.fullname.required');
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = "Email wajib diisi";
+      newErrors.email = t('validation.email.required');
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Format email tidak valid";
+      newErrors.email = t('validation.email.invalid');
     }
 
     if (!formData.phone.trim()) {
-      newErrors.phone = "Nomor HP wajib diisi";
+      newErrors.phone = t('validation.phone.required');
     } else if (!/^[0-9]{10,13}$/.test(formData.phone)) {
-      newErrors.phone = "Nomor HP harus 10-13 digit";
+      newErrors.phone = t('validation.phone.invalid');
     }
 
     if (!formData.ktp.trim()) {
-      newErrors.ktp = "Nomor KTP wajib diisi";
+      newErrors.ktp = t('validation.ktp.required');
     } else if (!/^[0-9]{16}$/.test(formData.ktp)) {
-      newErrors.ktp = "Nomor KTP harus 16 digit";
+      newErrors.ktp = t('validation.ktp.invalid');
     }
 
     if (!formData.photo) {
-      newErrors.photo = "Foto wajib diunggah";
+      newErrors.photo = t('validation.photo.required');
     }
 
     setErrors(newErrors);
@@ -169,28 +169,28 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
     const newErrors: Record<string, string> = {};
 
     if (!formData.s1University.trim()) {
-      newErrors.s1University = "Asal perguruan tinggi S1 wajib diisi";
+      newErrors.s1University = t('validation.s1.university.required');
     }
 
     if (!formData.s1Gpa.trim()) {
-      newErrors.s1Gpa = "IPK S1 wajib diisi";
+      newErrors.s1Gpa = t('validation.s1.gpa.required');
     } else {
       const gpa = parseFloat(formData.s1Gpa);
       if (isNaN(gpa) || gpa < 0 || gpa > 4) {
-        newErrors.s1Gpa = "IPK harus antara 0-4";
+        newErrors.s1Gpa = t('validation.s1.gpa.invalid');
       }
     }
 
     if (!formData.s2University.trim()) {
-      newErrors.s2University = "Asal perguruan tinggi S2 wajib diisi";
+      newErrors.s2University = t('validation.s2.university.required');
     }
 
     if (!formData.s2Gpa.trim()) {
-      newErrors.s2Gpa = "IPK S2 wajib diisi";
+      newErrors.s2Gpa = t('validation.s2.gpa.required');
     } else {
       const gpa = parseFloat(formData.s2Gpa);
       if (isNaN(gpa) || gpa < 0 || gpa > 4) {
-        newErrors.s2Gpa = "IPK harus antara 0-4";
+        newErrors.s2Gpa = t('validation.s2.gpa.invalid');
       }
     }
 
@@ -260,7 +260,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
       await new Promise(resolve => setTimeout(resolve, 3000));
 
       console.log("Form Submitted:", formData);
-      alert("Formulir berhasil dikirim!");
+      alert(t('modal.registration.success'));
       setFormData({
         fullName: "",
         email: "",
@@ -314,12 +314,12 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
         </button>
 
         <motion.h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-center text-gray-800 mb-3 sm:mb-4 pr-8">
-          {t('registration.title')}
+          {t('modal.registration.title')}
         </motion.h2>
 
         <div className="w-full mb-4 sm:mb-6 lg:mb-8">
           <p className="text-center text-gray-500 text-sm sm:text-base">
-            {t('registration.online')} {currentStep} {t('registration.payment')} {totalSteps}
+            {t('modal.registration.step')} {currentStep} {t('modal.registration.of')} {totalSteps}
           </p>
           <div className="flex w-full sm:w-2/3 lg:w-1/2 mx-auto mt-2 h-2 bg-gray-200 rounded-full">
             <motion.div className="bg-gradient-to-r from-[#207D96] to-[#1B3F6E] rounded-full" animate={{ width: `${(currentStep / totalSteps) * 100}%` }} transition={{ duration: 0.5, type: "spring" }} />
@@ -333,7 +333,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                 <motion.div key="step1" variants={stepVariants} initial="hidden" animate="visible" exit="exit" transition={{ duration: 0.3 }}>
                   <div className="bg-gradient-to-br from-gray-50 to-[#207D96]/5 p-4 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl">
                     <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4 flex items-center gap-2">
-                      <User className="h-4 w-4 sm:h-5 sm:w-5 text-[#207D96]" /> {t('requirements.academic')}
+                      <User className="h-4 w-4 sm:h-5 sm:w-5 text-[#207D96]" /> {t('modal.registration.personal.info')}
                     </h3>
                     <div className="space-y-3 sm:space-y-4">
                       <div>
@@ -344,7 +344,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                             name="fullName"
                             value={formData.fullName}
                             onChange={handleChange}
-                            placeholder="Nama Lengkap"
+                            placeholder={t('modal.registration.fullname.placeholder')}
                             className={`w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 border rounded-lg sm:rounded-xl focus:border-[#207D96] focus:ring-2 focus:ring-[#207D96]/20 outline-none transition-colors text-sm sm:text-base ${
                               errors.fullName ? "border-red-500" : "border-gray-300"
                             }`}
@@ -361,7 +361,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
-                            placeholder="Email"
+                            placeholder={t('modal.registration.email.placeholder')}
                             className={`w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 border rounded-lg sm:rounded-xl focus:border-[#207D96] focus:ring-2 focus:ring-[#207D96]/20 outline-none transition-colors text-sm sm:text-base ${
                               errors.email ? "border-red-500" : "border-gray-300"
                             }`}
@@ -378,7 +378,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                             name="phone"
                             value={formData.phone}
                             onChange={handleChange}
-                            placeholder="Nomor HP (10-13 digit)"
+                            placeholder={t('modal.registration.phone.placeholder')}
                             className={`w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 border rounded-lg sm:rounded-xl focus:border-[#207D96] focus:ring-2 focus:ring-[#207D96]/20 outline-none transition-colors text-sm sm:text-base ${
                               errors.phone ? "border-red-500" : "border-gray-300"
                             }`}
@@ -395,7 +395,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                             name="ktp"
                             value={formData.ktp}
                             onChange={handleChange}
-                            placeholder="Nomor KTP (16 digit)"
+                            placeholder={t('modal.registration.ktp.placeholder')}
                             maxLength={16}
                             className={`w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 border rounded-lg sm:rounded-xl focus:border-[#207D96] focus:ring-2 focus:ring-[#207D96]/20 outline-none transition-colors text-sm sm:text-base ${
                               errors.ktp ? "border-red-500" : "border-gray-300"
@@ -407,7 +407,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
 
                       <div>
                         <label className="text-gray-700 font-medium mb-2 flex items-center gap-2 text-sm sm:text-base">
-                          <Upload className="h-4 w-4 sm:h-5 sm:w-5 text-[#207D96]" /> Upload Foto
+                          <Upload className="h-4 w-4 sm:h-5 sm:w-5 text-[#207D96]" /> {t('modal.registration.upload.photo')}
                         </label>
                         <input
                           type="file"
@@ -419,7 +419,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                           }`}
                         />
                         {errors.photo && <p className="text-red-500 text-xs sm:text-sm mt-1 ml-1">{errors.photo}</p>}
-                        {formData.photo && <p className="text-green-600 text-xs sm:text-sm mt-1 ml-1">✓ File terpilih: {formData.photo.name}</p>}
+                        {formData.photo && <p className="text-green-600 text-xs sm:text-sm mt-1 ml-1">✓ {t('modal.registration.file.selected')} {formData.photo.name}</p>}
                       </div>
                     </div>
                   </div>
@@ -430,7 +430,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                 <motion.div key="step2" variants={stepVariants} initial="hidden" animate="visible" exit="exit" transition={{ duration: 0.3 }}>
                   <div className="bg-gradient-to-br from-gray-50 to-[#207D96]/5 p-4 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl">
                     <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4 flex items-center gap-2">
-                      <School className="h-4 w-4 sm:h-5 sm:w-5 text-[#207D96]" /> {t('requirements.academic')}
+                      <School className="h-4 w-4 sm:h-5 sm:w-5 text-[#207D96]" /> {t('modal.registration.academic.info')}
                     </h3>
                     {errors.api && <p className="text-red-500 text-xs sm:text-sm mb-4">{errors.api}</p>}
                     <div className="space-y-3 sm:space-y-4">
@@ -442,13 +442,13 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                             name="s1University"
                             value={s1Search}
                             onChange={handleChange}
-                            placeholder="Cari Asal Perguruan Tinggi S1"
+                            placeholder={t('modal.registration.search.s1')}
                             className={`w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 border rounded-lg sm:rounded-xl focus:border-[#207D96] focus:ring-2 focus:ring-[#207D96]/20 outline-none transition-colors text-sm sm:text-base ${
                               errors.s1University ? "border-red-500" : "border-gray-300"
                             }`}
                           />
                         </div>
-                        {isLoading && activeSearchField === "s1University" && <p className="text-gray-500 text-xs sm:text-sm mt-1 ml-1">Memuat universitas...</p>}
+                        {isLoading && activeSearchField === "s1University" && <p className="text-gray-500 text-xs sm:text-sm mt-1 ml-1">{t('modal.registration.loading.universities')}</p>}
                         {filteredUniversities.length > 0 && activeSearchField === "s1University" && (
                           <motion.ul
                             className="absolute z-20 w-full bg-white border border-gray-200 rounded-lg sm:rounded-xl mt-1 max-h-48 sm:max-h-60 overflow-y-auto shadow-lg"
@@ -475,7 +475,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                             value={formData.s1Gpa}
                             onChange={handleChange}
                             step="0.01"
-                            placeholder="IPK S1 (0-4)"
+                            placeholder={t('modal.registration.gpa.s1.placeholder')}
                             className={`w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 border rounded-lg sm:rounded-xl focus:border-[#207D96] focus:ring-2 focus:ring-[#207D96]/20 outline-none transition-colors text-sm sm:text-base ${
                               errors.s1Gpa ? "border-red-500" : "border-gray-300"
                             }`}
@@ -492,13 +492,13 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                             name="s2University"
                             value={s2Search}
                             onChange={handleChange}
-                            placeholder="Cari Asal Perguruan Tinggi S2"
+                            placeholder={t('modal.registration.search.s2')}
                             className={`w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 border rounded-lg sm:rounded-xl focus:border-[#207D96] focus:ring-2 focus:ring-[#207D96]/20 outline-none transition-colors text-sm sm:text-base ${
                               errors.s2University ? "border-red-500" : "border-gray-300"
                             }`}
                           />
                         </div>
-                        {isLoading && activeSearchField === "s2University" && <p className="text-gray-500 text-xs sm:text-sm mt-1 ml-1">Memuat universitas...</p>}
+                        {isLoading && activeSearchField === "s2University" && <p className="text-gray-500 text-xs sm:text-sm mt-1 ml-1">{t('modal.registration.loading.universities')}</p>}
                         {filteredUniversities.length > 0 && activeSearchField === "s2University" && (
                           <motion.ul
                             className="absolute z-20 w-full bg-white border border-gray-200 rounded-lg sm:rounded-xl mt-1 max-h-48 sm:max-h-60 overflow-y-auto shadow-lg"
@@ -525,7 +525,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                             value={formData.s2Gpa}
                             onChange={handleChange}
                             step="0.01"
-                            placeholder="IPK S2 (0-4)"
+                            placeholder={t('modal.registration.gpa.s2.placeholder')}
                             className={`w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 border rounded-lg sm:rounded-xl focus:border-[#207D96] focus:ring-2 focus:ring-[#207D96]/20 outline-none transition-colors text-sm sm:text-base ${
                               errors.s2Gpa ? "border-red-500" : "border-gray-300"
                             }`}
@@ -550,7 +550,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
               disabled={currentStep === 1}
             >
               <ChevronLeft className="w-4 h-4" />
-              {t('registration.result')}
+              {t('modal.registration.back')}
             </motion.button>
 
             {currentStep < totalSteps ? (
@@ -561,7 +561,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {t('registration.test')}
+                {t('modal.registration.next')}
                 <ChevronRight className="w-4 h-4" />
               </motion.button>
             ) : (
@@ -571,7 +571,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
               >
-                {t('button.register')}
+                {t('modal.registration.submit')}
                 <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </motion.button>
             )}
