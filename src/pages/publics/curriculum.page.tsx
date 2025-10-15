@@ -453,12 +453,12 @@ const CurriculumPage = () => {
           <div className="mt-8 pt-6 border-t border-white/20">
             <div className="grid md:grid-cols-3 gap-4 text-center text-sm">
               <div>
-                <div className="font-bold text-lg mb-1">3 {t('curriculum.duration.normal').split(' ')[1]}</div>
-                <div className="text-white/80">{t('curriculum.duration.normal')}</div>
+                <div className="font-bold text-lg mb-1">3 {t('curriculum.duration.normal')}</div>
+                <div className="text-white/80">{t('curriculum.duration.normal.desc')}</div>
               </div>
               <div>
-                <div className="font-bold text-lg mb-1">5 {t('curriculum.duration.max').split(' ')[1]}</div>
-                <div className="text-white/80">{t('curriculum.duration.max')}</div>
+                <div className="font-bold text-lg mb-1">5 {t('curriculum.duration.max')}</div>
+                <div className="text-white/80">{t('curriculum.duration.max.desc')}</div>
               </div>
               <div>
                 <div className="font-bold text-lg mb-1">1:8</div>
