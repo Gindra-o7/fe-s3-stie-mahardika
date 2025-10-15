@@ -80,9 +80,6 @@ const Header = () => {
                 </a>
               ))}
 
-              <div className="flex justify-center mt-2">
-                <LanguageSelector />
-              </div>
 
               <button onClick={handleClickLogin} className="flex items-center justify-center gap-2 border-2 border-[#207D96] text-[#207D96] px-4 py-2.5 rounded-lg hover:bg-[#207D96] hover:text-white transition-all font-medium mt-2">
                 <LogIn className="w-4 h-4" />
