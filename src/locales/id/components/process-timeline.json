@@ -1,11 +1,11 @@
 {
-  "features.title": "Mengapa Memilih STIE Mahardhika?",
-  "features.quality": "Kualitas Pendidikan Terbaik",
-  "features.quality.desc": "Kurikulum yang disesuaikan dengan kebutuhan industri",
-  "features.faculty": "Dosen Berpengalaman",
-  "features.faculty.desc": "Dosen yang ahli di bidangnya masing-masing",
-  "features.facility": "Fasilitas Lengkap",
-  "features.facility.desc": "Fasilitas modern untuk mendukung pembelajaran",
-  "features.career": "Bantuan Karir",
-  "features.career.desc": "Bimbingan karir dan penempatan kerja"
+  "process.title": "Mengapa Memilih STIE Mahardhika?",
+  "process.step1": "Kualitas Pendidikan Terbaik",
+  "process.step1.desc": "Kurikulum yang disesuaikan dengan kebutuhan industri",
+  "process.step2": "Dosen Berpengalaman",
+  "process.step2.des": "Dosen yang ahli di bidangnya masing-masing",
+  "process.step3": "Fasilitas Lengkap",
+  "process.step3.desc": "Fasilitas modern untuk mendukung pembelajaran",
+  "process.step4": "Bantuan Karir",
+  "process.step4.desc": "Bimbingan karir dan penempatan kerja"
 }
