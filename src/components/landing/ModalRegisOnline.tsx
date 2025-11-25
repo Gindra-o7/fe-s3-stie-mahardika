@@ -1,20 +1,16 @@
 import { ChevronRight, FileText, GraduationCap, X, User, Mail, Phone, IdCard, School, Upload, ChevronLeft } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useRef, useState, useCallback } from "react";
-import UniversityService from "@/services/api/public/universitas.service";
-import { University } from "@/interfaces/service/api/public/university.interface";
+import { useState } from "react";
 import { createPortal } from "react-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export const DocumentList = ({ documents }: { documents: string[] }) => {
   const { t } = useLanguage();
-  
+
   return (
     <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-      <h2 className="text-4xl font-bold text-gray-800 mb-2">
-        {t('requirements.title')}
-      </h2>
-      <p className="text-gray-600 mb-8">{t('requirements.documents.desc')}</p>
+      <h2 className="text-4xl font-bold text-gray-800 mb-2">{t("requirements.title")}</h2>
+      <p className="text-gray-600 mb-8">{t("requirements.documents.desc")}</p>
 
       <ul className="space-y-4">
         {documents.map((doc, index) => (
@@ -40,7 +36,7 @@ export const DocumentList = ({ documents }: { documents: string[] }) => {
 
 export const CTACard = ({ onOpenModal }: { onOpenModal: () => void }) => {
   const { t } = useLanguage();
-  
+
   return (
     <motion.div
       className="bg-gradient-to-br from-gray-50 to-[#207D96]/10 p-10 rounded-2xl text-center border border-[#207D96]/20"
@@ -53,8 +49,8 @@ export const CTACard = ({ onOpenModal }: { onOpenModal: () => void }) => {
         <GraduationCap className="h-12 w-12 text-white" />
       </motion.div>
 
-      <h3 className="text-3xl font-bold text-gray-800 mb-3">{t('hero.cta')}</h3>
-      <p className="text-gray-600 mb-8 leading-relaxed">{t('hero.description')}</p>
+      <h3 className="text-3xl font-bold text-gray-800 mb-3">{t("hero.cta")}</h3>
+      <p className="text-gray-600 mb-8 leading-relaxed">{t("hero.description")}</p>
 
       <div className="flex flex-col sm:flex-row justify-center gap-4">
         <motion.button
@@ -63,11 +59,11 @@ export const CTACard = ({ onOpenModal }: { onOpenModal: () => void }) => {
           whileTap={{ scale: 0.95 }}
           onClick={onOpenModal}
         >
-          {t('button.register')}
+          {t("button.register")}
           <ChevronRight className="w-4 h-4" />
         </motion.button>
         <motion.button className="bg-white border-2 border-[#207D96] text-[#207D96] px-6 py-3 rounded-xl hover:bg-[#207D96] hover:text-white font-semibold transition-all" whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>
-          {t('registration.result.desc')}
+          {t("registration.result.desc")}
         </motion.button>
       </div>
     </motion.div>
@@ -89,46 +85,6 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
     s2University: "",
     s2Gpa: "",
   });
-  const [s1Search, setS1Search] = useState<string>("");
-  const [s2Search, setS2Search] = useState<string>("");
-  const [filteredUniversities, setFilteredUniversities] = useState<University[]>([]);
-  const [activeSearchField, setActiveSearchField] = useState<"s1University" | "s2University" | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const debounceRef = useRef<NodeJS.Timeout | null>(null);
-
-  const fetchUniversities = useCallback(async (query: string) => {
-    setIsLoading(true);
-    try {
-      const data = await UniversityService.searchUniversity({ query });
-      setFilteredUniversities(data);
-    } catch (error) {
-      console.error("Error fetching universities:", error);
-      setErrors((prev) => ({ ...prev, api: t('modal.registration.error.api') }));
-      setFilteredUniversities([]);
-    } finally {
-      setIsLoading(false);
-    }
-  }, [t]);
-
-  useEffect(() => {
-    if (debounceRef.current) {
-      clearTimeout(debounceRef.current);
-    }
-    debounceRef.current = setTimeout(() => {
-      if (activeSearchField) {
-        const searchQuery = activeSearchField === "s1University" ? s1Search : s2Search;
-        if (searchQuery.trim()) {
-          fetchUniversities(searchQuery);
-        }
-      }
-    }, 300);
-
-    return () => {
-      if (debounceRef.current) {
-        clearTimeout(debounceRef.current);
-      }
-    };
-  }, [s1Search, s2Search, activeSearchField, fetchUniversities]);
 
   const totalSteps = 2;
 
@@ -136,29 +92,29 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
     const newErrors: Record<string, string> = {};
 
     if (!formData.fullName.trim()) {
-      newErrors.fullName = t('validation.fullname.required');
+      newErrors.fullName = t("validation.fullname.required");
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = t('validation.email.required');
+      newErrors.email = t("validation.email.required");
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = t('validation.email.invalid');
+      newErrors.email = t("validation.email.invalid");
     }
 
     if (!formData.phone.trim()) {
-      newErrors.phone = t('validation.phone.required');
+      newErrors.phone = t("validation.phone.required");
     } else if (!/^[0-9]{10,13}$/.test(formData.phone)) {
-      newErrors.phone = t('validation.phone.invalid');
+      newErrors.phone = t("validation.phone.invalid");
     }
 
     if (!formData.ktp.trim()) {
-      newErrors.ktp = t('validation.ktp.required');
+      newErrors.ktp = t("validation.ktp.required");
     } else if (!/^[0-9]{16}$/.test(formData.ktp)) {
-      newErrors.ktp = t('validation.ktp.invalid');
+      newErrors.ktp = t("validation.ktp.invalid");
     }
 
     if (!formData.photo) {
-      newErrors.photo = t('validation.photo.required');
+      newErrors.photo = t("validation.photo.required");
     }
 
     setErrors(newErrors);
@@ -169,28 +125,28 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
     const newErrors: Record<string, string> = {};
 
     if (!formData.s1University.trim()) {
-      newErrors.s1University = t('validation.s1.university.required');
+      newErrors.s1University = t("validation.s1.university.required");
     }
 
     if (!formData.s1Gpa.trim()) {
-      newErrors.s1Gpa = t('validation.s1.gpa.required');
+      newErrors.s1Gpa = t("validation.s1.gpa.required");
     } else {
       const gpa = parseFloat(formData.s1Gpa);
       if (isNaN(gpa) || gpa < 0 || gpa > 4) {
-        newErrors.s1Gpa = t('validation.s1.gpa.invalid');
+        newErrors.s1Gpa = t("validation.s1.gpa.invalid");
       }
     }
 
     if (!formData.s2University.trim()) {
-      newErrors.s2University = t('validation.s2.university.required');
+      newErrors.s2University = t("validation.s2.university.required");
     }
 
     if (!formData.s2Gpa.trim()) {
-      newErrors.s2Gpa = t('validation.s2.gpa.required');
+      newErrors.s2Gpa = t("validation.s2.gpa.required");
     } else {
       const gpa = parseFloat(formData.s2Gpa);
       if (isNaN(gpa) || gpa < 0 || gpa > 4) {
-        newErrors.s2Gpa = t('validation.s2.gpa.invalid');
+        newErrors.s2Gpa = t("validation.s2.gpa.invalid");
       }
     }
 
@@ -201,8 +157,6 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
   const handleNext = () => {
     if (currentStep === 1 && validateStep1()) {
       setCurrentStep(2);
-      setFilteredUniversities([]);
-      setActiveSearchField(null);
     }
   };
 
@@ -210,8 +164,6 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1);
       setErrors({});
-      setFilteredUniversities([]);
-      setActiveSearchField(null);
     }
   };
 
@@ -222,14 +174,6 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
       [name]: files ? files[0] : value,
     }));
 
-    if (name === "s1University") {
-      setS1Search(value);
-      setActiveSearchField("s1University");
-    } else if (name === "s2University") {
-      setS2Search(value);
-      setActiveSearchField("s2University");
-    }
-
     if (errors[name]) {
       setErrors((prev) => {
         const newErrors = { ...prev };
@@ -239,28 +183,14 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
     }
   };
 
-  const handleUniversitySelect = (university: string, field: "s1University" | "s2University") => {
-    setFormData((prev) => ({
-      ...prev,
-      [field]: university,
-    }));
-    if (field === "s1University") {
-      setS1Search(university);
-    } else {
-      setS2Search(university);
-    }
-    setFilteredUniversities([]);
-    setActiveSearchField(null);
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (validateStep2()) {
-      await new Promise(resolve => setTimeout(resolve, 3000));
+      await new Promise((resolve) => setTimeout(resolve, 3000));
 
       console.log("Form Submitted:", formData);
-      alert(t('modal.registration.success'));
+      alert(t("modal.registration.success"));
       setFormData({
         fullName: "",
         email: "",
@@ -272,12 +202,8 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
         s2University: "",
         s2Gpa: "",
       });
-      setS1Search("");
-      setS2Search("");
       setCurrentStep(1);
       setErrors({});
-      setFilteredUniversities([]);
-      setActiveSearchField(null);
       onClose();
     }
   };
@@ -285,10 +211,6 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
   const handleClose = () => {
     setCurrentStep(1);
     setErrors({});
-    setS1Search("");
-    setS2Search("");
-    setFilteredUniversities([]);
-    setActiveSearchField(null);
     onClose();
   };
 
@@ -313,13 +235,11 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
           <X className="h-5 w-5 sm:h-6 sm:w-6" />
         </button>
 
-        <motion.h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-center text-gray-800 mb-3 sm:mb-4 pr-8">
-          {t('modal.registration.title')}
-        </motion.h2>
+        <motion.h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-center text-gray-800 mb-3 sm:mb-4 pr-8">{t("modal.registration.title")}</motion.h2>
 
         <div className="w-full mb-4 sm:mb-6 lg:mb-8">
           <p className="text-center text-gray-500 text-sm sm:text-base">
-            {t('modal.registration.step')} {currentStep} {t('modal.registration.of')} {totalSteps}
+            {t("modal.registration.step")} {currentStep} {t("modal.registration.of")} {totalSteps}
           </p>
           <div className="flex w-full sm:w-2/3 lg:w-1/2 mx-auto mt-2 h-2 bg-gray-200 rounded-full">
             <motion.div className="bg-gradient-to-r from-[#207D96] to-[#1B3F6E] rounded-full" animate={{ width: `${(currentStep / totalSteps) * 100}%` }} transition={{ duration: 0.5, type: "spring" }} />
@@ -333,7 +253,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                 <motion.div key="step1" variants={stepVariants} initial="hidden" animate="visible" exit="exit" transition={{ duration: 0.3 }}>
                   <div className="bg-gradient-to-br from-gray-50 to-[#207D96]/5 p-4 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl">
                     <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4 flex items-center gap-2">
-                      <User className="h-4 w-4 sm:h-5 sm:w-5 text-[#207D96]" /> {t('modal.registration.personal.info')}
+                      <User className="h-4 w-4 sm:h-5 sm:w-5 text-[#207D96]" /> {t("modal.registration.personal.info")}
                     </h3>
                     <div className="space-y-3 sm:space-y-4">
                       <div>
@@ -344,7 +264,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                             name="fullName"
                             value={formData.fullName}
                             onChange={handleChange}
-                            placeholder={t('modal.registration.fullname.placeholder')}
+                            placeholder={t("modal.registration.fullname.placeholder")}
                             className={`w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 border rounded-lg sm:rounded-xl focus:border-[#207D96] focus:ring-2 focus:ring-[#207D96]/20 outline-none transition-colors text-sm sm:text-base ${
                               errors.fullName ? "border-red-500" : "border-gray-300"
                             }`}
@@ -361,7 +281,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
-                            placeholder={t('modal.registration.email.placeholder')}
+                            placeholder={t("modal.registration.email.placeholder")}
                             className={`w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 border rounded-lg sm:rounded-xl focus:border-[#207D96] focus:ring-2 focus:ring-[#207D96]/20 outline-none transition-colors text-sm sm:text-base ${
                               errors.email ? "border-red-500" : "border-gray-300"
                             }`}
@@ -378,7 +298,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                             name="phone"
                             value={formData.phone}
                             onChange={handleChange}
-                            placeholder={t('modal.registration.phone.placeholder')}
+                            placeholder={t("modal.registration.phone.placeholder")}
                             className={`w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 border rounded-lg sm:rounded-xl focus:border-[#207D96] focus:ring-2 focus:ring-[#207D96]/20 outline-none transition-colors text-sm sm:text-base ${
                               errors.phone ? "border-red-500" : "border-gray-300"
                             }`}
@@ -395,7 +315,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                             name="ktp"
                             value={formData.ktp}
                             onChange={handleChange}
-                            placeholder={t('modal.registration.ktp.placeholder')}
+                            placeholder={t("modal.registration.ktp.placeholder")}
                             maxLength={16}
                             className={`w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 border rounded-lg sm:rounded-xl focus:border-[#207D96] focus:ring-2 focus:ring-[#207D96]/20 outline-none transition-colors text-sm sm:text-base ${
                               errors.ktp ? "border-red-500" : "border-gray-300"
@@ -407,7 +327,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
 
                       <div>
                         <label className="text-gray-700 font-medium mb-2 flex items-center gap-2 text-sm sm:text-base">
-                          <Upload className="h-4 w-4 sm:h-5 sm:w-5 text-[#207D96]" /> {t('modal.registration.upload.photo')}
+                          <Upload className="h-4 w-4 sm:h-5 sm:w-5 text-[#207D96]" /> {t("modal.registration.upload.photo")}
                         </label>
                         <input
                           type="file"
@@ -419,7 +339,11 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                           }`}
                         />
                         {errors.photo && <p className="text-red-500 text-xs sm:text-sm mt-1 ml-1">{errors.photo}</p>}
-                        {formData.photo && <p className="text-green-600 text-xs sm:text-sm mt-1 ml-1">✓ {t('modal.registration.file.selected')} {formData.photo.name}</p>}
+                        {formData.photo && (
+                          <p className="text-green-600 text-xs sm:text-sm mt-1 ml-1">
+                            ✓ {t("modal.registration.file.selected")} {formData.photo.name}
+                          </p>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -430,39 +354,23 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                 <motion.div key="step2" variants={stepVariants} initial="hidden" animate="visible" exit="exit" transition={{ duration: 0.3 }}>
                   <div className="bg-gradient-to-br from-gray-50 to-[#207D96]/5 p-4 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl">
                     <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4 flex items-center gap-2">
-                      <School className="h-4 w-4 sm:h-5 sm:w-5 text-[#207D96]" /> {t('modal.registration.academic.info')}
+                      <School className="h-4 w-4 sm:h-5 sm:w-5 text-[#207D96]" /> {t("modal.registration.academic.info")}
                     </h3>
-                    {errors.api && <p className="text-red-500 text-xs sm:text-sm mb-4">{errors.api}</p>}
                     <div className="space-y-3 sm:space-y-4">
-                      <div className="relative">
+                      <div>
                         <div className="relative">
-                          <School className="absolute left-3 top-1/2 -translate-y-1/2 text-[#207D96]/60 z-10" size={18} />
+                          <School className="absolute left-3 top-1/2 -translate-y-1/2 text-[#207D96]/60" size={18} />
                           <input
                             type="text"
                             name="s1University"
-                            value={s1Search}
+                            value={formData.s1University}
                             onChange={handleChange}
-                            placeholder={t('modal.registration.search.s1')}
+                            placeholder={t("modal.registration.search.s1")}
                             className={`w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 border rounded-lg sm:rounded-xl focus:border-[#207D96] focus:ring-2 focus:ring-[#207D96]/20 outline-none transition-colors text-sm sm:text-base ${
                               errors.s1University ? "border-red-500" : "border-gray-300"
                             }`}
                           />
                         </div>
-                        {isLoading && activeSearchField === "s1University" && <p className="text-gray-500 text-xs sm:text-sm mt-1 ml-1">{t('modal.registration.loading.universities')}</p>}
-                        {filteredUniversities.length > 0 && activeSearchField === "s1University" && (
-                          <motion.ul
-                            className="absolute z-20 w-full bg-white border border-gray-200 rounded-lg sm:rounded-xl mt-1 max-h-48 sm:max-h-60 overflow-y-auto shadow-lg"
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                          >
-                            {filteredUniversities.map((uni) => (
-                              <li key={uni.kode} className="px-3 sm:px-4 py-2 hover:bg-[#207D96]/10 cursor-pointer text-gray-700 text-xs sm:text-sm" onClick={() => handleUniversitySelect(uni.nama, "s1University")}>
-                                {uni.nama}
-                              </li>
-                            ))}
-                          </motion.ul>
-                        )}
                         {errors.s1University && <p className="text-red-500 text-xs sm:text-sm mt-1 ml-1">{errors.s1University}</p>}
                       </div>
 
@@ -475,7 +383,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                             value={formData.s1Gpa}
                             onChange={handleChange}
                             step="0.01"
-                            placeholder={t('modal.registration.gpa.s1.placeholder')}
+                            placeholder={t("modal.registration.gpa.s1.placeholder")}
                             className={`w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 border rounded-lg sm:rounded-xl focus:border-[#207D96] focus:ring-2 focus:ring-[#207D96]/20 outline-none transition-colors text-sm sm:text-base ${
                               errors.s1Gpa ? "border-red-500" : "border-gray-300"
                             }`}
@@ -484,35 +392,20 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                         {errors.s1Gpa && <p className="text-red-500 text-xs sm:text-sm mt-1 ml-1">{errors.s1Gpa}</p>}
                       </div>
 
-                      <div className="relative">
+                      <div>
                         <div className="relative">
-                          <School className="absolute left-3 top-1/2 -translate-y-1/2 text-[#207D96]/60 z-10" size={18} />
+                          <School className="absolute left-3 top-1/2 -translate-y-1/2 text-[#207D96]/60" size={18} />
                           <input
                             type="text"
                             name="s2University"
-                            value={s2Search}
+                            value={formData.s2University}
                             onChange={handleChange}
-                            placeholder={t('modal.registration.search.s2')}
+                            placeholder={t("modal.registration.search.s2")}
                             className={`w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 border rounded-lg sm:rounded-xl focus:border-[#207D96] focus:ring-2 focus:ring-[#207D96]/20 outline-none transition-colors text-sm sm:text-base ${
                               errors.s2University ? "border-red-500" : "border-gray-300"
                             }`}
                           />
                         </div>
-                        {isLoading && activeSearchField === "s2University" && <p className="text-gray-500 text-xs sm:text-sm mt-1 ml-1">{t('modal.registration.loading.universities')}</p>}
-                        {filteredUniversities.length > 0 && activeSearchField === "s2University" && (
-                          <motion.ul
-                            className="absolute z-20 w-full bg-white border border-gray-200 rounded-lg sm:rounded-xl mt-1 max-h-48 sm:max-h-60 overflow-y-auto shadow-lg"
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                          >
-                            {filteredUniversities.map((uni) => (
-                              <li key={uni.kode} className="px-3 sm:px-4 py-2 hover:bg-[#207D96]/10 cursor-pointer text-gray-700 text-xs sm:text-sm" onClick={() => handleUniversitySelect(uni.nama, "s2University")}>
-                                {uni.nama}
-                              </li>
-                            ))}
-                          </motion.ul>
-                        )}
                         {errors.s2University && <p className="text-red-500 text-xs sm:text-sm mt-1 ml-1">{errors.s2University}</p>}
                       </div>
 
@@ -525,7 +418,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                             value={formData.s2Gpa}
                             onChange={handleChange}
                             step="0.01"
-                            placeholder={t('modal.registration.gpa.s2.placeholder')}
+                            placeholder={t("modal.registration.gpa.s2.placeholder")}
                             className={`w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 border rounded-lg sm:rounded-xl focus:border-[#207D96] focus:ring-2 focus:ring-[#207D96]/20 outline-none transition-colors text-sm sm:text-base ${
                               errors.s2Gpa ? "border-red-500" : "border-gray-300"
                             }`}
@@ -550,7 +443,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
               disabled={currentStep === 1}
             >
               <ChevronLeft className="w-4 h-4" />
-              {t('modal.registration.back')}
+              {t("modal.registration.back")}
             </motion.button>
 
             {currentStep < totalSteps ? (
@@ -561,7 +454,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                {t('modal.registration.next')}
+                {t("modal.registration.next")}
                 <ChevronRight className="w-4 h-4" />
               </motion.button>
             ) : (
@@ -571,7 +464,7 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
               >
-                {t('modal.registration.submit')}
+                {t("modal.registration.submit")}
                 <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </motion.button>
             )}
