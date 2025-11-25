@@ -1,6 +1,4 @@
-import { CommonSVGProps } from "@/interfaces/assets/svgs/common.interface";
-
-const LightLogoUSR = ({ className }: CommonSVGProps) => {
+const LightLogoUSR = ({ className }: { className?: string }) => {
 	return (
 		<svg
 			width="885"

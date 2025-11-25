@@ -1,6 +1,4 @@
-import { CommonSVGProps } from "@/interfaces/assets/svgs/common.interface";
-
-const DarkLogoUSR = ({ className }: CommonSVGProps) => {
+const DarkLogoUSR = ({ className }: { className?: string }) => {
 	return (
 		<svg
 			width="927"
