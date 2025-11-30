@@ -62,7 +62,17 @@ const Header = () => {
           {session ? (
             <>
               <motion.button
-                onClick={() => navigate("/dashboard")}
+                onClick={() => {
+                  const user = session.user as any;
+                  const role = user?.role;
+                  if (role === "mahasiswa") {
+                    navigate("/mahasiswa/dashboard");
+                  } else if (role === "pendaftar") {
+                    navigate("/pendaftar/dashboard");
+                  } else {
+                    navigate("/dashboard"); // Fallback
+                  }
+                }}
                 className="hidden md:flex items-center gap-2 border-2 border-[#207D96] text-[#207D96] px-5 py-2 rounded-lg hover:bg-[#207D96] hover:text-white transition-all font-medium group"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -124,7 +134,17 @@ const Header = () => {
 
               {session ? (
                 <>
-                  <button onClick={() => navigate("/dashboard")} className="flex items-center justify-center gap-2 border-2 border-[#207D96] text-[#207D96] px-4 py-2.5 rounded-lg hover:bg-[#207D96] hover:text-white transition-all font-medium mt-2">
+                  <button onClick={() => {
+                    const user = session.user as any;
+                    const role = user?.role;
+                    if (role === "mahasiswa") {
+                      navigate("/mahasiswa/dashboard");
+                    } else if (role === "pendaftar") {
+                      navigate("/pendaftar/dashboard");
+                    } else {
+                      navigate("/dashboard");
+                    }
+                  }} className="flex items-center justify-center gap-2 border-2 border-[#207D96] text-[#207D96] px-4 py-2.5 rounded-lg hover:bg-[#207D96] hover:text-white transition-all font-medium mt-2">
                     <LayoutDashboard className="w-4 h-4" />
                     <span>Go to Dashboard</span>
                   </button>

@@ -14,6 +14,7 @@ const PaymentCallbackPage = () => {
 
         if (statusCode === "200" && transactionStatus === "settlement") {
             setStatus("success");
+            localStorage.removeItem("pmb_payment_url");
         } else if (statusCode === "201" && transactionStatus === "pending") {
             setStatus("pending");
         } else {

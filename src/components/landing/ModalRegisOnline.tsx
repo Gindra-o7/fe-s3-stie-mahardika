@@ -1,4 +1,4 @@
-import { ChevronRight, User, Mail, Phone, X, ChevronLeft, CreditCard, CheckCircle } from "lucide-react";
+import { ChevronRight, User, Mail, Phone, X, ChevronLeft, CreditCard, CheckCircle, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
@@ -150,21 +150,37 @@ export const ModalRegisOnline = ({ isOpen, onClose }: { isOpen: boolean; onClose
         <motion.h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-center text-gray-800 mb-3 sm:mb-4">{t("modal.registration.title")}</motion.h2>
 
         {paymentUrl ? (
-          <div className="flex flex-col h-full">
-            <div className="w-full h-full h-[30rem] relative rounded-xl overflow-hidden bg-blue-200 border border-gray-200 mb-4">
-              <iframe
-                src={paymentUrl}
-                className="w-full h-full absolute bg-blue-200 inset-0"
-                title="Payment"
-                allow="payment"
-              />
+          <div className="flex flex-col h-full items-center justify-center p-6 text-center">
+            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6">
+              <CheckCircle className="w-10 h-10 text-green-600" />
             </div>
-            <button
-              onClick={handleResetPayment}
-              className="text-sm text-gray-500 hover:text-red-500 underline self-center"
-            >
-              {t("modal.registration.cancel_payment") || "Cancel Payment & Restart"}
-            </button>
+
+            <h3 className="text-2xl font-bold text-gray-800 mb-2">Registration Successful!</h3>
+            <p className="text-gray-600 mb-8 max-w-md">
+              Your registration data has been saved. Please complete the payment to finalize your registration.
+            </p>
+
+            <div className="flex flex-col gap-4 w-full max-w-xs">
+              <a
+                href={paymentUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-[#207D96] to-[#1B3F6E] text-white px-6 py-3 rounded-xl hover:shadow-lg transition-all font-semibold flex items-center justify-center gap-2"
+              >
+                Pay Now <ExternalLink className="w-4 h-4" />
+              </a>
+
+              <button
+                onClick={handleResetPayment}
+                className="text-gray-500 hover:text-red-500 text-sm font-medium transition-colors"
+              >
+                Cancel & Restart
+              </button>
+            </div>
+
+            <p className="text-xs text-gray-400 mt-8">
+              The payment page will open in a new tab.
+            </p>
           </div>
         ) : (
           <>
