@@ -1,4 +1,5 @@
-import { Menu, X, LogIn } from "lucide-react";
+import { Menu, X, LogIn, LayoutDashboard, LogOut } from "lucide-react";
+import { toast } from "sonner";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import LogoMahardhika from "@/assets/Logo_Mahardhika.png";
@@ -7,12 +8,15 @@ import { ModalRegisOnline } from "./ModalRegisOnline";
 import { useLanguage } from "@/contexts/LanguageContext";
 import LanguageSelector from "@/components/ui/language-selector";
 
+import { authClient } from "@/lib/auth-client";
+
 const Header = () => {
+  const { data: session } = authClient.useSession();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { t } = useLanguage();
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
+
   const navItems = [
     { key: 'nav.home', href: '/' },
     { key: 'nav.profile', href: '/profile' },
@@ -23,6 +27,17 @@ const Header = () => {
 
   const handleClickLogin = () => {
     navigate("/login");
+  };
+
+  const handleLogout = async () => {
+    await authClient.signOut({
+      fetchOptions: {
+        onSuccess: () => {
+          toast.success("Logged out successfully");
+          navigate("/");
+        },
+      },
+    });
   };
 
   return (
@@ -43,26 +58,52 @@ const Header = () => {
 
         <div className="flex items-center gap-4">
           <LanguageSelector />
-          
-          <motion.button
-            onClick={handleClickLogin}
-            className="hidden md:flex items-center gap-2 border-2 border-[#207D96] text-[#207D96] px-5 py-2 rounded-lg hover:bg-[#207D96] hover:text-white transition-all font-medium group"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <LogIn className="w-4 h-4 group-hover:rotate-12 transition-transform" />
-            <span>{t('button.login')}</span>
-          </motion.button>
 
-          <motion.button
-            onClick={() => setIsModalOpen(true)}
-            className="hidden md:block bg-gradient-to-r from-[#207D96] to-[#1B3F6E] text-white px-6 py-2.5 rounded-lg hover:shadow-lg transition-all font-semibold relative overflow-hidden group"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="relative z-10">{t('button.register')}</span>
-            <motion.div className="absolute inset-0 bg-gradient-to-r from-[#1B3F6E] to-[#207D96]" initial={{ x: "-100%" }} whileHover={{ x: 0 }} transition={{ duration: 0.3 }} />
-          </motion.button>
+          {session ? (
+            <>
+              <motion.button
+                onClick={() => navigate("/dashboard")}
+                className="hidden md:flex items-center gap-2 border-2 border-[#207D96] text-[#207D96] px-5 py-2 rounded-lg hover:bg-[#207D96] hover:text-white transition-all font-medium group"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <LayoutDashboard className="w-4 h-4" />
+                <span>Go to Dashboard</span>
+              </motion.button>
+
+              <motion.button
+                onClick={handleLogout}
+                className="hidden md:flex items-center gap-2 border-2 border-red-500 text-red-500 px-5 py-2 rounded-lg hover:bg-red-500 hover:text-white transition-all font-medium group"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <LogOut className="w-4 h-4" />
+                <span>Logout</span>
+              </motion.button>
+            </>
+          ) : (
+            <>
+              <motion.button
+                onClick={handleClickLogin}
+                className="hidden md:flex items-center gap-2 border-2 border-[#207D96] text-[#207D96] px-5 py-2 rounded-lg hover:bg-[#207D96] hover:text-white transition-all font-medium group"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <LogIn className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+                <span>{t('button.login')}</span>
+              </motion.button>
+
+              <motion.button
+                onClick={() => setIsModalOpen(true)}
+                className="hidden md:block bg-gradient-to-r from-[#207D96] to-[#1B3F6E] text-white px-6 py-2.5 rounded-lg hover:shadow-lg transition-all font-semibold relative overflow-hidden group"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="relative z-10">{t('button.register')}</span>
+                <motion.div className="absolute inset-0 bg-gradient-to-r from-[#1B3F6E] to-[#207D96]" initial={{ x: "-100%" }} whileHover={{ x: 0 }} transition={{ duration: 0.3 }} />
+              </motion.button>
+            </>
+          )}
 
           <button className="md:hidden text-[#207D96]" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -81,14 +122,29 @@ const Header = () => {
               ))}
 
 
-              <button onClick={handleClickLogin} className="flex items-center justify-center gap-2 border-2 border-[#207D96] text-[#207D96] px-4 py-2.5 rounded-lg hover:bg-[#207D96] hover:text-white transition-all font-medium mt-2">
-                <LogIn className="w-4 h-4" />
-                <span>{t('button.login')}</span>
-              </button>
+              {session ? (
+                <>
+                  <button onClick={() => navigate("/dashboard")} className="flex items-center justify-center gap-2 border-2 border-[#207D96] text-[#207D96] px-4 py-2.5 rounded-lg hover:bg-[#207D96] hover:text-white transition-all font-medium mt-2">
+                    <LayoutDashboard className="w-4 h-4" />
+                    <span>Go to Dashboard</span>
+                  </button>
+                  <button onClick={handleLogout} className="flex items-center justify-center gap-2 border-2 border-red-500 text-red-500 px-4 py-2.5 rounded-lg hover:bg-red-500 hover:text-white transition-all font-medium mt-2">
+                    <LogOut className="w-4 h-4" />
+                    <span>Logout</span>
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button onClick={handleClickLogin} className="flex items-center justify-center gap-2 border-2 border-[#207D96] text-[#207D96] px-4 py-2.5 rounded-lg hover:bg-[#207D96] hover:text-white transition-all font-medium mt-2">
+                    <LogIn className="w-4 h-4" />
+                    <span>{t('button.login')}</span>
+                  </button>
 
-              <button onClick={() => setIsModalOpen(true)} className="bg-gradient-to-r from-[#207D96] to-[#1B3F6E] text-white px-4 py-2.5 rounded-lg hover:shadow-lg transition-all font-semibold">
-                {t('button.register')}
-              </button>
+                  <button onClick={() => setIsModalOpen(true)} className="bg-gradient-to-r from-[#207D96] to-[#1B3F6E] text-white px-4 py-2.5 rounded-lg hover:shadow-lg transition-all font-semibold">
+                    {t('button.register')}
+                  </button>
+                </>
+              )}
             </nav>
           </motion.div>
         )}

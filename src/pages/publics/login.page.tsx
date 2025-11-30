@@ -1,4 +1,7 @@
 import { useState, useEffect, useRef, FormEvent, MouseEvent } from "react";
+import { useNavigate } from "react-router-dom";
+import { authClient } from "@/lib/auth-client";
+import { toast } from "sonner";
 import { Eye, EyeOff, Mail, Lock, ArrowRight, GraduationCap } from "lucide-react";
 import Logo from "@/assets/Logo_Mahardhika.png";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -103,9 +106,30 @@ export default function FuturisticLogin() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Login attempt:", { email, password });
+    setLoading(true);
+    await authClient.signIn.email({
+      email,
+      password,
+    }, {
+      onRequest: () => {
+        toast.loading("Signing in...");
+      },
+      onSuccess: () => {
+        toast.dismiss();
+        toast.success("Login successful");
+        navigate("/");
+      },
+      onError: (ctx) => {
+        toast.dismiss();
+        toast.error(ctx.error.message);
+        setLoading(false);
+      }
+    });
   };
 
   const toggleShowPassword = (e: MouseEvent<HTMLButtonElement>) => {
@@ -243,7 +267,8 @@ export default function FuturisticLogin() {
 
                 <button
                   type="submit"
-                  className="relative w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold overflow-hidden group hover:shadow-lg hover:shadow-cyan-500/50 transition-all"
+                  disabled={loading}
+                  className="relative w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold overflow-hidden group hover:shadow-lg hover:shadow-cyan-500/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <span className="relative z-10 flex items-center justify-center space-x-2">
                     <span>{t('login.signin.button')}</span>

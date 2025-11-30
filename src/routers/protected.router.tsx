@@ -1,37 +1,26 @@
-import { useEffect, useState } from "react";
 import { ProtectedRouteProps } from "@/interfaces/routers/protected.interface";
-import { useAuth } from "react-oidc-context";
+import { authClient } from "@/lib/auth-client";
 import { Navigate } from "react-router-dom";
 
-const ProtectedRoute = ({ children, roles: _roles }: ProtectedRouteProps) => {
-  const auth = useAuth();
-  const [loading, setLoading] = useState(true);
+const ProtectedRoute = ({ children, roles }: ProtectedRouteProps) => {
+  const { data: session, isPending, error } = authClient.useSession();
 
-  useEffect(() => {
-    auth.signinSilent().finally(() => setLoading(false));
-  }, []);
-
-  useEffect(() => {
-    if (auth.error) {
-      auth.signoutRedirect();
-    }
-  }, [auth.error]);
-
-  // Tampilkan loading hingga Keycloak siap
-  if (auth.isLoading || loading)
+  // Tampilkan loading hingga sesi diperiksa
+  if (isPending)
     return (
       <div className="absolute z-50 flex items-center justify-center w-full h-full bg-black bg-opacity-50">
         <div className="text-white">Loading...</div>
       </div>
     );
 
-  // Periksa apakah pengguna sudah terautentikasi atau sesi telah habis
-  if (!auth.isAuthenticated) return <Navigate to="/" />;
+  // Jika terjadi error atau tidak ada sesi, arahkan ke halaman login (atau root)
+  if (error || !session) return <Navigate to="/" />;
 
   // Periksa apakah pengguna memiliki salah satu dari peran yang diizinkan
-  // Simplified: skip role check for now
-  // if (!hasRole({ token: auth.user!.access_token, roles }))
-  //   return <Navigate to="/forbidden" />;
+  const user = session.user as { role?: string };
+  if (roles.length > 0 && user.role && !roles.includes(user.role)) {
+    return <Navigate to="/forbidden" />;
+  }
 
   return children;
 };

@@ -20,7 +20,15 @@
   "modal.registration.submit": "注册",
   "modal.registration.success": "表单提交成功！",
   "modal.registration.error.api": "加载大学数据失败",
-  
+  "modal.registration.payment.info": "付款資訊",
+  "modal.registration.fee": "註冊費用",
+  "modal.registration.payment.desc.prefix": "付款完成後，您的帳戶憑證將發送到您的電子郵件地址：",
+  "modal.registration.payment.desc.suffix": "。之後您可以登錄並更改密碼。",
+  "modal.registration.secure": "安全付款處理中",
+  "modal.registration.pay.now": "立即付款",
+  "modal.registration.processing": "處理中...",
+  "modal.registration.cancel_payment": "填写邮箱有误？点击重新填写...",
+
   "validation.fullname.required": "姓名是必填项",
   "validation.email.required": "邮箱是必填项",
   "validation.email.invalid": "邮箱格式无效",

@@ -6,8 +6,10 @@ import BiayaPage from "@/pages/publics/biaya.page";
 import TataCaraPendaftaranPage from "@/pages/publics/tata-cara-pendaftaran.page";
 import CurriculumPage from "@/pages/publics/curriculum.page";
 import ProfilProdiPage from "@/pages/publics/profil-prodi.page";
+import PaymentCallbackPage from "@/pages/publics/payment-callback.page";
+import { RouteObject } from "react-router-dom";
 
-export const generalRouter = [
+export const generalRouter: RouteObject[] = [
 	{
 		path: "/",
 		element: <LandingPage />,
@@ -37,6 +39,10 @@ export const generalRouter = [
 		element: <ForbiddenPage />,
 	},
 	{
+		path: "/payment-callback",
+		element: <PaymentCallbackPage />,
+	},
+	{
 		path: "*",
 		element: <NotFoundPage />,
 	},
@@ -44,4 +50,4 @@ export const generalRouter = [
 		path: "/login",
 		element: <LoginPage />,
 	}
-]
+];
