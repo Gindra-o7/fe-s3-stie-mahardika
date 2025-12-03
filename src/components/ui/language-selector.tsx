@@ -1,19 +1,22 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Globe, ChevronDown } from 'lucide-react';
-import { useLanguage, Language } from '@/contexts/LanguageContext';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Languages, ChevronDown } from "lucide-react";
+import { useLanguage, Language } from "@/contexts/LanguageContext";
+import indonesiaFlag from "@/assets/indonesia.svg";
+import unitedKingdomFlag from "@/assets/united-kingdom.svg";
+import chinaFlag from "@/assets/china.svg";
 
 const LanguageSelector: React.FC = () => {
   const { language, setLanguage, t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
 
   const languages = [
-    { code: 'id' as Language, name: t('language.indonesian'), flag: '🇮🇩' },
-    { code: 'en' as Language, name: t('language.english'), flag: '🇺🇸' },
-    { code: 'zh' as Language, name: t('language.chinese'), flag: '🇨🇳' },
+    { code: "id" as Language, name: t("language.indonesian"), flag: indonesiaFlag },
+    { code: "en" as Language, name: t("language.english"), flag: unitedKingdomFlag },
+    { code: "zh" as Language, name: t("language.chinese"), flag: chinaFlag },
   ];
 
-  const currentLanguage = languages.find(lang => lang.code === language);
+  const currentLanguage = languages.find((lang) => lang.code === language);
 
   const handleLanguageChange = (langCode: Language) => {
     setLanguage(langCode);
@@ -28,17 +31,12 @@ const LanguageSelector: React.FC = () => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
-        <Globe className="w-4 h-4 group-hover:rotate-180 transition-transform duration-300" />
-        <span className="text-sm font-medium hidden sm:block">
-          {currentLanguage?.flag} {currentLanguage?.name}
-        </span>
-        <span className="text-sm font-medium sm:hidden">
-          {currentLanguage?.flag}
-        </span>
-        <motion.div
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.2 }}
-        >
+        <Languages className="w-4 h-4 group-hover:text-[#ffffff] transition-transform duration-300" />
+        <div className="flex items-center gap-2">
+          {currentLanguage && <img src={currentLanguage.flag} alt={currentLanguage.name} className="w-5 h-5 object-contain" />}
+          <span className="text-sm font-medium hidden sm:block">{currentLanguage?.name}</span>
+        </div>
+        <motion.div animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.2 }}>
           <ChevronDown className="w-4 h-4" />
         </motion.div>
       </motion.button>
@@ -47,11 +45,8 @@ const LanguageSelector: React.FC = () => {
         {isOpen && (
           <>
             {/* Backdrop */}
-            <div
-              className="fixed inset-0 z-10"
-              onClick={() => setIsOpen(false)}
-            />
-            
+            <div className="fixed inset-0 z-10" onClick={() => setIsOpen(false)} />
+
             {/* Dropdown */}
             <motion.div
               className="absolute right-0 top-full mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-20 overflow-hidden"
@@ -64,24 +59,15 @@ const LanguageSelector: React.FC = () => {
                 <motion.button
                   key={lang.code}
                   onClick={() => handleLanguageChange(lang.code)}
-                  className={`w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-gray-50 transition-colors ${
-                    language === lang.code ? 'bg-[#207D96]/10 text-[#207D96]' : 'text-gray-700'
-                  }`}
+                  className={`w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-gray-50 transition-colors ${language === lang.code ? "bg-[#207D96]/10 text-[#207D96]" : "text-gray-700"}`}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
                   whileHover={{ x: 4 }}
                 >
-                  <span className="text-lg">{lang.flag}</span>
+                  <img src={lang.flag} alt={lang.name} className="w-6 h-6 object-contain" />
                   <span className="font-medium">{lang.name}</span>
-                  {language === lang.code && (
-                    <motion.div
-                      className="ml-auto w-2 h-2 bg-[#207D96] rounded-full"
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ delay: 0.1 }}
-                    />
-                  )}
+                  {language === lang.code && <motion.div className="ml-auto w-2 h-2 bg-[#207D96] rounded-full" initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.1 }} />}
                 </motion.button>
               ))}
             </motion.div>

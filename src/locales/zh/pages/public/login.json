@@ -12,5 +12,6 @@
   "login.forgot": "忘记密码？",
   "login.signin.button": "登录",
   "login.no.account": "没有账户？",
-  "login.create.account": "立即创建"
+  "login.create.account": "立即创建",
+  "login.back.to.home": "返回首页"
 }

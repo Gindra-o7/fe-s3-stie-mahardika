@@ -1,0 +1,9 @@
+{
+  "mahasiswa.dashboard.welcome": "欢迎回来，{name}！",
+  "mahasiswa.dashboard.title": "学生仪表板",
+  "mahasiswa.dashboard.user.fallback": "学生",
+  "mahasiswa.dashboard.logout.success": "已成功登出",
+  "mahasiswa.dashboard.copyright": "版权所有 © 2025 PMB S3 STIE Mahardhika。保留所有权利。",
+  "mahasiswa.dashboard.logo.alt": "STIE Mahardhika 标志"
+}
+

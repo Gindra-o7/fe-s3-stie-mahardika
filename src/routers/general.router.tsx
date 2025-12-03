@@ -2,6 +2,8 @@ import ForbiddenPage from "@/pages/publics/forbidden.page";
 import LandingPage from "@/pages/publics/landing.page";
 import NotFoundPage from "@/pages/publics/not-found.page";
 import LoginPage from "@/pages/publics/login.page";
+import ForgotPasswordPage from "@/pages/publics/forgot-password.page";
+import ResetPasswordPage from "@/pages/publics/reset-password.page";
 import BiayaPage from "@/pages/publics/biaya.page";
 import TataCaraPendaftaranPage from "@/pages/publics/tata-cara-pendaftaran.page";
 import CurriculumPage from "@/pages/publics/curriculum.page";
@@ -49,5 +51,13 @@ export const generalRouter: RouteObject[] = [
 	{
 		path: "/login",
 		element: <LoginPage />,
+	},
+	{
+		path: "/forgot-password",
+		element: <ForgotPasswordPage />,
+	},
+	{
+		path: "/reset-password",
+		element: <ResetPasswordPage />,
 	}
 ];

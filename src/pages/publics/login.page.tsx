@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef, FormEvent, MouseEvent } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { authClient } from "@/lib/auth-client";
 import { toast } from "sonner";
-import { Eye, EyeOff, Mail, Lock, ArrowRight, GraduationCap } from "lucide-react";
+import { Eye, EyeOff, Mail, Lock, ArrowRight, GraduationCap, ArrowLeft } from "lucide-react";
 import Logo from "@/assets/Logo_Mahardhika.png";
 import { useLanguage } from "@/contexts/LanguageContext";
+import LanguageSelector from "@/components/ui/language-selector";
 
 interface MousePosition {
   x: number;
@@ -27,6 +28,7 @@ export default function FuturisticLogin() {
   const [password, setPassword] = useState<string>("");
   const [mousePos, setMousePos] = useState<MousePosition>({ x: 0, y: 0 });
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [rememberMe, setRememberMe] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e: globalThis.MouseEvent) => {
@@ -112,24 +114,29 @@ export default function FuturisticLogin() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    await authClient.signIn.email({
-      email,
-      password,
-    }, {
-      onRequest: () => {
-        toast.loading("Signing in...");
+    await authClient.signIn.email(
+      {
+        email,
+        password,
+        rememberMe: rememberMe,
+        callbackURL: `/mahasiswa`,
       },
-      onSuccess: () => {
-        toast.dismiss();
-        toast.success("Login successful");
-        navigate("/");
-      },
-      onError: (ctx) => {
-        toast.dismiss();
-        toast.error(ctx.error.message);
-        setLoading(false);
+      {
+        onRequest: () => {
+          toast.loading("Signing in...");
+        },
+        onSuccess: () => {
+          toast.dismiss();
+          toast.success("Login successful");
+          navigate("/");
+        },
+        onError: (ctx) => {
+          toast.dismiss();
+          toast.error(ctx.error.message);
+          setLoading(false);
+        },
       }
-    });
+    );
   };
 
   const toggleShowPassword = (e: MouseEvent<HTMLButtonElement>) => {
@@ -166,28 +173,27 @@ export default function FuturisticLogin() {
         }}
       />
 
+      {/* Header with Language Selector */}
+      <div className="fixed z-20 top-4 right-4">
+        <div className="bg-white/80 backdrop-blur-sm rounded-lg border border-gray-200">
+          <LanguageSelector />
+        </div>
+      </div>
+
       <div className="relative z-10 flex min-h-screen items-center justify-center p-4">
         <div className="w-full max-w-6xl grid lg:grid-cols-2 gap-8 items-center">
           <div className="hidden lg:flex flex-col space-y-6 text-gray-800">
             <div className="flex items-center space-x-3">
-              <img
-                src={Logo}
-                alt="Logo"
-                className="h-24 w-auto object-contain"
-              />
+              <img src={Logo} alt="Logo" className="h-24 w-auto object-contain" />
             </div>
 
-            <h1 className="text-6xl font-bold leading-tight bg-gradient-to-r from-gray-800 via-cyan-600 to-blue-600 bg-clip-text text-transparent">
-              {t('login.title')}
-            </h1>
+            <h1 className="text-6xl font-bold leading-tight bg-gradient-to-r from-gray-800 via-cyan-600 to-blue-600 bg-clip-text text-transparent">{t("login.title")}</h1>
 
-            <p className="text-xl text-gray-600 font-light max-w-md">
-              {t('login.description')}
-            </p>
+            <p className="text-xl text-gray-600 font-light max-w-md">{t("login.description")}</p>
 
             <div className="flex items-center space-x-2 text-cyan-700">
               <GraduationCap className="w-5 h-5" />
-              <span className="text-sm">{t('login.accreditation')}</span>
+              <span className="text-sm">{t("login.accreditation")}</span>
             </div>
           </div>
 
@@ -198,29 +204,33 @@ export default function FuturisticLogin() {
             <div className="relative backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-8 shadow-2xl">
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-violet-500/10 to-fuchsia-500/10 blur-2xl -z-10" />
 
+              {/* Back to Home Button */}
+              <Link to="/" className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-lg bg-white/80 backdrop-blur-sm border border-gray-200 text-gray-700 hover:bg-white hover:shadow-md transition-all duration-200 group">
+                <ArrowLeft className="w-4 h-4 group-hover:text-[#207D96] transition-colors" />
+                <span className="text-sm font-medium group-hover:text-[#207D96] transition-colors">{t("login.back.to.home")}</span>
+              </Link>
+
               <div className="mb-8">
                 <div className="flex items-center justify-between mb-2">
-                  <h2 className="text-3xl font-bold text-gray-800">{t('login.signin.title')}</h2>
+                  <h2 className="text-3xl font-bold text-gray-800">{t("login.signin.title")}</h2>
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
                     <Lock className="w-6 h-6 text-white" />
                   </div>
                 </div>
-                <p className="text-gray-600 text-sm">{t('login.signin.subtitle')}</p>
+                <p className="text-gray-600 text-sm">{t("login.signin.subtitle")}</p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="relative group">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">{t('login.email.label')}</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">{t("login.email.label")}</label>
                   <div className="relative">
-                    <Mail
-                      className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-cyan-600 transition-colors"
-                    />
+                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-cyan-600 transition-colors" />
                     <input
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="w-full pl-12 pr-4 py-4 bg-white border border-gray-200 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:border-cyan-500 focus:bg-white transition-all"
-                      placeholder={t('login.email.placeholder')}
+                      placeholder={t("login.email.placeholder")}
                       required
                     />
                   </div>
@@ -228,24 +238,18 @@ export default function FuturisticLogin() {
                 </div>
 
                 <div className="relative group">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">{t('login.password.label')}</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">{t("login.password.label")}</label>
                   <div className="relative">
-                    <Lock
-                      className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-cyan-600 transition-colors"
-                    />
+                    <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-cyan-600 transition-colors" />
                     <input
                       type={showPassword ? "text" : "password"}
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       className="w-full pl-12 pr-12 py-4 bg-white border border-gray-200 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:border-cyan-500 focus:bg-white transition-all"
-                      placeholder={t('login.password.placeholder')}
+                      placeholder={t("login.password.placeholder")}
                       required
                     />
-                    <button
-                      type="button"
-                      onClick={toggleShowPassword}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-cyan-600 transition-colors"
-                    >
+                    <button type="button" onClick={toggleShowPassword} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-cyan-600 transition-colors">
                       {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                     </button>
                   </div>
@@ -255,14 +259,17 @@ export default function FuturisticLogin() {
                 <div className="flex items-center justify-between text-sm">
                   <label className="flex items-center space-x-2 cursor-pointer group">
                     <input
+                      id="remember"
+                      onChange={(e) => setRememberMe(e.target.checked)}
+                      checked={rememberMe}
                       type="checkbox"
                       className="w-4 h-4 rounded border-gray-300 bg-white checked:bg-cyan-500 focus:ring-cyan-500 focus:ring-offset-0"
                     />
-                    <span className="text-gray-600 group-hover:text-gray-800 transition-colors">{t('login.remember')}</span>
+                    <span className="text-gray-600 group-hover:text-gray-800 transition-colors">{t("login.remember")}</span>
                   </label>
-                  <a href="#" className="text-cyan-600 hover:text-cyan-700 transition-colors">
-                    {t('login.forgot')}
-                  </a>
+                  <Link to="/forgot-password" className="text-cyan-600 hover:text-cyan-700 transition-colors">
+                    {t("login.forgot")}
+                  </Link>
                 </div>
 
                 <button
@@ -271,7 +278,7 @@ export default function FuturisticLogin() {
                   className="relative w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold overflow-hidden group hover:shadow-lg hover:shadow-cyan-500/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <span className="relative z-10 flex items-center justify-center space-x-2">
-                    <span>{t('login.signin.button')}</span>
+                    <span>{t("login.signin.button")}</span>
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </span>
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -279,9 +286,9 @@ export default function FuturisticLogin() {
               </form>
 
               <p className="mt-8 text-center text-sm text-gray-600">
-                {t('login.no.account')}{" "}
+                {t("login.no.account")}{" "}
                 <a href="#" className="text-cyan-600 hover:text-cyan-700 font-medium transition-colors">
-                  {t('login.create.account')}
+                  {t("login.create.account")}
                 </a>
               </p>
             </div>

@@ -1,0 +1,9 @@
+{
+  "mahasiswa.dashboard.welcome": "Welcome back, {name}!",
+  "mahasiswa.dashboard.title": "Student Dashboard",
+  "mahasiswa.dashboard.user.fallback": "Student",
+  "mahasiswa.dashboard.logout.success": "Logged out successfully",
+  "mahasiswa.dashboard.copyright": "Copyright © 2025 PMB S3 STIE Mahardhika. All rights reserved.",
+  "mahasiswa.dashboard.logo.alt": "STIE Mahardhika Logo"
+}
+

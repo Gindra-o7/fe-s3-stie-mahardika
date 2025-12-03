@@ -12,5 +12,6 @@
   "login.forgot": "Lupa kata sandi?",
   "login.signin.button": "Masuk",
   "login.no.account": "Belum punya akun?",
-  "login.create.account": "Buat sekarang"
+  "login.create.account": "Buat sekarang",
+  "login.back.to.home": "Kembali ke Beranda"
 }

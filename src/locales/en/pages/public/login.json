@@ -12,5 +12,6 @@
   "login.forgot": "Forgot password?",
   "login.signin.button": "Sign In",
   "login.no.account": "Don't have an account?",
-  "login.create.account": "Create one now"
+  "login.create.account": "Create one now",
+  "login.back.to.home": "Back to Home"
 }
